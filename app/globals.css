@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+  }
+
+  .grid-cat {
+    display: grid;
+    grid-template-columns: minmax(265px, 295px) minmax(100px, 1fr);  
+  }
+  
+  .desktop-menu-category-list .menu-category:not(:nth-child(2)) { position: relative; }
+
+  .mobile-bottom-nav-shadow {
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.25);
+  }
+
+  .shadow-10-01 {box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);}
+  
+  .overscroll-contain {overscroll-behavior: contain;}
+
+  .caret-back-turn { transform: rotate(-0.25turn);}
+
+  .submenu-category-list-shadow {box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.05);}
+
+  .bg-remove {background:none}
+
+  /* SLIDER SCROLL */
+  .scroll-x-behavior {
+    scroll-snap-type: inline mandatory;
+    overscroll-behavior-inline: contain;
+  }
+
+  .scroll-snap-align-start {
+    scroll-snap-align: start
+  }
+
+  /* ASPECT RATIO */
+
+  /* Screen 480px */
+  .aspect-5-3 {
+     aspect-ratio: 5 / 3;
+  }
+
+  .aspect-5-6 {
+    aspect-ratio: 5 / 6;
+  }
+
+  .aspect-6-5 {
+    aspect-ratio: 6 / 5;
+  }
+
+  /* Screen 570px */
+  .aspect-4-2 { aspect-ratio: 4 / 2; }
+
+  /* @media (min-width: 1200px)  {
+    .product-featured .showcase > div { min-width: calc(50% - 10px); }
+  } */
+  /*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  a { text-decoration: none; }
+
+  li { list-style: none; }
+
+  button {
+    cursor: pointer;
+  }
+
+  img, button, a { display: block; }
+
+  span { display: inline-block; }
+
+  html {
+    font-family: "Poppins", sans-serif;
+    overscroll-behavior: contain;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    font: inherit;
+  }
+
+  input::placeholder { font: inherit; }
+
+  body { background: var(--white); }
+
+  /**
+  * scrollbar style
+  */
+
+  .search-field::-webkit-search-cancel-button { display: none; }
+  
+  body::-webkit-scrollbar { width: 8px; height: 8px; }
+
+  body::-webkit-scrollbar-track {
+    background: var(--white);
+    border-left: 1px solid var(--cultured);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 80%);
+    border: 3px solid var(--white);
+    border-radius: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
+
+  .has-scrollbar { padding-bottom: 5px; }
+
+  .has-scrollbar::-webkit-scrollbar {
+    width: 6px; /* for vertical scroll */
+    height: 6px; /* for horizontal scroll */
+  }
+
+  .has-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 3px solid var(--white);
+    border-radius: 20px;
+  }
+
+  .has-scrollbar:hover::-webkit-scrollbar-thumb { background: hsl(0, 0%, 90%); }
+
+  .has-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 80%); }
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+
+  .wrapper { padding: 0 15px; }
+
+  @media (min-width: 768px) {
+    .wrapper {
+      max-width: 750px;
+      margin: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .wrapper { max-width: 980px; }
+  }
+
+  @media (min-width: 1200px) {  
+    .wrapper { max-width: 1200px; }
+  }
+
+  @media (min-width: 1400px) {
+    .wrapper { max-width: 1350px; }
+  }
