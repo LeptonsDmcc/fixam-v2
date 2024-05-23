@@ -1,17 +1,18 @@
+import { useState } from "react";
+import ShoppingCart from "../Icons/svgs/ShoppingCart";
 import Button from "./Button";
-import Image from "next/image";
 
 const AddToCartButton = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   return (
     <Button
-      icon={
-        <Image
-          src={"/assets/icons/shopping-cart.svg"}
-          alt={""}
-          width={24}
-          height={24}
-        />
-      }
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      icon={<ShoppingCart color={isHovered ? "orange" : "white"} />}
     >
       Add to Cart
     </Button>

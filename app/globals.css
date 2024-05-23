@@ -6,7 +6,7 @@
     box-sizing: border-box;
   }
 
-  .grid-cat {
+  .grid-cat-showcase {
     display: grid;
     grid-template-columns: minmax(265px, 295px) minmax(100px, 1fr);  
   }

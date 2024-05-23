@@ -10,29 +10,34 @@ import Space from "./components/Space";
 import Wrapper from "./components/Wrapper";
 import Grid from "./components/Grid";
 import BrowseCategories from "./components/Categories/BrowseCategories";
+import FixAdPremium from "./components/FixAds.tsx/FixAdPremium";
+import CategoryNavigations from "./components/Navigations/CategoryNavigations";
 
 export default function Home() {
   return (
     <>
       <HomeBanners />
-      <Space spacing={"my-20"} />
+      <Space spacing="my-20" />
       <Wrapper>
         <SubCategories />
-        <Space spacing={"my-12"} />
+        <Space spacing="my-12" />
         <Grid cols={2}>
           <section>
-            <BrowseCategories />
+            <CategoryNavigations heading={"Browse Categories"} />
           </section>
           <section className="my-12">
             <ProductsShowcase title="Best Sellers" />
           </section>
         </Grid>
-        <Space spacing={"my-12"} />
+        <Space spacing="my-12" />
         <ProductsShowcase title="Recommended for you" />
-        <Space spacing={"my-12"} />
+        <Space spacing="my-12" />
         <Services />
-        <Space spacing={"my-12"} />
-        <DealOfTheDay /> <Space spacing={"my-12"} />
+        <Space spacing="my-12" />
+        <DealOfTheDay />
+        <Space spacing="my-12" />
+        <FixAdPremium />
+        <Space spacing="my-12" />
         <LatestProducts />
       </Wrapper>
       <Space spacing={"my-20"} />

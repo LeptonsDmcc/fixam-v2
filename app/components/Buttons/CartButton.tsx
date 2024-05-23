@@ -8,7 +8,7 @@ interface Props {
 const CartButton = ({ isMobile }: Props) => {
   return (
     <ActionButton isMobile={isMobile}>
-      <ShoppingCart />
+      <ShoppingCart color="dark" />
 
       <Count isMobile={isMobile} />
     </ActionButton>

@@ -1,15 +1,17 @@
-import { PropsWithChildren, ReactNode } from "react";
+import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react";
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
   color?: "orange";
   variant?: "normal" | "border";
 }
+
 const Button = ({
   children,
   icon,
   color = "orange",
   variant = "normal",
+  ...rest
 }: PropsWithChildren<Props>) => {
   const btnColors = {
     orange:
@@ -24,6 +26,7 @@ const Button = ({
 
   return (
     <button
+      {...rest}
       className={`${btnColors[color]} ${btnVariants[variant]} 
       w-36 h-12 text-sm flex items-center gap-1 justify-center
       rounded-md border duration-300`}

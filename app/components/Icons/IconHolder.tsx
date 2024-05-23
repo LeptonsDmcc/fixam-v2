@@ -1,13 +1,23 @@
 import React, { PropsWithChildren } from "react";
 
-const IconHolder = ({ children }: PropsWithChildren) => {
+interface Props {
+  onClick: () => void;
+  isVisibile?: boolean;
+}
+
+const IconHolder = ({
+  children,
+  isVisibile,
+  onClick,
+}: PropsWithChildren<Props>) => {
   return (
-    <li
-      className=" hover:text-white h-[40px] w-[40px] rounded-full flex justify-center items-center 
-    bg-[#F8F8F8] cursor-pointer hover:bg-orange-400 group transition-colors duration-200"
+    <button
+      onClick={onClick}
+      className={`hover:bg-orange-400 hover:text-white h-[40px] w-[40px] rounded-full flex justify-center items-center 
+      bg-[#F8F8F8] cursor-pointer group transition-colors duration-200`}
     >
       {children}
-    </li>
+    </button>
   );
 };
 

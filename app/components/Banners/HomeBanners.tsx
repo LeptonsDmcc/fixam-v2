@@ -51,7 +51,7 @@ const HomeBanners = () => {
   // }, [scrollTo]);
 
   return (
-    <div className=" my-8 lg:mt-0">
+    <div className="my-8 lg:mt-0">
       <div>
         <Sliders ref={containerRef}>
           <SliderItem

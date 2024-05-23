@@ -26,7 +26,7 @@ const ProductCard = () => {
           </div>
         </div>
         <LuCrown size={24} className="absolute left-2 top-2 text-orange-400" />
-        <AddFavorite isFavorited={true} />
+        <AddFavorite isFavorited={false} />
       </div>
       <Space spacing="my-4" />
       <p>HISENSE Cool Breeze Air Conditioner</p>

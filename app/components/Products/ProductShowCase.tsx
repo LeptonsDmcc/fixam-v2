@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Card from "../Card";
-import ShowcaseRating from "../Reviews/ShowcaseRating";
 import ProductPrice from "./ProductPrice";
 import ReviewsRating from "./ReviewsRating";
 

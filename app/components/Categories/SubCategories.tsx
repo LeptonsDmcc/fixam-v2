@@ -1,13 +1,12 @@
-import { TfiArrowCircleLeft } from "react-icons/tfi";
-import CategoryImage from "./CategoryImage";
 import PrevNextArrows from "../PrevNextArrows";
+import CategoryImage from "./CategoryImage";
 
 const SubCategories = () => {
   return (
     <section
-      className="flex gap-[3.2rem] relative overflow-x-hidden'
-    overflow-x-auto has-scrollbar scroll-x-behavior
-    "
+      className="flex gap-[3.2rem] relative 
+      overflow-x-auto has-scrollbar scroll-x-behavior
+      overflow-x-hidden'"
     >
       {/* <PrevNextArrows /> */}
       <CategoryImage

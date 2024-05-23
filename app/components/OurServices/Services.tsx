@@ -29,6 +29,7 @@ const Services = () => {
     <section className="flex gap-4">
       {services.map(({ name, description, image }) => (
         <ServiceItem
+          key={name}
           icon={<Image src={image} alt={name} height={48} width={48} />}
           title={name}
           description={description}

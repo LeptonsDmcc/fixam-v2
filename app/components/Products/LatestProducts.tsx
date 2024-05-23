@@ -10,7 +10,7 @@ const LatestProducts = () => {
       <Space spacing="my-4" />
       <Grid cols={4}>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((product) => (
-          <ProductCard />
+          <ProductCard key={product} />
         ))}
       </Grid>
     </section>

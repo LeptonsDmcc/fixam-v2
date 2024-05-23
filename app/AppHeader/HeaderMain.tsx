@@ -1,22 +1,17 @@
-import { IoPersonOutline } from "react-icons/io5";
-
-import ActionButton from "../components/Buttons/ActionButton";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import ActionButton from "../components/Buttons/ActionButton";
+import Button from "../components/Buttons/Button";
 import CartButton from "../components/Buttons/CartButton";
-import BeAVendorButton from "../components/Buttons/Button";
-import SearchInput from "../components/Inputs/SearchInput";
-import UserIcon from "../components/Icons/svgs/UserIcon";
-import { FaChevronDown } from "react-icons/fa";
 import ArrowDown from "../components/Icons/svgs/ArrowDown";
 import QuestionCircleSVGrepoCom from "../components/Icons/svgs/QuestionCircleSVGrepoCom";
-import IconHolder from "../components/Icons/IconHolder";
-import { IoIosMenu } from "react-icons/io";
-import Button from "../components/Buttons/Button";
+import UserIcon from "../components/Icons/svgs/UserIcon";
+import SearchInput from "../components/Inputs/SearchInput";
+import CategoryNavigations from "../components/Navigations/CategoryNavigations";
 
 const HeaderMain = () => {
   return (
-    <div className="py-6 border-b border-cultured">
+    <header className="py-6 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-50">
       <div className="wrapper flex justify-between items-center gap-8">
         <Link href="#">
           <Image
@@ -28,9 +23,7 @@ const HeaderMain = () => {
           />
         </Link>
 
-        <IconHolder>
-          <IoIosMenu size={28} />
-        </IconHolder>
+        <CategoryNavigations heading="All Categories" isTop={true} />
 
         <SearchInput />
 
@@ -47,7 +40,7 @@ const HeaderMain = () => {
           <Button>Be a Vendor</Button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
