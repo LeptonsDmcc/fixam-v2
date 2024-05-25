@@ -7,7 +7,6 @@ const DealOfTheDay = () => {
   return (
     <section>
       <DealOfTheDayHeader />
-
       <Carousel isNavBtnsBottom>
         <DealOfTheDayProduct />
         <DealOfTheDayProduct />

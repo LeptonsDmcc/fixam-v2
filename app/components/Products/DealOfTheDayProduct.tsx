@@ -5,20 +5,26 @@ import ProductPrice from "./ProductPrice";
 import Heading from "../Heading";
 import Space from "../Space";
 import AddToCartButton from "../Buttons/AddToCartButton";
+import Link from "next/link";
 
 const DealOfTheDayProduct = () => {
   return (
     <section className="flex gap-6 p-20 justify-between min-w-full">
       <Image src={"/assets/television.png"} alt={""} width={368} height={298} />
       <div className="w-[442px]">
-        <Heading variant={"h4"}>
-          <span className="font-semibold">
-            Brown Grey Designer Luxury Fashion Unisex Sunglasses
-          </span>
-        </Heading>
-        <Space spacing={"my-[20px]"} />
-        <ProductPrice />
-        <Space spacing={"my-[20px]"} />
+        <Link
+          href={`/products/?p=Brown Grey Designer Luxury Fashion Unisex Sunglasses`}
+        >
+          <Heading variant={"h4"}>
+            <span className="font-semibold">
+              Brown Grey Designer Luxury Fashion Unisex Sunglasses
+            </span>
+          </Heading>
+          <Space spacing={"my-[20px]"} />
+          <ProductPrice />
+          <Space spacing={"my-[20px]"} />
+        </Link>
+
         <ShowcaseRating />
         <Space spacing={"my-[20px]"} />
         <AddToCartButton />

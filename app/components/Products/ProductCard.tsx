@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { LuCrown } from "react-icons/lu";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import Button from "../Buttons/Button";
@@ -8,8 +9,10 @@ import Space from "../Space";
 import AddFavorite from "./AddFavorite";
 import ProductPrice from "./ProductPrice";
 import ReviewsRating from "./ReviewsRating";
+import { usePathname } from "next/navigation";
 
 const ProductCard = () => {
+  const pathname = usePathname();
   return (
     <article className="rounded-md select-none">
       <div className="group relative rounded-md">
@@ -34,11 +37,23 @@ const ProductCard = () => {
         <AddFavorite isFavorited={false} />
       </div>
       <Space spacing="my-4" />
-      <p>HISENSE Cool Breeze Air Conditioner</p>
+      <Link
+        href={`${
+          pathname === "/" ? "/products" : pathname
+        }/?p=HISENSE Cool Breeze Air Conditioner`}
+      >
+        HISENSE Cool Breeze Air Conditioner
+      </Link>
       <Space spacing="my-4" />
       <ReviewsRating />
       <Space spacing="my-4" />
-      <ProductPrice />
+      <Link
+        href={`${
+          pathname === "/" ? "/products" : pathname
+        }/?p=HISENSE Cool Breeze Air Conditioner`}
+      >
+        <ProductPrice />
+      </Link>
     </article>
   );
 };

@@ -11,7 +11,7 @@ const Breadcrumb = ({ crumbs }: Props) => {
   let cumulativePath = ROUTES.product;
 
   return (
-    <ul className="w-[50%] flex items-center space-x-2">
+    <ul className="flex items-center space-x-2">
       <li className="hover:text-gray-600">
         <Link href={`/`}>Home</Link>
       </li>

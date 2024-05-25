@@ -6,8 +6,8 @@ import Space from "../Space";
 const FixAdPremium = () => {
   return (
     <section
-      className="h-[240px] bg-[url('/assets/fix-ads-bg.jpg')] 
-    text-white bg-no-repeat"
+      className="h-[240px] bg-[url('/assets/fix-ads-bg.jpg')]
+    text-white "
     >
       <div className="relative max-w-[1200px] m-auto py-6">
         <Image
@@ -22,7 +22,7 @@ const FixAdPremium = () => {
           40% Off Today
         </Heading>
         <Space spacing="my-3" />
-        <p className=" max-w-[720px]">
+        <p className="max-w-[720px]">
           Explore our 40% off section and enjoy fantastic discounts on a wide
           range of products. From fashion essentials to home appliances, there's
           something for everyone at unbeatable prices.
