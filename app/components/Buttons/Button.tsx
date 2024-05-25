@@ -49,7 +49,7 @@ const Button = ({
   };
 
   const baseStyle = `w-36 h-12 text-sm flex items-center gap-1 justify-center
-  rounded-md border duration-300`;
+  rounded-md border duration-300 select-none`;
 
   switch (elementType) {
     case "link": {

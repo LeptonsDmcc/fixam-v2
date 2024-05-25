@@ -13,6 +13,7 @@ import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
 import LatestProducts from "@/app/components/Products/LatestProducts";
 import Footer from "@/app/components/Footer/Footer";
 import BrandPartners from "@/app/components/BrandPartners";
+import Carousel from "@/app/components/Carousel/Carousel";
 
 interface Props {
   params: { slug: string[] };

@@ -10,19 +10,9 @@ interface Props {
   title: string;
   text: ReactNode;
   image: string;
-  scrollTo: (to: ScrollType) => void;
-  activeSlider: number;
-  setActiveSlider: Dispatch<SetStateAction<number>>;
 }
 
-const SliderItem = ({
-  image,
-  title,
-  text,
-  scrollTo,
-  activeSlider,
-  setActiveSlider,
-}: Props) => {
+const SliderItem = ({ image, title, text }: Props) => {
   return (
     <div
       className=" relative min-w-full max-h-[450px] overflow-hidden scroll-snap-align-start
@@ -40,13 +30,7 @@ const SliderItem = ({
 
        xl:last:object-top"
       />
-      <BannerContent
-        title={title}
-        text={text}
-        scrollTo={scrollTo}
-        activeSlider={activeSlider}
-        setActiveSlider={setActiveSlider}
-      />
+      <BannerContent title={title} text={text} />
     </div>
   );
 };

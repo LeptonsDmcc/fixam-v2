@@ -8,7 +8,7 @@ import AddToCartButton from "../Buttons/AddToCartButton";
 
 const DealOfTheDayProduct = () => {
   return (
-    <section className="flex gap-6 p-20 justify-between">
+    <section className="flex gap-6 p-20 justify-between min-w-full">
       <Image src={"/assets/television.png"} alt={""} width={368} height={298} />
       <div className="w-[442px]">
         <Heading variant={"h4"}>
