@@ -8,12 +8,13 @@ import QuestionCircleSVGrepoCom from "../components/Icons/svgs/QuestionCircleSVG
 import UserIcon from "../components/Icons/svgs/UserIcon";
 import SearchInput from "../components/Inputs/SearchInput";
 import CategoryNavigations from "../components/Navigations/CategoryNavigations";
+import MyAccountDropdown from "../components/MyAccount/MyAccountDropdown";
 
 const HeaderMain = () => {
   return (
     <header className="py-6 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-50">
       <div className="wrapper flex justify-between items-center gap-8">
-        <Link href="#">
+        <Link href="/">
           <Image
             src="/assets/fixamlogo-b.png"
             className="m-auto opacity-80 w-16 "
@@ -32,9 +33,7 @@ const HeaderMain = () => {
             <QuestionCircleSVGrepoCom /> Help
           </ActionButton>
 
-          <ActionButton styles="flex items-center justify-center gap-2">
-            <UserIcon /> Account <ArrowDown />
-          </ActionButton>
+          <MyAccountDropdown />
 
           <CartButton />
           <Button>Be a Vendor</Button>

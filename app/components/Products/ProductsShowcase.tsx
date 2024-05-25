@@ -23,18 +23,18 @@ interface Props {
 
 const ProductsShowcase = ({ title }: Props) => {
   return (
-    <>
+    <section>
       <ProductTitleBar title={title} />
 
-      <section
+      <article
         className="flex gap-6 
-      has-scrollbar overflow-x-auto scroll-x-behavior scroll-snap-align-start"
+        has-scrollbar overflow-x-auto scroll-x-behavior scroll-snap-align-start"
       >
         {products.map((product, i) => (
           <ProductShowcase key={i} />
         ))}
-      </section>
-    </>
+      </article>
+    </section>
   );
 };
 

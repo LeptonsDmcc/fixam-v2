@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SubCategories from "./SubCategories";
+import { ROUTES } from "@/app/lib/contants";
 
 const cats = [
   "Home Appliances",
@@ -19,13 +20,13 @@ interface Props {
 }
 const MainCategoryNavItems = ({ tempSize = 9, isTop }: Props) => {
   return (
-    <ul>
+    <ul className=" z-50">
       {cats.slice(0, tempSize).map((cat, i) => (
-        <li key={i} className="py-2 text-xs group">
+        <li key={cat + i} className="py-2 text-xs group">
           <Link
-            href={""}
+            href={`${ROUTES.product}/${cat.toLowerCase()}`}
             className={`${
-              isTop && " w-[148px]"
+              isTop && "w-[148px]"
             } m-auto hover:text-orange-400 duration-300`}
           >
             {cat}

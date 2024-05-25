@@ -1,17 +1,15 @@
 import HomeBanners from "./components/Banners/HomeBanners";
+import BrowseCategories from "./components/Categories/BrowseCategories";
 import SubCategories from "./components/Categories/SubCategories";
+import FixAdPremium from "./components/FixAds.tsx/FixAdPremium";
 import Footer from "./components/Footer/Footer";
+import Grid from "./components/Grid";
 import Services from "./components/OurServices/Services";
 import DealOfTheDay from "./components/Products/DealOfTheDay";
 import LatestProducts from "./components/Products/LatestProducts";
-import ProductListing from "./components/Products/ProductTitleBar";
 import ProductsShowcase from "./components/Products/ProductsShowcase";
 import Space from "./components/Space";
 import Wrapper from "./components/Wrapper";
-import Grid from "./components/Grid";
-import BrowseCategories from "./components/Categories/BrowseCategories";
-import FixAdPremium from "./components/FixAds.tsx/FixAdPremium";
-import CategoryNavigations from "./components/Navigations/CategoryNavigations";
 
 export default function Home() {
   return (
@@ -23,7 +21,7 @@ export default function Home() {
         <Space spacing="my-12" />
         <Grid cols={2}>
           <section>
-            <CategoryNavigations heading={"Browse Categories"} />
+            <BrowseCategories />
           </section>
           <section className="my-12">
             <ProductsShowcase title="Best Sellers" />

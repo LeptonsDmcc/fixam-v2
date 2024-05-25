@@ -3,14 +3,17 @@ import Space from "../Space";
 import ProductCard from "./ProductCard";
 import ProductTitleBar from "./ProductTitleBar";
 
-const LatestProducts = () => {
+interface Props {
+  size?: number;
+}
+const LatestProducts = ({ size = 8 }: Props) => {
   return (
     <section>
       <ProductTitleBar title="Latest Products" />
       <Space spacing="my-4" />
       <Grid cols={4}>
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((product) => (
-          <ProductCard key={product} />
+        {Array.from({ length: size }).map((product, i) => (
+          <ProductCard key={i} />
         ))}
       </Grid>
     </section>

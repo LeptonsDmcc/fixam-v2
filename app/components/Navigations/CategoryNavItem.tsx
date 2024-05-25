@@ -1,3 +1,4 @@
+import { ROUTES } from "@/app/lib/contants";
 import { LinkType } from "@/app/lib/types";
 import Link from "next/link";
 
@@ -12,12 +13,22 @@ const cats = [
   "Television",
 ];
 
-const CategoryNavItem = () => {
+interface Props {
+  previousRoute?: string;
+}
+const CategoryNavItem = ({ previousRoute }: Props) => {
   return (
     <>
-      {cats.map((cat) => (
-        <li className="py-2 text-xs group">
-          <Link href={""} className="hover:text-orange-400 duration-300">
+      {cats.map((cat, i) => (
+        <li key={i} className="py-2 text-xs group">
+          <Link
+            href={`${ROUTES.product}/${
+              previousRoute
+                ? previousRoute.toLowerCase() + "/" + cat.toLowerCase()
+                : cat.toLowerCase()
+            }`}
+            className="hover:text-orange-400 duration-300"
+          >
             {cat}
           </Link>
         </li>
