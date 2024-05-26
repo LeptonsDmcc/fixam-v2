@@ -1,3 +1,4 @@
+import HR from "../HR";
 import Space from "../Space";
 import Wrapper from "../Wrapper";
 import FooterCategories from "./FooterCategories";
@@ -23,7 +24,7 @@ const Footer = () => {
           </div>
         </div>
         <Space spacing=" my-20" />
-        <hr className="bg-orange-400/60 h-[0.5px] rounded-sm border-0" />
+        <HR color="orange" />
         <Space spacing=" my-20" />
         <p className="text-gray-300 text-center">
           Copyright © 2024 fixam.com. All rights reserved

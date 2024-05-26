@@ -29,7 +29,6 @@ const ImagePreview = () => {
     setActiveIndex((prevActiveIndex) =>
       prevActiveIndex === images.length - 1 ? 0 : prevActiveIndex + 1
     );
-    console.log(activeIndex);
   };
 
   const onHandlePrev = () => {

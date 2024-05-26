@@ -71,8 +71,8 @@ const Carousel = ({
 
       {withPrevNext && (
         <PrevNextButtons
-          onPreviousClick={onHandleNext ? onHandleNext : handlePrev}
-          onNextClick={onHandlePrev ? onHandlePrev : handleNext}
+          onPreviousClick={onHandlePrev ? onHandlePrev : handlePrev}
+          onNextClick={onHandleNext ? onHandleNext : handleNext}
           leftRightPos={leftRightPos}
         />
       )}

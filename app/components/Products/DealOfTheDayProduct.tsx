@@ -6,6 +6,7 @@ import Heading from "../Heading";
 import Space from "../Space";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import Link from "next/link";
+import ProgressBar from "../ProgressIndicators/ProgressBar";
 
 const DealOfTheDayProduct = () => {
   return (
@@ -31,8 +32,8 @@ const DealOfTheDayProduct = () => {
         <Space spacing={"my-[20px]"} />
         <span className="text-xs">15 Item left</span>
         <Space spacing={"my-[20px]"} />
-        <div className="bg-gray-200 rounded-md h-[6px] w-[140px]">
-          <div className="bg-orange-400 rounded-md h-[6px] w-[35%]"></div>
+        <div className="w-[140px]">
+          <ProgressBar />
         </div>
       </div>
     </section>

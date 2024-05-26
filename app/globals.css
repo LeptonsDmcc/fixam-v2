@@ -28,8 +28,11 @@
   .bg-remove {background:none}
 
   /* SLIDER SCROLL */
-  .scroll-x-behavior {
+  .scroll-snap-type-inline-mandatory {
     scroll-snap-type: inline mandatory;
+  }
+
+  .overscroll-behavior-inline-contain {
     overscroll-behavior-inline: contain;
   }
 
