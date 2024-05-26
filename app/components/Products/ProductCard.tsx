@@ -6,10 +6,11 @@ import { LuCrown } from "react-icons/lu";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import Button from "../Buttons/Button";
 import Space from "../Space";
-import AddFavorite from "./AddFavorite";
+import AddFavoriteButton from "../Buttons/AddFavoriteButton";
 import ProductPrice from "./ProductPrice";
 import ReviewsRating from "./ReviewsRating";
 import { usePathname } from "next/navigation";
+import BuyNowButton from "../Buttons/BuyNowButton";
 
 const ProductCard = () => {
   const pathname = usePathname();
@@ -30,11 +31,13 @@ const ProductCard = () => {
           <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
             <AddToCartButton />
             <Space spacing={"my-6"} />
-            <Button variant="border">Buy Now</Button>
+            <BuyNowButton />
           </div>
         </div>
         <LuCrown size={24} className="absolute left-2 top-2 text-orange-400" />
-        <AddFavorite isFavorited={false} />
+        <div className="absolute right-2 top-2">
+          <AddFavoriteButton isFavorited={false} />
+        </div>
       </div>
       <Space spacing="my-4" />
       <Link

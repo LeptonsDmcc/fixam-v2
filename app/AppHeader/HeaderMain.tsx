@@ -3,12 +3,10 @@ import Link from "next/link";
 import ActionButton from "../components/Buttons/ActionButton";
 import Button from "../components/Buttons/Button";
 import CartButton from "../components/Buttons/CartButton";
-import ArrowDown from "../components/Icons/svgs/ArrowDown";
 import QuestionCircleSVGrepoCom from "../components/Icons/svgs/QuestionCircleSVGrepoCom";
-import UserIcon from "../components/Icons/svgs/UserIcon";
 import SearchInput from "../components/Inputs/SearchInput";
-import CategoryNavigations from "../components/Navigations/CategoryNavigations";
 import MyAccountDropdown from "../components/MyAccount/MyAccountDropdown";
+import CategoryNavigations from "../components/Navigations/CategoryNavigations";
 
 const HeaderMain = () => {
   return (

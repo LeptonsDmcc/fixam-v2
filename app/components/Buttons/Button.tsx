@@ -2,7 +2,6 @@ import Link from "next/link";
 import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-  LinkHTMLAttributes,
   PropsWithChildren,
   ReactNode,
 } from "react";
@@ -13,6 +12,8 @@ interface CommonAttributes {
   color?: "orange";
   variant?: "normal" | "border";
   elementType?: "button" | "link";
+  styles?: string;
+  full?: boolean;
 }
 
 // Attributes specific to button
@@ -35,6 +36,8 @@ const Button = ({
   color = "orange",
   variant = "normal",
   elementType,
+  styles,
+  full,
   ...rest
 }: PropsWithChildren<Props>) => {
   const btnColors = {
@@ -48,7 +51,9 @@ const Button = ({
       "bg-transparent text-white border-orange-400 hover:bg-white hover:text-gray-900",
   };
 
-  const baseStyle = `w-36 h-12 text-sm flex items-center gap-1 justify-center
+  const baseStyle = `${styles} ${
+    full ? "w-full" : "w-36"
+  } h-12 text-sm flex items-center gap-1 justify-center
   rounded-md border duration-300 select-none`;
 
   switch (elementType) {
@@ -58,7 +63,7 @@ const Button = ({
         <Link
           href={""}
           {...resprops}
-          className={`${btnColors[color]} ${btnVariants[variant]} ${baseStyle}`}
+          className={`${baseStyle} ${btnColors[color]} ${btnVariants[variant]}`}
         >
           <span>{children}</span> <span>{icon}</span>
         </Link>
@@ -70,7 +75,7 @@ const Button = ({
       return (
         <button
           {...resprops}
-          className={`${btnColors[color]} ${btnVariants[variant]} ${baseStyle}`}
+          className={`${baseStyle} ${btnColors[color]} ${btnVariants[variant]}`}
         >
           <span>{children}</span> <span>{icon}</span>
         </button>

@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
   isVisibile?: boolean;
 }
 

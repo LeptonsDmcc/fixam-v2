@@ -7,7 +7,7 @@ const DealOfTheDay = () => {
   return (
     <section>
       <DealOfTheDayHeader />
-      <Carousel isNavBtnsBottom>
+      <Carousel withPrevNext isNavBtnsBottom>
         <DealOfTheDayProduct />
         <DealOfTheDayProduct />
       </Carousel>

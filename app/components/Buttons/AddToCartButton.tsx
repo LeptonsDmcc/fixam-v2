@@ -1,8 +1,14 @@
+"use client";
+
 import { useState } from "react";
 import ShoppingCart from "../Icons/svgs/ShoppingCart";
 import Button from "./Button";
 
-const AddToCartButton = () => {
+interface Props {
+  full?: boolean;
+}
+
+const AddToCartButton = ({ full }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => setIsHovered(true);
@@ -10,6 +16,7 @@ const AddToCartButton = () => {
 
   return (
     <Button
+      full={full}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       icon={<ShoppingCart color={isHovered ? "orange" : "white"} />}

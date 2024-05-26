@@ -12,7 +12,7 @@ const HomeBanners = () => {
   return (
     <div className="my-8 lg:mt-0">
       <div>
-        <Carousel>
+        <Carousel withPrevNext>
           <SliderItem
             image="/assets/banners/banner-1.jpg"
             title="Transform Your Space with Fixam: Complete Building and Home Solutions"

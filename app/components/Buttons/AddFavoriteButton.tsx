@@ -1,18 +1,19 @@
 import { RxHeart, RxHeartFilled } from "react-icons/rx";
+import IconHolder from "../Icons/IconHolder";
 
 interface Props {
   isFavorited: boolean;
 }
-const AddFavorite = ({ isFavorited }: Props) => {
+const AddFavoriteButton = ({ isFavorited }: Props) => {
   return (
-    <div className="absolute right-2 top-2">
+    <IconHolder>
       {isFavorited ? (
         <RxHeartFilled size={24} className="text-red-600" />
       ) : (
         <RxHeart size={24} className="text-red-600" />
       )}
-    </div>
+    </IconHolder>
   );
 };
 
-export default AddFavorite;
+export default AddFavoriteButton;
