@@ -56,7 +56,7 @@ const ProductOverviewPanel = () => {
 
   return (
     <section>
-      <header className="flex gap-14 'sticky top-28' bg-white py-2">
+      <header className="flex gap-14 sticky top-28 bg-white py-2">
         <TabButton
           isActive={activeTab === "description"}
           onClick={() => handleScrollIntoView(descriptionRef, "description")}

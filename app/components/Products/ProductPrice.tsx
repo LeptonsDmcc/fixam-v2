@@ -1,10 +1,20 @@
+"use client";
+
+import currency from "@/app/lib/currency";
 import React from "react";
 
-const ProductPrice = () => {
+interface Props {
+  discount?: number;
+}
+const ProductPrice = ({ discount = 950.0 }: Props) => {
   return (
     <p>
-      <span className="text-xl mr-1">$850.00</span>
-      <del className="text-sm text-gray-500">$950.00</del>
+      <span className="text-xl mr-1">{currency()}850.00</span>
+      {discount ? (
+        <del className="text-sm text-gray-500">
+          {currency()} {discount}
+        </del>
+      ) : null}
     </p>
   );
 };

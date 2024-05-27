@@ -6,8 +6,8 @@ import Space from "../Space";
 const FixAdPremium = () => {
   return (
     <section
-      className="h-[240px] bg-[url('/assets/fix-ads-bg.jpg')]
-    text-white "
+      className="h-[240px] bg-[url('/assets/fix-ads-bg.png')]
+    text-white rounded-3xl "
     >
       <div className="relative max-w-[1200px] m-auto py-6">
         <Image

@@ -4,7 +4,7 @@ import capitalize from "@/app/lib/capitalize";
 import { Metadata, ResolvingMetadata } from "next";
 import ProductCategories from "../components/ProductCategories";
 import ProductDetail from "../components/ProductDetail";
-import BreadcrumbHeader from "./BreadcrumbHeader";
+import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
 
 interface Props {
   params: { slug: string[] };

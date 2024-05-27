@@ -33,7 +33,9 @@ const HeaderMain = () => {
 
           <MyAccountDropdown />
 
-          <CartButton />
+          <Link href="/cart">
+            <CartButton />
+          </Link>
           <Button>Be a Vendor</Button>
         </div>
       </div>

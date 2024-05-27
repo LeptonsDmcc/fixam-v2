@@ -10,8 +10,9 @@ import { BiArrowBack } from "react-icons/bi";
 interface Props {
   paths: string[];
   withHeading?: boolean;
+  backText?: string;
 }
-const BreadcrumbHeader = ({ paths, withHeading }: Props) => {
+const BreadcrumbHeader = ({ paths, withHeading, backText }: Props) => {
   const router = useRouter();
 
   return (
@@ -33,7 +34,8 @@ const BreadcrumbHeader = ({ paths, withHeading }: Props) => {
             className="flex items-center text-orange-400 gap-1 text-sm
              hover:text-orange-600"
           >
-            <span>Go back</span> <BiArrowBack size={18} />
+            <span>{backText ? backText : "Go back"}</span>{" "}
+            <BiArrowBack size={18} />
           </button>
         </div>
       </Wrapper>

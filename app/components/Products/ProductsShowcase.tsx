@@ -24,11 +24,7 @@ interface Props {
   noSeeAll?: boolean;
 }
 
-const ProductsShowcase = ({
-  title,
-  noSeeAll,
-  withShortDescription = true,
-}: Props) => {
+const ProductsShowcase = ({ title, noSeeAll, withShortDescription }: Props) => {
   if (withShortDescription)
     return (
       <section>
