@@ -1,12 +1,24 @@
+"use client";
+
 import AmountDisplay from "@/app/components/AmountDisplay";
+import AuthPrompt from "@/app/components/Auth/AuthPrompt";
 import Button from "@/app/components/Buttons/Button";
 import Card from "@/app/components/Card";
 import HR from "@/app/components/HR";
 import Space from "@/app/components/Space";
+import Overlay from "./Overlay";
+import { useState } from "react";
 
 const CheckoutSummary = () => {
+  const [showOverlay, setShowOverlay] = useState(false);
+
   return (
     <Card>
+      {showOverlay && (
+        <Overlay>
+          <AuthPrompt />
+        </Overlay>
+      )}
       <div className=" py-8 px-6">
         <AmountDisplay label="Subtotal" amount={1234} />
         <Space spacing="my-6" />
@@ -23,7 +35,14 @@ const CheckoutSummary = () => {
         <Space spacing="my-6" />
         <HR />
         <Space spacing="my-6" />
-        <Button full>Checkout(₦1,305.00)</Button>
+        <Button
+          full
+          onClick={() => {
+            setShowOverlay(!showOverlay);
+          }}
+        >
+          Checkout(₦1,305.00)
+        </Button>
       </div>
     </Card>
   );
