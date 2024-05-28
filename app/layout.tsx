@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import AppHeader from "./AppHeader/AppHeader";
+import { usePathname } from "next/navigation";
+import { headers } from "next/headers";
+import AuthPageChecker from "./components/AuthPageChecker";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
@@ -20,13 +23,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isAuthPage = headers().get("x-auth-page") === "true";
+
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/assets/fixamlogo-b.png" />
       </head>
       <body className={poppins.className}>
-        <AppHeader />
+        <AuthPageChecker />
         <main>{children}</main>
       </body>
     </html>

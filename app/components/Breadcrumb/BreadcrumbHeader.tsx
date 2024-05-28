@@ -1,11 +1,8 @@
-"use client";
 import Breadcrumb from "@/app/components/Breadcrumb";
-import SubCategories from "@/app/components/Categories/SubCategories";
 import Wrapper from "@/app/components/Wrapper";
 import capitalize from "@/app/lib/capitalize";
 import decodePath from "@/app/lib/decodePath";
-import { useRouter } from "next/navigation";
-import { BiArrowBack } from "react-icons/bi";
+import BackButton from "../Buttons/BackButton";
 
 interface Props {
   paths: string[];
@@ -13,8 +10,6 @@ interface Props {
   backText?: string;
 }
 const BreadcrumbHeader = ({ paths, withHeading, backText }: Props) => {
-  const router = useRouter();
-
   return (
     <header className=" h-[120px] bg-gray-100 ">
       <Wrapper styles="flex h-full justify-between items-center">
@@ -29,14 +24,7 @@ const BreadcrumbHeader = ({ paths, withHeading, backText }: Props) => {
         )}
 
         <div className="flex-grow flex justify-end">
-          <button
-            onClick={() => router.back()}
-            className="flex items-center text-orange-400 gap-1 text-sm
-             hover:text-orange-600"
-          >
-            <span>{backText ? backText : "Go back"}</span>{" "}
-            <BiArrowBack size={18} />
-          </button>
+          <BackButton>{backText ? backText : "Go back"}</BackButton>
         </div>
       </Wrapper>
     </header>

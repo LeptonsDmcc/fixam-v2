@@ -10,7 +10,7 @@ import {
 interface CommonAttributes {
   icon?: ReactNode;
   color?: "orange";
-  variant?: "normal" | "border";
+  variant?: "normal" | "border" | "text";
   elementType?: "button" | "link";
   styles?: string;
   full?: boolean;
@@ -40,28 +40,35 @@ const Button = ({
   full,
   ...rest
 }: PropsWithChildren<Props>) => {
+  const isTextButton = variant === "text";
+
   const btnColors = {
-    orange:
-      "bg-orange-400 text-white border-orange-400 hover:bg-white hover:text-gray-900",
+    orange: `${
+      isTextButton ? "text-orange-400" : "bg-orange-400 text-white"
+    }   border-orange-400 hover:bg-white hover:text-gray-900`,
   };
 
   const btnVariants = {
-    normal: "py-3 px-4 duration-300 ",
+    normal: "py-3 px-4",
+    text: "",
     border:
       "bg-transparent text-white border-orange-400 hover:bg-white hover:text-gray-900",
   };
 
-  const baseStyle = `${styles} ${
-    full ? "w-full" : "w-36"
-  } h-12 text-sm flex items-center gap-1 justify-center
-  rounded-md border duration-300 select-none`;
+  const baseStyle = `${styles} ${full ? "w-full" : isTextButton ? "" : "w-36"} 
+  ${
+    isTextButton
+      ? "inline"
+      : "h-12 rounded-md border flex items-center gap-1 justify-center"
+  }
+   text-sm duration-300 select-none`;
 
   switch (elementType) {
     case "link": {
       const { href, ...resprops } = rest as LinkProps;
       return (
         <Link
-          href={""}
+          href={href}
           {...resprops}
           className={`${baseStyle} ${btnColors[color]} ${btnVariants[variant]}`}
         >

@@ -6,6 +6,23 @@
     box-sizing: border-box;
   }
 
+  /* Hide arrows in Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Hide arrows in Chrome, Safari, Edge, and Opera */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Optionally, remove the default appearance in Internet Explorer */
+  input[type="number"] {
+    -ms-appearance: textfield;
+  }
+
   .grid-cat-showcase {
     display: grid;
     grid-template-columns: minmax(265px, 295px) minmax(100px, 1fr);  

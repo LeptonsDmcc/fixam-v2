@@ -33,7 +33,7 @@ const MyAccountDropdown = () => {
       >
         <ul role="menu" className="  flex flex-col ">
           <li>
-            <Button elementType="link" href="">
+            <Button elementType="link" href="/auth/signin">
               Sign In
             </Button>
           </li>
