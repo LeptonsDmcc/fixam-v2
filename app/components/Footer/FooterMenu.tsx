@@ -1,6 +1,6 @@
 import { LinkType } from "@/app/lib/types";
 import Heading from "../Heading";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import Link from "next/link";
 
 interface Props {

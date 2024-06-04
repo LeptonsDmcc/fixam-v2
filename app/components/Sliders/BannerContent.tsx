@@ -1,7 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 import { ScrollType } from "../Banners/HomeBanners";
 import Button from "../Buttons/Button";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 
 interface Props {
   title: string;

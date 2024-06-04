@@ -1,28 +1,29 @@
 import BackButton from "@/app/components/Buttons/BackButton";
+import Button from "@/app/components/Buttons/Button";
+import Heading from "@/app/components/Heading";
+import CodeInputs from "@/app/components/Inputs/CodeInputs";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import Wrapper from "@/app/components/Wrapper";
 import Image from "next/image";
-import { SigninSpacing } from "../signin/page";
-import Heading from "@/app/components/Heading";
-import Input from "@/app/components/Inputs/Input";
-import Button from "@/app/components/Buttons/Button";
-import CodeInputs from "@/app/components/Inputs/CodeInputs";
+import Link from "next/link";
 
 const OTPage = () => {
   return (
     <Wrapper>
-      <Image
-        src="/assets/fixamlogo-b.png"
-        alt="fixam logo"
-        height={73}
-        width={73}
-        className=" sticky top-2"
-      />
+      <Link href="/" className=" sticky top-2">
+        <Image
+          src="/assets/fixamlogo-b.png"
+          alt="fixam logo"
+          height={73}
+          width={73}
+        />
+      </Link>
 
       <section className={`flex justify-center items-center h-screen`}>
         <section className="lg:max-w-[340px] xl:max-w-[440px] 2xl:max-w-[540px] m-auto">
           <BackButton>Go Back</BackButton>
           <form>
-            <SigninSpacing />
+            <FormSpacing />
             <div className="flex justify-center">
               <div
                 className=" w-[120px] h-[120px] rounded-full bg-orange-400 
@@ -36,26 +37,26 @@ const OTPage = () => {
                 />
               </div>
             </div>
-            <SigninSpacing />
+            <FormSpacing />
             <div className="text-center">
               <Heading variant="h4">
                 <span className=" font-semibold">Verify your Email</span>
               </Heading>
-              <SigninSpacing />
+              <FormSpacing />
               <p>
                 Enter the 5-digit verification code sent to the email address or
                 phone number to proceed
               </p>
-              <SigninSpacing />
+              <FormSpacing />
               <p className=" text-gray-600">Code expires in 04:59 minutes</p>
-              <SigninSpacing />
+              <FormSpacing />
             </div>
 
             <CodeInputs />
-            <SigninSpacing />
+            <FormSpacing />
 
             <Button full>Verify</Button>
-            <SigninSpacing />
+            <FormSpacing />
             <div className=" text-center">
               Didn’t receive the code yet?{" "}
               <Button variant="text" elementType="button">

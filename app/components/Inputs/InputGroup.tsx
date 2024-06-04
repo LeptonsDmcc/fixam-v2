@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 interface Props {
   label: string;
 }

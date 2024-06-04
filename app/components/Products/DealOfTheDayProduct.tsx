@@ -3,7 +3,7 @@ import Button from "../Buttons/Button";
 import ShowcaseRating from "../Reviews/ShowcaseRating";
 import ProductPrice from "./ProductPrice";
 import Heading from "../Heading";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import Link from "next/link";
 import ProgressBar from "../ProgressIndicators/ProgressBar";

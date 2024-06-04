@@ -5,9 +5,7 @@ interface Props {
 }
 const Card = ({ styles, children }: PropsWithChildren<Props>) => {
   return (
-    <article
-      className={`${styles} pr-0 shadow-10-01 rounded-md bg-gray-white p-3`}
-    >
+    <article className={`${styles}  shadow-10-01 rounded-md bg-gray-white p-3`}>
       {children}
     </article>
   );

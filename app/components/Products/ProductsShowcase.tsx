@@ -1,4 +1,4 @@
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import ProductShowcase from "./ProductShowCase";
 import ProductTitleBar from "./ProductTitleBar";
 import ProductCard from "./ProductCard";

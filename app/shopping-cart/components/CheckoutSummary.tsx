@@ -5,7 +5,7 @@ import AuthPrompt from "@/app/components/Auth/AuthPrompt";
 import Button from "@/app/components/Buttons/Button";
 import Card from "@/app/components/Card";
 import HR from "@/app/components/HR";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import Overlay from "./Overlay";
 import { useState } from "react";
 

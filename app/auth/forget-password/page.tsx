@@ -1,29 +1,28 @@
-import React from "react";
-import SigninLayout from "../components/SigninLayout";
 import Button from "@/app/components/Buttons/Button";
-import { SigninSpacing } from "../signin/page";
 import Heading from "@/app/components/Heading";
-import { IoMailOutline } from "react-icons/io5";
-import Input from "@/app/components/Inputs/Input";
+import FormInput from "@/app/components/Inputs/FormInput";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import SigninLayout from "../components/SigninLayout";
 
 const ResetPasswordPage = () => {
   return (
     <SigninLayout>
       <form>
-        <SigninSpacing />
+        <FormSpacing />
         <div className="text-center">
           <Heading variant="h4">
             <span className=" font-semibold">Forgot Password</span>
           </Heading>
-          <SigninSpacing />
+          <FormSpacing />
           <p>Kindly enter your email address linked to your account</p>
-          <SigninSpacing />
+          <FormSpacing />
         </div>
-        <Input
-          icon={<IoMailOutline />}
+        <FormInput
+          variant="email"
           placeholder="Enter Your Email Address or Phone Number"
         />
-        <SigninSpacing />
+
+        <FormSpacing />
 
         <Button full>Submit</Button>
       </form>

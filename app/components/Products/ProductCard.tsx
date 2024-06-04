@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LuCrown } from "react-icons/lu";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import Button from "../Buttons/Button";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import AddFavoriteButton from "../Buttons/AddFavoriteButton";
 import ProductPrice from "./ProductPrice";
 import ReviewsRating from "./ReviewsRating";

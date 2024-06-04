@@ -1,5 +1,5 @@
 import HR from "../HR";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import Wrapper from "../Wrapper";
 import FooterCategories from "./FooterCategories";
 import FooterCompany from "./FooterCompany";

@@ -1,5 +1,5 @@
 import ProductsShowcase from "@/app/components/Products/ProductsShowcase";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import Wrapper from "@/app/components/Wrapper";
 import ImagePreview from "./ImagePreview";
 import ProductInfo from "./ProductInfo";

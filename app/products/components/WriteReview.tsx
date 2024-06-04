@@ -1,7 +1,7 @@
 import Button from "@/app/components/Buttons/Button";
 import InputGroup from "@/app/components/Inputs/InputGroup";
 import SelectInput from "@/app/components/Inputs/SelectInput";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 
 const ReviewSpace = () => <Space spacing="my-4" />;
 const WriteReview = () => {

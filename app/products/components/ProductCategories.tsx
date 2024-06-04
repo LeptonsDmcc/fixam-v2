@@ -1,5 +1,5 @@
 import Wrapper from "@/app/components/Wrapper";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import SubCategories from "@/app/components/Categories/SubCategories";
 import Grid from "@/app/components/Grid";
 import BrowseCategories from "@/app/components/Categories/BrowseCategories";

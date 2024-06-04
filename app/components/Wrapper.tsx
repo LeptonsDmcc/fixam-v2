@@ -4,7 +4,7 @@ interface Props {
   styles?: string;
 }
 const Wrapper = ({ children, styles }: PropsWithChildren<Props>) => {
-  return <div className={`${styles} wrapper`}>{children}</div>;
+  return <section className={`${styles} wrapper`}>{children}</section>;
 };
 
 export default Wrapper;

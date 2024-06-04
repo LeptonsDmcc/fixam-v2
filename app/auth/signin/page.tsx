@@ -1,41 +1,33 @@
 import Button from "@/app/components/Buttons/Button";
 import Heading from "@/app/components/Heading";
 import Checkbox from "@/app/components/Inputs/Checkbox";
-import Input from "@/app/components/Inputs/Input";
-import Space from "@/app/components/Space";
-import { CiLock } from "react-icons/ci";
-import { IoMailOutline } from "react-icons/io5";
+import FormInput from "@/app/components/Inputs/FormInput";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import SigninLayout from "../components/SigninLayout";
-
-export const SigninSpacing = () => <Space spacing="my-6" />;
 
 const SigninPage = () => {
   return (
     <SigninLayout>
       <form>
-        <SigninSpacing />
+        <FormSpacing />
         <div className="text-center">
           <Heading variant="h4">
             <span className=" font-semibold">Login</span>
           </Heading>
-          <SigninSpacing />
+          <FormSpacing />
           <p>
             Sign in to enjoy our services and get unlimited access to our
             shopping collections.
           </p>
-          <SigninSpacing />
+          <FormSpacing />
         </div>
-        <Input icon={<IoMailOutline />} placeholder="Enter Your Email" />
-        <SigninSpacing />
-        <Input
-          icon={<CiLock />}
-          type="password"
-          placeholder="Enter Your Password"
-        />
-        <SigninSpacing />
+        <FormInput variant="email" />
+        <FormSpacing />
+        <FormInput placeholder="Enter Your Password" variant="password" />
+        <FormSpacing />
         <div className="flex justify-between">
           <div className="flex items-center gap-1">
-            <Checkbox small /> <span>Stay signed in</span>
+            <Checkbox htmlFor="staySignIn" small /> <span>Stay signed in</span>
           </div>
           <Button
             variant="text"
@@ -45,9 +37,9 @@ const SigninPage = () => {
             Forgot Password?
           </Button>
         </div>
-        <SigninSpacing />
+        <FormSpacing />
         <Button full>Sign In</Button>
-        <SigninSpacing />
+        <FormSpacing />
         <div className=" text-center">
           Don’t have an account?{" "}
           <Button variant="text" elementType="link" href="/auth/signup">

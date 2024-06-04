@@ -1,6 +1,6 @@
 import Image from "next/image";
 import SocialIcons from "../Icons/SocialIcons";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 
 const FooterCompanyBIO = () => {
   return (

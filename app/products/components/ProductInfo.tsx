@@ -6,7 +6,7 @@ import Heading from "@/app/components/Heading";
 import ProductPrice from "@/app/components/Products/ProductPrice";
 import ProductQuantity from "@/app/components/Products/ProductQuantity";
 import ReviewsRating from "@/app/components/Products/ReviewsRating";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 
 const ProductInfoSpace = () => <Space spacing="my-6" />;
 

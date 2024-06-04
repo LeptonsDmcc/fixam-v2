@@ -1,5 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import Link from "next/link";
 
 import Image from "next/image";

@@ -1,7 +1,7 @@
 "use client";
 import Carousel from "@/app/components/Carousel/Carousel";
 import Image from "next/image";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import { useEffect, useState } from "react";
 
 const images = [

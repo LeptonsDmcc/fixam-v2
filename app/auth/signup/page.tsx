@@ -1,56 +1,47 @@
-import React from "react";
-import SigninLayout from "../components/SigninLayout";
-import { SigninSpacing } from "../signin/page";
-import Heading from "@/app/components/Heading";
-import { IoMailOutline, IoPersonOutline } from "react-icons/io5";
-import Input from "@/app/components/Inputs/Input";
-import { CiLock } from "react-icons/ci";
-import Checkbox from "@/app/components/Inputs/Checkbox";
 import Button from "@/app/components/Buttons/Button";
-import { FiPhone } from "react-icons/fi";
+import Heading from "@/app/components/Heading";
+import Checkbox from "@/app/components/Inputs/Checkbox";
+import FormInput from "@/app/components/Inputs/FormInput";
+import Input from "@/app/components/Inputs/Input";
+import { IoMailOutline } from "react-icons/io5";
+import SigninLayout from "../components/SigninLayout";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
 
 const SingupPage = () => {
   return (
     <SigninLayout>
       <form>
-        <SigninSpacing />
+        <FormSpacing />
         <div className="text-center">
           <Heading variant="h4">
             <span className=" font-semibold">Get Started</span>
           </Heading>
-          <SigninSpacing />
+          <FormSpacing />
           <p>
             Sign up to enjoy our services and get unlimited access to our
             shopping collections.
           </p>
-          <SigninSpacing />
+          <FormSpacing />
         </div>
-        <Input icon={<IoPersonOutline />} placeholder="Enter First Name" />
-        <SigninSpacing />
-        <Input icon={<IoPersonOutline />} placeholder="Enter Last Name" />
-        <SigninSpacing />
+        <FormInput variant="name" placeholder="Enter First Name" />
+        <FormSpacing />
+        <FormInput variant="name" placeholder="Enter Last Name" />
+        <FormSpacing />
         <Input icon={<IoMailOutline />} placeholder="Enter Your Email" />
-        <SigninSpacing />
-        <Input icon={<FiPhone />} type="tel" placeholder="Enter Phone No." />
-        <SigninSpacing />
-        <Input
-          icon={<CiLock />}
-          type="password"
-          placeholder="Enter Your Password"
-        />
-        <SigninSpacing />
-        <Input
-          icon={<CiLock />}
-          type="confirmPassword"
-          placeholder="Confirm Your Password"
-        />
-        <SigninSpacing />
+        <FormSpacing />
+        <FormInput variant="phone" />
+        <FormSpacing />
+        <FormInput placeholder="Enter Your Password" variant="password" />
+        <FormSpacing />
+        <FormInput placeholder="Confirm Your Password" variant="password" />
+        <FormSpacing />
         <div className="flex items-center gap-1">
-          <Checkbox small /> <span>Remember Password</span>
+          <Checkbox htmlFor="rememberPassword" small />{" "}
+          <span>Remember Password</span>
         </div>
-        <SigninSpacing />
+        <FormSpacing />
         <Button full>Sign In</Button>
-        <SigninSpacing />
+        <FormSpacing />
         <div className=" text-center">
           Already have an account?{" "}
           <Button variant="text" elementType="link" href="/auth/signin">

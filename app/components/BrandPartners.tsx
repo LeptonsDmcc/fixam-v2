@@ -1,6 +1,6 @@
 import Heading from "./Heading";
 import Image from "next/image";
-import Space from "./Space";
+import Space from "./Spacing/Space";
 
 const BrandPartners = () => {
   return (

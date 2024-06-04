@@ -1,5 +1,5 @@
 import React from "react";
-import Space from "../components/Space";
+import Space from "../components/Spacing/Space";
 import Carousel from "../components/Carousel/Carousel";
 import Image from "next/image";
 

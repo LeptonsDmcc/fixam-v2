@@ -1,10 +1,7 @@
 import BreadcrumbHeader from "../components/Breadcrumb/BreadcrumbHeader";
-import HR from "../components/HR";
-import Checkbox from "../components/Inputs/Checkbox";
 import ProductsShowcase from "../components/Products/ProductsShowcase";
-import Space from "../components/Space";
+import Space from "../components/Spacing/Space";
 import Wrapper from "../components/Wrapper";
-import CartItemsTR from "./components/CartItemsTR";
 import CartTable from "./components/CartTable";
 import CheckoutSummary from "./components/CheckoutSummary";
 
@@ -14,7 +11,7 @@ const CartPage = () => {
   return (
     <main>
       <BreadcrumbHeader
-        paths={["Shopping Cart"]}
+        paths={[{ text: "Shopping Cart", href: `` }]}
         backText="Continue shopping"
       />
       <CartSpacing />

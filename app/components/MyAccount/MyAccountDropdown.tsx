@@ -5,7 +5,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { RxHeart } from "react-icons/rx";
 import Button from "../Buttons/Button";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import ActionButton from "../Buttons/ActionButton";
 import UserIcon from "../Icons/svgs/UserIcon";
 import ArrowDown from "../Icons/svgs/ArrowDown";

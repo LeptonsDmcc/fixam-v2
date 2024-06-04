@@ -1,4 +1,4 @@
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import FilterPrice from "./FilterPrice";
 import FilterRating from "./FilterRating";
 

@@ -1,5 +1,5 @@
 import Footer from "@/app/components/Footer/Footer";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import capitalize from "@/app/lib/capitalize";
 import { Metadata, ResolvingMetadata } from "next";
 import ProductCategories from "../components/ProductCategories";

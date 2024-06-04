@@ -1,16 +1,15 @@
-import Checkbox from "@/app/components/Inputs/Checkbox";
-import Image from "next/image";
-import Space from "@/app/components/Space";
 import ProductPrice from "@/app/components/Products/ProductPrice";
 import ProductQuantity from "@/app/components/Products/ProductQuantity";
+import Space from "@/app/components/Spacing/Space";
+import Image from "next/image";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const CartItemTR = () => {
   return (
-    <tr className="flex justify-between w-full items-center ">
+    <tr className="flex justify-between w-full items-center py-12 last-of-type:border-b-0 border-b">
       <td className="flex items-center flex-grow">
         <>
-          <Checkbox />
+          {/* <Checkbox /> */}
           <div className="flex items-center gap-3">
             <div className="ml-2">
               <Image

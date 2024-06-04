@@ -1,5 +1,5 @@
 import SeeAllButton from "../Buttons/SeeAllButton";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 
 interface Props {
   title: string;

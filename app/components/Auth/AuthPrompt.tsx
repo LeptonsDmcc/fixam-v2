@@ -1,9 +1,8 @@
-import { SigninSpacing } from "@/app/auth/signin/page";
+import FormSpacing from "../Spacing/FormSpacing";
+import { FcGoogle } from "react-icons/fc";
+import BorderedOrangeButton from "../Buttons/BorderedOrangeButton";
 import Button from "../Buttons/Button";
 import HR from "../HR";
-import BuyNowButton from "../Buttons/BuyNowButton";
-import BorderedOrangeButton from "../Buttons/BorderedOrangeButton";
-import { FcGoogle } from "react-icons/fc";
 
 const AuthPrompt = () => {
   return (
@@ -14,7 +13,7 @@ const AuthPrompt = () => {
           Sign in with Google
         </div>
       </BorderedOrangeButton>
-      <SigninSpacing />
+      <FormSpacing />
       <div className="relative">
         <HR />
         <span
@@ -24,15 +23,15 @@ const AuthPrompt = () => {
           Or
         </span>
       </div>
-      <SigninSpacing />
+      <FormSpacing />
       <Button full elementType="link" href="/auth/signin">
         Sign in via email
       </Button>
-      <SigninSpacing />
+      <FormSpacing />
       <p className=" text-center text-sm">
         By continuing you agree to the Policy and Rules
       </p>
-      <SigninSpacing />
+      <FormSpacing />
       <div className=" flex justify-center">
         <button className="text-gray-400 hover:text-gray-500">
           Checkout as guest

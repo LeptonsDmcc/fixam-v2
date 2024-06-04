@@ -1,7 +1,7 @@
 "use client";
 
 import ProductDescription from "./ProductDescription";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import Warranty from "./Warranty";
 import HR from "@/app/components/HR";
 import CustomerReviews from "./CustomerReviews";

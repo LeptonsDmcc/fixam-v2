@@ -2,7 +2,7 @@ import SeeAllButton from "@/app/components/Buttons/SeeAllButton";
 import ProductTitleBar from "@/app/components/Products/ProductTitleBar";
 import ProgressBar from "@/app/components/ProgressIndicators/ProgressBar";
 import ShowcaseRating from "@/app/components/Reviews/ShowcaseRating";
-import Space from "@/app/components/Space";
+import Space from "@/app/components/Spacing/Space";
 import WriteReview from "./WriteReview";
 
 const CustomerReviews = () => {

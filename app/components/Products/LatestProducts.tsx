@@ -1,5 +1,5 @@
 import Grid from "../Grid";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import ProductCard from "./ProductCard";
 import ProductTitleBar from "./ProductTitleBar";
 

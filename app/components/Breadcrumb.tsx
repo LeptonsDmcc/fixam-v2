@@ -2,8 +2,10 @@ import Link from "next/link";
 import { ROUTES } from "../lib/contants";
 import capitalize from "../lib/capitalize";
 
+export type CrumbType = { text: string; href: string };
+
 interface Props {
-  crumbs: string[];
+  crumbs: CrumbType[];
 }
 
 const Breadcrumb = ({ crumbs }: Props) => {
@@ -15,9 +17,9 @@ const Breadcrumb = ({ crumbs }: Props) => {
       <li className="hover:text-gray-600">
         <Link href={`/`}>Home</Link>
       </li>
-      {crumbs.map((crumb, index) => {
+      {crumbs.map(({ text, href }, index) => {
         // Append the current crumb to the cumulative path
-        cumulativePath += `/${crumb}`;
+        // cumulativePath += `/${crumb}`;
 
         return (
           <li
@@ -26,7 +28,7 @@ const Breadcrumb = ({ crumbs }: Props) => {
             before:border-l-gray-900 last-of-type:text-gray-300 last-of-type:pointer-events-none 
             hover:text-gray-600"
           >
-            <Link href={cumulativePath}>{capitalize(crumb)}</Link>
+            <Link href={href}>{capitalize(text)}</Link>
           </li>
         );
       })}

@@ -3,7 +3,7 @@
 import { IoIosMenu } from "react-icons/io";
 import CollapsibleCard from "../Cards/CollapsibleCard";
 import IconHolder from "../Icons/IconHolder";
-import Space from "../Space";
+import Space from "../Spacing/Space";
 import MainCategoryNavItems from "./MainCategoryNavItems";
 
 interface Props {
