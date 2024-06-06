@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
 import { LiaShoppingBagSolid } from "react-icons/lia";
@@ -10,6 +9,26 @@ import ActionButton from "../Buttons/ActionButton";
 import UserIcon from "../Icons/svgs/UserIcon";
 import ArrowDown from "../Icons/svgs/ArrowDown";
 import { useState } from "react";
+import { LinkType } from "@/app/lib/types";
+import { ROUTES } from "@/app/lib/contants";
+
+const myAccountNavs: LinkType[] = [
+  {
+    icon: <IoPersonOutline />,
+    text: "Account",
+    to: `${ROUTES.account}/profile`,
+  },
+  {
+    icon: <LiaShoppingBagSolid />,
+    text: "Orders",
+    to: `${ROUTES.account}/orders`,
+  },
+  {
+    icon: <RxHeart />,
+    text: "Save Items",
+    to: `${ROUTES.account}/save-items`,
+  },
+];
 
 const MyAccountDropdown = () => {
   const [isVisible, setIsVisibility] = useState(false);
@@ -38,30 +57,16 @@ const MyAccountDropdown = () => {
             </Button>
           </li>
           <Space spacing={"my-2"} />
-          <li className="py-3">
-            <Link
-              href={""}
-              className="flex gap-2 items-center hover:text-orange-400 duration-200"
-            >
-              <IoPersonOutline size={24} /> <span>Account</span>
-            </Link>
-          </li>
-          <li className="py-3">
-            <Link
-              href={""}
-              className="flex gap-2 items-center hover:text-orange-400 duration-200"
-            >
-              <LiaShoppingBagSolid size={24} /> <span>Order</span>
-            </Link>
-          </li>
-          <li className="py-3">
-            <Link
-              href={""}
-              className="flex gap-2 items-center hover:text-orange-400 duration-200"
-            >
-              <RxHeart size={24} /> <span>Save Items</span>
-            </Link>
-          </li>
+          {myAccountNavs.map(({ text, to, icon }) => (
+            <li className="py-3">
+              <Link
+                href={to}
+                className="flex gap-2 items-center hover:text-orange-400 duration-200"
+              >
+                <span className=" text-2xl">{icon}</span> <span>{text}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </section>

@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 
 interface Props {
-  variant: "h1" | "h2" | "h3" | "h4";
+  variant: "h1" | "h2" | "h3" | "h4" | "h5";
   styles?: string;
   bold?: boolean;
 }
@@ -51,6 +51,17 @@ const Heading = ({
           className={`${styles} ${
             bold && "font-semibold"
           } text-gray-800 text-[1.25rem]/[32px]`}
+        >
+          {children}
+        </h4>
+      );
+
+    case "h5":
+      return (
+        <h4
+          className={`${styles} ${
+            bold && "font-semibold"
+          } text-gray-800 text-[1rem]/[32px]`}
         >
           {children}
         </h4>

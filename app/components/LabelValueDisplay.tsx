@@ -4,7 +4,7 @@ interface Props {
   label: string;
   value: string;
   darkLabel?: boolean;
-  isAmount?: boolean;
+  isCurrency?: boolean;
   boldLabelValue?: boolean;
 }
 
@@ -13,7 +13,7 @@ const LabelValueDisplay = ({
   value,
   darkLabel,
   boldLabelValue,
-  isAmount,
+  isCurrency,
 }: Props) => {
   return (
     <div
@@ -23,7 +23,7 @@ const LabelValueDisplay = ({
         {label}
       </span>
       <span className="flex items-center gap-[1px]">
-        {isAmount && <span>{currency()}</span>}
+        {isCurrency && <span>{currency()}</span>}
         <span>{value}</span>
       </span>
     </div>

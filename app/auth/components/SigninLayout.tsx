@@ -3,6 +3,9 @@ import Image from "next/image";
 import BackButton from "@/app/components/Buttons/BackButton";
 import { PropsWithChildren } from "react";
 
+import fixAuthSideImage1 from "@/public/assets/fix-auth-side-image1.png";
+import fixAuthSideImage2 from "@/public/assets/fix-auth-side-image2.jpg";
+
 interface Props {
   swap?: boolean;
 }
@@ -33,11 +36,9 @@ const SigninLayout = ({ children, swap }: PropsWithChildren<Props>) => {
           </Link>
 
           <Image
-            src="/assets/login-fixam.png"
+            src={fixAuthSideImage1}
             alt="fixam login photo"
-            height={1024}
-            width={720}
-            className=" w-full"
+            className="w-full"
           />
         </div>
       </div>

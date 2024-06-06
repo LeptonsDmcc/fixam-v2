@@ -27,7 +27,11 @@ const OrderSummary = () => {
               <HR />
               <FormSpacing />
               <div>
-                <LabelValueDisplay label="Subtotal" value="1_300.0" />
+                <LabelValueDisplay
+                  label="Subtotal"
+                  value="1,300.0"
+                  isCurrency
+                />
                 <FormSpacing />
                 <LabelValueDisplay label="Delivery Fee" value="10.0" />
               </div>
@@ -36,8 +40,9 @@ const OrderSummary = () => {
               <FormSpacing />
               <LabelValueDisplay
                 label="Grand Total"
-                value="1_305.0"
+                value="1,305.0"
                 darkLabel
+                isCurrency
               />
             </div>
           </section>
