@@ -2,15 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LuCrown } from "react-icons/lu";
-import AddToCartButton from "../Buttons/AddToCartButton";
-import Button from "../Buttons/Button";
-import Space from "../Spacing/Space";
 import AddFavoriteButton from "../Buttons/AddFavoriteButton";
+import AddToCartButton from "../Buttons/AddToCartButton";
+import BuyNowButton from "../Buttons/BuyNowButton";
+import Space from "../Spacing/Space";
 import ProductPrice from "./ProductPrice";
 import ReviewsRating from "./ReviewsRating";
-import { usePathname } from "next/navigation";
-import BuyNowButton from "../Buttons/BuyNowButton";
 
 const ProductCard = () => {
   const pathname = usePathname();

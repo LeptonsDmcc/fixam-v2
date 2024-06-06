@@ -8,9 +8,10 @@ interface Props {
   withHeading?: boolean;
   backText?: string;
 }
+
 const BreadcrumbHeader = ({ paths, withHeading, backText }: Props) => {
   return (
-    <header className=" h-[120px] bg-gray-100 ">
+    <header className=" h-[120px] bg-gray-100 select-none">
       <Wrapper styles="flex h-full justify-between items-center">
         <div className={`${withHeading && "w-1/2"}`}>
           <Breadcrumb crumbs={paths} />

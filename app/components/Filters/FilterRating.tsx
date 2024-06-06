@@ -1,6 +1,6 @@
-import RadioButton from "../Inputs/RadioButton";
 import ShowcaseRating from "../Reviews/ShowcaseRating";
 import CollapsibleCard from "../Cards/CollapsibleCard";
+import RadioInput from "../Inputs/RadioInput";
 
 const FilterRating = () => {
   return (
@@ -11,7 +11,7 @@ const FilterRating = () => {
           htmlFor={`rating${i}`}
           className="flex items-center text-xs space-x-1 my-3"
         >
-          <RadioButton id={`rating${i}`} name="rating" />
+          <RadioInput htmlFor={`rating${i}`} name="rating" />
           <ShowcaseRating />
         </label>
       ))}

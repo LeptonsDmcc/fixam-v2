@@ -3,39 +3,51 @@ import Heading from "@/app/components/Heading";
 import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import OrderSummaryItem from "./OrderSummaryItem";
 import HR from "@/app/components/HR";
-import AmountDisplay from "@/app/components/AmountDisplay";
+import LabelValueDisplay from "@/app/components/LabelValueDisplay";
+import Button from "@/app/components/Buttons/Button";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 
 const OrderSummary = () => {
   return (
-    <Card>
-      <section className="py-6">
-        <Heading variant="h4">
-          <div className="font-semibold text-center">Your Order</div>
-        </Heading>
-        <FormSpacing />
-        <section className="p-6 overflow-y-auto has-scrollbar">
-          <OrderSummaryItem />
+    <>
+      <Card>
+        <section className="py-6">
+          <Heading variant="h4">
+            <div className="font-semibold text-center">Your Order</div>
+          </Heading>
           <FormSpacing />
-          <OrderSummaryItem />
-          <FormSpacing />
-          <OrderSummaryItem />
-          <div>
+          <section className="p-6 overflow-y-auto has-scrollbar">
+            <OrderSummaryItem />
             <FormSpacing />
-            <HR />
+            <OrderSummaryItem />
             <FormSpacing />
+            <OrderSummaryItem />
             <div>
-              <AmountDisplay label="Subtotal" amount={1_300.0} />
               <FormSpacing />
-              <AmountDisplay label="Delivery Fee" amount={10.0} />
+              <HR />
+              <FormSpacing />
+              <div>
+                <LabelValueDisplay label="Subtotal" value="1_300.0" />
+                <FormSpacing />
+                <LabelValueDisplay label="Delivery Fee" value="10.0" />
+              </div>
+              <FormSpacing />
+              <HR />
+              <FormSpacing />
+              <LabelValueDisplay
+                label="Grand Total"
+                value="1_305.0"
+                darkLabel
+              />
             </div>
-            <FormSpacing />
-            <HR />
-            <FormSpacing />
-            <AmountDisplay label="Grand Total" amount={1_305.0} darkLabel />
-          </div>
+          </section>
         </section>
-      </section>
-    </Card>
+      </Card>
+      <SectionSpacing />
+      <div className="w-[80%] m-auto">
+        <Button full>Proceed to Payment</Button>
+      </div>
+    </>
   );
 };
 

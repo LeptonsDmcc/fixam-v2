@@ -59,7 +59,7 @@ const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
   return (
     <main>
       <BreadcrumbHeader
-        paths={slug ? updatedSlug : [p]}
+        paths={slug ? [{ text: "", href: "" }] : [{ href: "", text: p }]}
         withHeading={p === undefined}
       />
       {p ? (

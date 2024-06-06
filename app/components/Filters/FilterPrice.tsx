@@ -1,5 +1,5 @@
-import RadioButton from "../Inputs/RadioButton";
 import CollapsibleCard from "../Cards/CollapsibleCard";
+import RadioInput from "../Inputs/RadioInput";
 
 const FilterPrice = () => {
   return (
@@ -17,7 +17,7 @@ const FilterPrice = () => {
           htmlFor={`price${i}`}
           className="flex items-center text-xs space-x-1 my-3"
         >
-          <RadioButton id={`price${i}`} name="price" />
+          <RadioInput htmlFor={`price${i}`} name="price" />
           <span className="flex-grow">{p}</span>
         </label>
       ))}
