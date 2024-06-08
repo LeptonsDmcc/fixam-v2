@@ -28,17 +28,17 @@ const sideNavItems: LinkType[] = [
   {
     icon: <TbWorldSearch />,
     text: "Tracking",
-    to: `${ROUTES.account}/tracking`,
+    to: `/order/track`,
   },
-  {
-    icon: <TiShoppingBag />,
-    text: "Recently Viewed",
-    to: `${ROUTES.account}/recently-viewed`,
-  },
+  // {
+  //   icon: <TiShoppingBag />,
+  //   text: "Recently Viewed",
+  //   to: `${ROUTES.account}/recently-viewed`,
+  // },
   {
     icon: <HiOutlineLogout />,
     text: "Logout",
-    to: `/`,
+    to: `/auth/logout`,
   },
 ];
 

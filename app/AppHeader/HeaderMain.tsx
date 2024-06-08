@@ -36,7 +36,7 @@ const HeaderMain = () => {
           <Link href="/shopping-cart">
             <CartButton />
           </Link>
-          <Button>Be a Vendor</Button>
+          <Button>Sell on Fixam</Button>
         </div>
       </div>
     </header>

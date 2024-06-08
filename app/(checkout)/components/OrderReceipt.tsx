@@ -47,28 +47,28 @@ const OrderReceipt = () => {
           <LabelValueDisplay
             label="Subtotal"
             value="1,300.00"
-            isAmount
+            isCurrency
             darkLabel
           />
           <FormSpacing />
           <LabelValueDisplay
             label="Delivery Fee"
             value="10.00"
-            isAmount
+            isCurrency
             darkLabel
           />
           <FormSpacing />
           <LabelValueDisplay
             label="Discount"
             value="-5.00"
-            isAmount
+            isCurrency
             darkLabel
           />
           <FormSpacing />
           <LabelValueDisplay
             label="Grand Total"
             value="1,305.00"
-            isAmount
+            isCurrency
             darkLabel
             boldLabelValue
           />

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { AnchorHTMLAttributes, PropsWithChildren, ReactNode } from "react";
 
 interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -18,8 +18,10 @@ const NavLink = ({
   ...rest
 }: PropsWithChildren<NavLinkProps>) => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const isActive = pathname === href;
+  const isActive =
+    pathname.startsWith(href) || href.includes(`${searchParams.get("s")}`);
 
   const combinedClassName = isActive
     ? `${className ? className : ""} ${activeClassName}`.trim()

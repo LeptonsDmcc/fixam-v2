@@ -3,21 +3,22 @@ import Grid from "../components/Grid";
 import SectionSpacing from "../components/Spacing/SectionSpacing";
 import Wrapper from "../components/Wrapper";
 import AccountNavs from "./components/AccountNavs";
+import Card from "../components/Card";
 
 const AccountLayout = ({ children }: PropsWithChildren) => {
   return (
-    <main className=" h-full">
-      <Wrapper>
-        <SectionSpacing />
-        <Grid cols={2}>
-          <aside className="sticky top-12">
-            <AccountNavs />
-          </aside>
-
-          <main className="mx-16">{children}</main>
-        </Grid>
-      </Wrapper>
-    </main>
+    <Wrapper>
+      <SectionSpacing />
+      <Grid cols={2}>
+        <aside className="sticky top-12">
+          <AccountNavs />
+        </aside>
+        <Card elementType="main" styles="mx-16">
+          {children}
+        </Card>
+      </Grid>
+      <SectionSpacing />
+    </Wrapper>
   );
 };
 

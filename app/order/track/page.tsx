@@ -15,7 +15,7 @@ const TrackPage = () => {
       <Wrapper>
         <section className="w-1/2 m-auto">
           <Heading variant="h4" styles="text-center" bold>
-            Track A Package
+            Track Your Order
           </Heading>
           <FormSpacing />
           <Input placeholder="Enter your Tracking ID" />

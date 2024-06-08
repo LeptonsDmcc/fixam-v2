@@ -8,10 +8,11 @@ import { MdOutlineEdit } from "react-icons/md";
 interface Props {
   addressId: string;
   isDefault?: boolean;
+  withBorder?: boolean;
 }
-const CustomerAddress = ({ addressId, isDefault }: Props) => {
+const CustomerAddress = ({ addressId, withBorder, isDefault }: Props) => {
   return (
-    <Card>
+    <Card borderedCard={withBorder}>
       <div className="flex justify-between items-center">
         <div className="flex gap-6 items-center">
           <RadioInput htmlFor={addressId} defaultChecked={!!isDefault} />
