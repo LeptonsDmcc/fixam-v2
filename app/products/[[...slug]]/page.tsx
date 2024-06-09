@@ -5,6 +5,12 @@ import { Metadata, ResolvingMetadata } from "next";
 import ProductCategories from "../components/ProductCategories";
 import ProductDetail from "../components/ProductDetail";
 import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
+import Wrapper from "@/app/components/Wrapper";
+import SubCategories from "@/app/components/Categories/SubCategories";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
+import LatestProducts from "@/app/components/Products/LatestProducts";
+import BrandPartners from "@/app/components/BrandPartners";
 
 interface Props {
   params: { slug: string[] };
@@ -62,13 +68,28 @@ const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
         paths={slug ? [{ text: "", href: "" }] : [{ href: "", text: p }]}
         withHeading={p === undefined}
       />
-      {p ? (
-        <ProductDetail />
-      ) : (
-        <ProductCategories dealFor={decodeURIComponent(slug.at(-1) || "")} />
-      )}
-      <Space spacing="my-12" />
-      <Footer />
+      <Wrapper>
+        {p ? (
+          <ProductDetail />
+        ) : (
+          <>
+            <SectionSpacing />
+            <SubCategories />
+            <SectionSpacing />
+            <ProductCategories
+              dealFor={decodeURIComponent(slug.at(-1) || "")}
+            />
+          </>
+        )}
+
+        <SectionSpacing />
+        <FixAdPremium />
+        <SectionSpacing />
+        <LatestProducts size={4} />
+        <SectionSpacing />
+        <BrandPartners />
+      </Wrapper>
+      <SectionSpacing />
     </main>
   );
 };

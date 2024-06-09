@@ -5,6 +5,7 @@ import AppHeader from "./AppHeader/AppHeader";
 import { usePathname } from "next/navigation";
 import { headers } from "next/headers";
 import AuthPageChecker from "./components/AuthPageChecker";
+import Footer from "./components/Footer/Footer";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
@@ -31,8 +32,9 @@ export default function RootLayout({
         <link rel="icon" href="/assets/fixamlogo-b.png" />
       </head>
       <body className={poppins.className}>
-        <AuthPageChecker />
+        <AuthPageChecker component={<AppHeader />} />
         <main>{children}</main>
+        <AuthPageChecker component={<Footer />} />
       </body>
     </html>
   );

@@ -40,7 +40,6 @@ export default function Home() {
         <LatestProducts />
       </Wrapper>
       <Space spacing={"my-20"} />
-      <Footer />
       {/* <Category />
       <ProductContainer />
       <TestimonialBox /> */}

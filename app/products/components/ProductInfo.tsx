@@ -7,6 +7,7 @@ import ProductPrice from "@/app/components/Products/ProductPrice";
 import ProductQuantity from "@/app/components/Products/ProductQuantity";
 import ReviewsRating from "@/app/components/Products/ReviewsRating";
 import Space from "@/app/components/Spacing/Space";
+import Link from "next/link";
 
 const ProductInfoSpace = () => <Space spacing="my-6" />;
 
@@ -14,9 +15,11 @@ const ProductInfo = () => {
   return (
     <section>
       <section className=" text-xs">
-        <p>
-          <span className=" font-light">Sold by:</span> Three Ace Technology
-          Services Ltd
+        <p className="flex">
+          <span className=" font-light">Sold by:</span>
+          <Link href="/store/vendor" className="hover:text-gray-400">
+            Three Ace Technology Services Ltd
+          </Link>
         </p>
 
         <p className="text-orange-400 bg-orange-100 rounded-sm max-w-fit p-1">
