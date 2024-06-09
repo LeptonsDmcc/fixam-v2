@@ -47,7 +47,7 @@ const OrderPage = () => {
         </section>
 
         <section id="section2" className="w-full min-w-full flex-grow">
-          <AccountOrderItems items={[{ status: "delivered" }]} />
+          <AccountOrderItems items={[{ status: "canceled" }]} />
         </section>
       </section>
     </section>

@@ -1,12 +1,9 @@
-import React from "react";
-import AccountHeader from "../../components/AccountHeader";
-import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
-import AccountOrderItems from "../components/AccountOrderItems";
 import Heading from "@/app/components/Heading";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
-import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
-import InfoCard from "../components/InfoCard";
+import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
 import currency from "@/app/lib/currency";
+import AccountHeader from "../../components/AccountHeader";
+import AccountOrderItems from "../components/AccountOrderItems";
+import InfoCard from "../components/InfoCard";
 
 const OrderDetailPage = () => {
   return (
@@ -26,7 +23,14 @@ const OrderDetailPage = () => {
           ITEMS IN YOUR ORDER
         </Heading>
         <AccountSpacing />
-        <AccountOrderItems />
+        <AccountOrderItems
+          items={[
+            { status: "canceled" },
+            { status: "delivered" },
+            { status: "pending" },
+            { status: "delivered" },
+          ]}
+        />
       </section>
       <AccountSpacing />
       <section className="grid grid-cols-2">

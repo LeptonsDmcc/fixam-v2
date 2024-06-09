@@ -28,9 +28,10 @@ const AccountOrderItems = ({ items }: Props) => {
     //   <AccountOrderItem status="delivered" />
     // </div>
     // TODO: DESIGN 3
+
     <div className=" grid grid-cols-2 gap-4">
-      {items.map((item) => (
-        <Fragment>
+      {items.map((item, index) => (
+        <Fragment key={index}>
           <AccountOrderItem status={item.status} />
         </Fragment>
       ))}

@@ -5,7 +5,7 @@ import Button from "@/app/components/Buttons/Button";
 import capitalize from "@/app/lib/capitalize";
 import { ROUTES } from "@/app/lib/contants";
 
-export type StausType = "pending" | "delivered";
+export type StausType = "pending" | "delivered" | "canceled";
 
 interface Props {
   status: StausType;
@@ -14,6 +14,7 @@ interface Props {
 const statusStyles: { [key in StausType]: string } = {
   pending: "text-orange-400 bg-orange-100",
   delivered: "bg-green-400 text-green-100",
+  canceled: "bg-red-400 text-red-100",
 };
 
 const AccountOrderItem = ({ status }: Props) => {
