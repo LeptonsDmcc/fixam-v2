@@ -1,5 +1,5 @@
 import FormInputGroup from "@/app/components/Inputs/FormInputGroup";
-import GroupInput from "./GroupInput";
+import GroupInput from "../../components/Inputs/GroupInput";
 import FormInput from "@/app/components/Inputs/FormInput";
 import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import Checkbox from "@/app/components/Inputs/Checkbox";

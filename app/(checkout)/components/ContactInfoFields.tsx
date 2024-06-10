@@ -1,7 +1,7 @@
 import FormInput from "@/app/components/Inputs/FormInput";
 import Input from "@/app/components/Inputs/Input";
 import FormSpacing from "@/app/components/Spacing/FormSpacing";
-import GroupInput from "./GroupInput";
+import GroupInput from "../../components/Inputs/GroupInput";
 import FormInputGroup from "@/app/components/Inputs/FormInputGroup";
 
 const ContactInfoFields = () => {

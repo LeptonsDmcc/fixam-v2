@@ -27,7 +27,7 @@ const OrderPage = () => {
           after:w-full after:bg-orange-400"
         >
           <Button variant="text">
-            <span className=" text-xs ">CANCLED/RETURNED PRODUCT</span>
+            <span className=" text-xs ">CANCELED/RETURNED PRODUCT</span>
           </Button>
         </NavLink>
       </nav>

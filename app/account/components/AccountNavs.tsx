@@ -25,18 +25,9 @@ const sideNavItems: LinkType[] = [
     text: "Save Items",
     to: `${ROUTES.account}/save-items`,
   },
+
   {
-    icon: <TbWorldSearch />,
-    text: "Tracking",
-    to: `/order/track`,
-  },
-  // {
-  //   icon: <TiShoppingBag />,
-  //   text: "Recently Viewed",
-  //   to: `${ROUTES.account}/recently-viewed`,
-  // },
-  {
-    icon: <HiOutlineLogout />,
+    icon: <HiOutlineLogout className=" rotate-180" />,
     text: "Logout",
     to: `/auth/logout`,
   },

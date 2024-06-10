@@ -12,38 +12,38 @@ interface Props {
 }
 
 const statusStyles: { [key in StausType]: string } = {
-  pending: "text-orange-400 bg-orange-100",
-  delivered: "bg-green-400 text-green-100",
-  canceled: "bg-red-400 text-red-100",
+  pending: "text-orange-400 ",
+  delivered: " text-green-400",
+  canceled: " text-red-400",
 };
 
 const AccountOrderItem = ({ status }: Props) => {
-  //   return (
-  //     <section className=" flex justify-between">
-  //       <div className="flex text-xs">
-  //         <div className="flex gap-4 flex-grow">
-  //           <Image
-  //             src={productImage}
-  //             alt="Product image"
-  //             className=" border w-28"
-  //           />
-  //           <div>
-  //             <p className="my-1">Order ID : 1389516282</p>
-  //             <p className="my-1">31 May,2024</p>
-  //             <div
-  //               className={`${statusStyles[status]} py-[1px] w-20 flex items-center justify-center rounded-sm text-[10px]`}
-  //             >
-  //               {capitalize(status)}
-  //             </div>
+  // return (
+  //   <section className=" flex justify-between">
+  //     <div className="flex text-xs">
+  //       <div className="flex gap-4 flex-grow">
+  //         <Image
+  //           src={productImage}
+  //           alt="Product image"
+  //           className=" border w-28"
+  //         />
+  //         <div>
+  //           <p className="my-1">Order ID : 1389516282</p>
+  //           <p className="my-1">31 May,2024</p>
+  //           <div
+  //             className={`${statusStyles[status]} py-[1px] w-20 flex items-center justify-center rounded-sm text-[10px]`}
+  //           >
+  //             {capitalize(status)}
   //           </div>
   //         </div>
-
-  //         <Button variant="text">
-  //           <span className=" text-[10px]">SEE DETAILS</span>
-  //         </Button>
   //       </div>
-  //     </section>
-  //   );
+
+  //       <Button variant="text">
+  //         <span className=" text-[10px]">SEE DETAILS</span>
+  //       </Button>
+  //     </div>
+  //   </section>
+  // );
 
   return (
     <section className="flex justify-between">
@@ -58,7 +58,7 @@ const AccountOrderItem = ({ status }: Props) => {
             <p className="my-1">Order ID : 1389516282</p>
             <p className="my-1">31 May,2024</p>
             <div
-              className={`${statusStyles[status]} py-[1px] w-20 flex items-center justify-center rounded-sm text-[10px]`}
+              className={`${statusStyles[status]} italic py-[1px] w-20  items-center justify-center rounded-sm text-[10px]`}
             >
               {capitalize(status)}
             </div>

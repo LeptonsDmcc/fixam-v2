@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import AppHeader from "./AppHeader/AppHeader";
-import { usePathname } from "next/navigation";
 import { headers } from "next/headers";
+import AppHeader from "./AppHeader/AppHeader";
 import AuthPageChecker from "./components/AuthPageChecker";
 import Footer from "./components/Footer/Footer";
+import "./globals.css";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
