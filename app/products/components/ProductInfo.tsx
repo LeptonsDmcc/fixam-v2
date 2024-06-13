@@ -5,7 +5,7 @@ import ShareButton from "@/app/components/Buttons/ShareButton";
 import Heading from "@/app/components/Heading";
 import ProductPrice from "@/app/components/Products/ProductPrice";
 import ProductQuantity from "@/app/components/Products/ProductQuantity";
-import ReviewsRating from "@/app/components/Products/ReviewsRating";
+import ReviewsRating from "@/app/components/Reviews/ReviewsRating";
 import Space from "@/app/components/Spacing/Space";
 import Link from "next/link";
 

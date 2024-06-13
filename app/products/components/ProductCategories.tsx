@@ -1,6 +1,7 @@
 import BrowseCategories from "@/app/components/Categories/BrowseCategories";
 import Filters from "@/app/components/Filters/Filters";
 import Grid from "@/app/components/Grid";
+import Pagination from "@/app/components/Pagination";
 import ProductTopDeals from "@/app/components/Products/ProductTopDeals";
 import Products from "@/app/components/Products/Products";
 import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
@@ -50,14 +51,7 @@ const ProductCategories = ({ dealFor }: Props) => {
         <SectionSpacing />
         <ProductTopDeals title={`Top Deals on ${capitalize(dealFor)}`} />
         <SectionSpacing />
-        <section className=" flex items-center justify-center">
-          <button className="px-3">Previous</button>
-          <div className="bg-orange-400 text-white p-3">1</div>
-          <div className="p-3">2</div>
-          <div className="p-3">...</div>
-          <div className="p-3">25</div>
-          <button className="px-3">Next</button>
-        </section>
+        <Pagination />
         <SectionSpacing />
       </section>
     </Grid>

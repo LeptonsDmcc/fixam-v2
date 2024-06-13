@@ -5,9 +5,7 @@ import { LinkType } from "@/app/lib/types";
 import { HiOutlineLogout } from "react-icons/hi";
 import { IoPersonOutline } from "react-icons/io5";
 import { LiaShoppingBagSolid } from "react-icons/lia";
-import { RxHeart, RxHeartFilled } from "react-icons/rx";
-import { TbWorldSearch } from "react-icons/tb";
-import { TiShoppingBag } from "react-icons/ti";
+import { RxHeart } from "react-icons/rx";
 
 const sideNavItems: LinkType[] = [
   {

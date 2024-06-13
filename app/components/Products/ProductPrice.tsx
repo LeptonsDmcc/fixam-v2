@@ -3,15 +3,33 @@
 import currency from "@/app/lib/currency";
 import React from "react";
 
+type TextSizeType = "xs" | "sm" | "base" | "lg" | "xl";
+
 interface Props {
   discount?: number;
   priceLightGray?: boolean;
+  textSize?: TextSizeType;
 }
 
-const ProductPrice = ({ priceLightGray, discount = 950.0 }: Props) => {
+const ProductPrice = ({
+  priceLightGray,
+  textSize = "base",
+  discount = 950.0,
+}: Props) => {
+  const textSizes: { [key in TextSizeType]: string } = {
+    xs: "text-xs",
+    sm: "text-sm",
+    base: "text-base",
+    lg: "text-lg",
+    xl: "text-xl",
+  };
   return (
     <p>
-      <span className={priceLightGray ? "text-gray-500" : "text-xl mr-1"}>
+      <span
+        className={
+          priceLightGray ? "text-gray-500" : `${textSizes[textSize]}  mr-1"`
+        }
+      >
         {currency()}850.00
       </span>
       {discount ? (
