@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Card from "../Card";
 import ProductPrice from "./ProductPrice";
-import ReviewsRating from "./ReviewsRating";
 import Link from "next/link";
+import ReviewsRating from "../Reviews/ReviewsRating";
 
 const ProductShowcase = () => {
   return (

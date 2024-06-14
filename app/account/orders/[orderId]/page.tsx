@@ -35,6 +35,7 @@ const OrderDetailPage = () => {
       <AccountSpacing />
       <section className="grid grid-cols-2">
         <InfoCard
+          key={12324}
           heading="PAYMENT INFORMATION"
           infoSections={[
             {
@@ -53,6 +54,7 @@ const OrderDetailPage = () => {
         />
 
         <InfoCard
+          key={23443}
           heading="DELIVERY INFORMATION"
           infoSections={[
             {
@@ -60,7 +62,9 @@ const OrderDetailPage = () => {
               paragraphs: [
                 `Patrick Chimezie Chukwudifu Chukwudifu`,
                 `AWKA TOWN, Anambra`,
-                <a href="tel:+234 8167000077">+234 8167000077</a>,
+                <a key={Math.random()} href="tel:+234 8167000077">
+                  +234 8167000077
+                </a>,
               ],
             },
           ]}

@@ -53,7 +53,10 @@ const CustomerReviews = () => {
                   text: "Lovely, just the way it is.",
                 },
               ].map((customer) => (
-                <li className="flex items-center gap-6 my-6 ">
+                <li
+                  key={customer.name}
+                  className="flex items-center gap-6 my-6 "
+                >
                   <div
                     className=" h-10 w-10 rounded-full bg-orange-400 text-white font-semibold
                 flex items-center justify-center "

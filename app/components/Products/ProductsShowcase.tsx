@@ -37,7 +37,7 @@ const ProductsShowcase = ({ title, noSeeAll, withShortDescription }: Props) => {
         "
         >
           {products.map((product, i) => (
-            <div className="scroll-snap-align-start">
+            <div key={i} className="scroll-snap-align-start">
               <ProductShowcase key={i} />
             </div>
           ))}

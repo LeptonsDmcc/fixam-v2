@@ -58,7 +58,7 @@ const MyAccountDropdown = () => {
           </li>
           <Space spacing={"my-2"} />
           {myAccountNavs.map(({ text, to, icon }) => (
-            <li className="py-3">
+            <li key={text} className="py-3">
               <Link
                 href={to}
                 className="flex gap-2 items-center hover:text-orange-400 duration-200"

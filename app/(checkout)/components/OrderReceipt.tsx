@@ -35,7 +35,7 @@ const OrderReceipt = () => {
         <FormSpacing />
         <HR />
         {[1, 2, 3].map((item) => (
-          <Fragment>
+          <Fragment key={item}>
             <FormSpacing />
             <OrderSummaryItem isReceipt />
             <FormSpacing />

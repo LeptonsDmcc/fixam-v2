@@ -9,6 +9,7 @@ const TestingPage = () => {
       <Carousel>
         {[1, 2, 3].map((c) => (
           <Image
+            key={c}
             height={400}
             width={1400}
             className="min-w-full max-h-[450px] object-cover"

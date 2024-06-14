@@ -24,8 +24,8 @@ const FixAdPremium = () => {
         <Space spacing="my-3" />
         <p className="max-w-[720px]">
           Explore our 40% off section and enjoy fantastic discounts on a wide
-          range of products. From fashion essentials to home appliances, there's
-          something for everyone at unbeatable prices.
+          range of products. From fashion essentials to home appliances,
+          there&apos;s something for everyone at unbeatable prices.
         </p>
         <Space spacing="my-3" />
         <Button>Love</Button>

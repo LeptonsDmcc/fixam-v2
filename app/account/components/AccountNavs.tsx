@@ -37,7 +37,7 @@ const AccountNavs = () => {
       <Card elementType="section" removePadding>
         <ul className="pb-1">
           {sideNavItems.map(({ text, to, icon }) => (
-            <li className="mb-6 ">
+            <li key={text} className="mb-6 ">
               <NavLink
                 className="py-3 pl-12 flex items-center gap-4"
                 activeClassName={`bg-orange-100`}

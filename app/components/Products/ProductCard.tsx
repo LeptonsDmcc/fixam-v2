@@ -9,7 +9,7 @@ import AddToCartButton from "../Buttons/AddToCartButton";
 import BuyNowButton from "../Buttons/BuyNowButton";
 import Space from "../Spacing/Space";
 import ProductPrice from "./ProductPrice";
-import ReviewsRating from "./ReviewsRating";
+import ReviewsRating from "../Reviews/ReviewsRating";
 
 const ProductCard = () => {
   const pathname = usePathname();

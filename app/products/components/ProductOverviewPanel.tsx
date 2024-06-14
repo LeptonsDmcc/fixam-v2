@@ -30,16 +30,18 @@ const ProductOverviewPanel = () => {
       });
     }, options);
 
-    if (descriptionRef.current) observer.observe(descriptionRef.current);
-    if (customerReviewsRef.current)
-      observer.observe(customerReviewsRef.current);
-    if (warrantyRef.current) observer.observe(warrantyRef.current);
+    const descriptionRefCur = descriptionRef.current;
+    const customerReviewsRefCur = customerReviewsRef.current;
+    const warrantyRefCur = warrantyRef.current;
+
+    if (descriptionRefCur) observer.observe(descriptionRefCur);
+    if (customerReviewsRefCur) observer.observe(customerReviewsRefCur);
+    if (warrantyRefCur) observer.observe(warrantyRefCur);
 
     return () => {
-      if (descriptionRef.current) observer.unobserve(descriptionRef.current);
-      if (customerReviewsRef.current)
-        observer.unobserve(customerReviewsRef.current);
-      if (warrantyRef.current) observer.unobserve(warrantyRef.current);
+      if (descriptionRefCur) observer.unobserve(descriptionRefCur);
+      if (customerReviewsRefCur) observer.unobserve(customerReviewsRefCur);
+      if (warrantyRefCur) observer.unobserve(warrantyRefCur);
     };
   }, []);
 

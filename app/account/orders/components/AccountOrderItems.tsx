@@ -1,6 +1,6 @@
-import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
-import AccountOrderItem, { StausType } from "./AccountOrderItem";
+import { StausType } from "@/app/components/Displays/StatusDisplay";
 import { Fragment } from "react";
+import AccountOrderItem from "./AccountOrderItem";
 
 interface Props {
   items: { status: StausType }[];
@@ -8,30 +8,9 @@ interface Props {
 
 const AccountOrderItems = ({ items }: Props) => {
   return (
-    // TODO: DESIGN 1
-    // <div className="">
-    //   <AccountOrderItem status="delivered" />
-    //   <AccountSpacing />
-    //   <AccountOrderItem status="delivered" />
-    //   <AccountSpacing />
-    //   <AccountOrderItem status="pending" />
-    //   <AccountSpacing />
-    //   <AccountOrderItem status="delivered" />
-    // </div>
-    // TODO: DESIGN 2
-    // <div className="">
-    //   <AccountOrderItem status="delivered" />
-    //   <AccountSpacing />
-    //   <AccountOrderItem status="delivered" />
-    //   <AccountOrderItem status="pending" />
-    //   <AccountSpacing />
-    //   <AccountOrderItem status="delivered" />
-    // </div>
-    // TODO: DESIGN 3
-
     <div className=" grid grid-cols-2 gap-4">
-      {items.map((item, index) => (
-        <Fragment key={index}>
+      {items.map((item) => (
+        <Fragment key={item.status}>
           <AccountOrderItem status={item.status} />
         </Fragment>
       ))}

@@ -19,7 +19,7 @@ const FooterMenu = ({ title, menus }: Props) => {
       <Space spacing="my-[36px]" />
       <ul>
         {menus.map(({ to, text }) => (
-          <li className="text-gray-300 my-6">
+          <li key={text} className="text-gray-300 my-6">
             <Link href={to}>{text}</Link>
           </li>
         ))}

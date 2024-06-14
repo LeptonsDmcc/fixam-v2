@@ -9,7 +9,7 @@ const HeaderTopActions = () => {
         transition-colors duration-200 hover:text-gray-700"
       >
         <option value="ngn">{currency()}</option>
-        <option value="usd">{currency("USD")}</option>
+        <option value="usd">{currency({ currency: "USD" })}</option>
       </select>
     </div>
   );
