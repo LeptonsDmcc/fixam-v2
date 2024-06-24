@@ -1,16 +1,15 @@
 "use client";
 
-import { RefObject, useRef, useState } from "react";
 import currency from "../../lib/currency";
-import SliderItem from "../Sliders/SlideItem";
 import Carousel from "../Carousel/Carousel";
+import SliderItem from "../Sliders/SlideItem";
 
 export type NextPrevType = "NEXT" | "PREV";
 export type ScrollType = { nextPrev?: NextPrevType; to?: number };
 
 const HomeBanners = () => {
   return (
-    <div className="my-8 lg:mt-0">
+    <div className="md:my-8 lg:mt-0">
       <div>
         <Carousel withPrevNext>
           <SliderItem
