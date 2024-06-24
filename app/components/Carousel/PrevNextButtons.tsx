@@ -14,8 +14,8 @@ const PrevNextButtons = ({
   leftRightPos = "36",
 }: Props) => {
   const pos = {
-    6: "left-6 right-6",
-    36: "left-36 right-36",
+    6: " md:left-6 md:right-6",
+    36: "left-6 right-6 md:left-36 md:right-36",
   };
 
   return (

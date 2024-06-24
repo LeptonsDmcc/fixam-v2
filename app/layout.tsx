@@ -5,6 +5,7 @@ import AppHeader from "./AppHeader/AppHeader";
 import AuthPageChecker from "./components/AuthPageChecker";
 import Footer from "./components/Footer/Footer";
 import "./globals.css";
+import MobileBottomNav from "./components/Navigations/MobileBottomNav";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
@@ -34,6 +35,7 @@ export default function RootLayout({
         <AuthPageChecker component={<AppHeader />} />
         <main>{children}</main>
         <AuthPageChecker component={<Footer />} />
+        <MobileBottomNav />
       </body>
     </html>
   );

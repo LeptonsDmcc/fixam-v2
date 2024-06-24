@@ -9,7 +9,10 @@ import FooterHelp from "./FooterHelp";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 py-16">
+    <footer
+      className="bg-gray-900 py-16 hidden
+    md:block"
+    >
       <Wrapper>
         <div className="flex justify-between  gap-24">
           <div className="w-[363px]">

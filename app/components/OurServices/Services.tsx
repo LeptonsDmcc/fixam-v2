@@ -26,7 +26,7 @@ const services = [
 ];
 const Services = () => {
   return (
-    <section className="flex gap-4">
+    <section className="hidden md:flex gap-4">
       {services.map(({ name, description, image }) => (
         <ServiceItem
           key={name}

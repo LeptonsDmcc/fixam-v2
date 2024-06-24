@@ -14,7 +14,7 @@ interface Props {
 
 const CategoryNavigations = ({ heading, isCollapsible, isTop }: Props) => {
   return (
-    <nav className="relative z-10 h-max group">
+    <nav className="relative z-10 h-max group hidden md:block">
       {isTop && (
         <IconHolder>
           <IoIosMenu size={28} />

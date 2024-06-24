@@ -1,8 +1,9 @@
+import { SearchNormal } from "iconsax-react";
 import { IoSearchOutline } from "react-icons/io5";
 
 const SearchInput = () => {
   return (
-    <div className="min-w-[300px] relative flex-grow">
+    <div className="min-w-full md:min-w-[300px] relative flex-grow">
       <input
         type="search"
         name="search"
@@ -11,10 +12,10 @@ const SearchInput = () => {
         placeholder="Search for your product here"
       />
       <button
-        className="bg-white absolute top-1/2 -translate-y-1/2 left-1
-            text-gray-500 text-[24px] py-[8px] px-[15px] rounded-md "
+        className=" absolute top-1/2 -translate-y-1/2 left-1
+            text-gray-500 text-[24px] py-[8px] px-[15px] rounded-md"
       >
-        <IoSearchOutline className="hover:text-orange-400 transition duration-200" />
+        <SearchNormal className="hover:text-orange-400 transition duration-200" />
       </button>
     </div>
   );
