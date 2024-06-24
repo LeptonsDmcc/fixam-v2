@@ -7,9 +7,6 @@ interface Props {
 const BorderedOrangeButton = ({ full, children }: PropsWithChildren<Props>) => {
   return (
     <button
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
       className={`${
         full ? "w-full text-orange-400" : "w-36 text-white"
       } h-12 text-sm flex items-center gap-1 justify-center
