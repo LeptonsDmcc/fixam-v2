@@ -21,9 +21,9 @@ const BannerContent = ({ title, text }: Props) => {
         <div className="flex justify-center">
           <Heading
             variant="h3"
-            styles="banner-title 
+            styles="banner-title h-20 
               text-white font-semibold md:text-4xl/[48px] mb-[10px]
-              md:w-[70%] text-center"
+              md:w-[70%] text-center md:md:h-20"
           >
             {title}
           </Heading>
@@ -34,7 +34,7 @@ const BannerContent = ({ title, text }: Props) => {
         <p
           className="banner-text hidden
           text-white font-semibold m-auto text-xl/10
-            sm:block sm:text-base sm:font-medium sm:mb-[10px]
+            md:block md:text-base md:font-medium md:mb-[10px] md:h-20
             md:w-[60%]"
         >
           {text}

@@ -30,7 +30,7 @@ const Carousel = ({
 
   const pos = {
     6: "bottom-6",
-    16: "bottom-16",
+    16: "bottom-6 md:bottom-16",
   };
 
   useEffect(() => {
