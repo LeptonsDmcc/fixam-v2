@@ -11,7 +11,7 @@ const CustomerReviews = () => {
       <ProductTitleBar title="Customer Reviews" noSeeAll />
       <section className="flex flex-col md:flex-row gap-5">
         <section className=" min-w-[50%]">
-          <section className="flex">
+          <section className="flex ">
             <div className=" min-w-[50%]">
               <header className="flex items-center gap-4">
                 <p className=" text-[5.6rem]">4.5</p>
@@ -46,7 +46,7 @@ const CustomerReviews = () => {
               {[
                 {
                   name: "Abdul Kareem Adamu",
-                  text: "Exactly what i ordered for us what i get, so love konga right now.",
+                  text: "Exactly what i ordered.",
                 },
                 {
                   name: "Patrick Chukwudifu",
@@ -55,24 +55,24 @@ const CustomerReviews = () => {
               ].map((customer) => (
                 <li
                   key={customer.name}
-                  className="flex items-center gap-6 my-6 "
+                  className="flex items-center my-6 md:gap-6 gap-1"
                 >
                   <div
-                    className=" h-10 w-10 rounded-full bg-orange-400 text-white font-semibold
-                flex items-center justify-center "
+                    className=" min-h-10 min-w-10 h-10 w-10 rounded-full bg-orange-400 text-white 
+                    font-semibold flex items-center justify-center "
                   >
                     {customer.name[0]}
                   </div>
-                  <div className=" text-xs">
+                  <div className="min-w-[50%] text-xs">
                     <p>{customer.name}</p>
                     <Space spacing=" my-2" />
                     <p className="text-gray-400">October, 1 2024</p>
                   </div>
 
-                  <div className=" text-xs ">
+                  <div className="min-w-[50%] text-xs ">
                     <ShowcaseRating />
                     <Space spacing=" my-2" />
-                    <p>{customer.text}</p>
+                    <p className="">{customer.text}</p>
                   </div>
                 </li>
               ))}
