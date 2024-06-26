@@ -11,7 +11,10 @@ import CategoryNavigations from "../components/Navigations/CategoryNavigations";
 
 const HeaderMain = () => {
   return (
-    <header className="py-6 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-50">
+    <header
+      className="py-3 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-50
+    md:py-6"
+    >
       <div
         className="wrapper flex-col gap-4 flex 
         md:justify-between md:items-center 
@@ -21,7 +24,7 @@ const HeaderMain = () => {
           <Link href="/">
             <Image
               src="/assets/fixamlogo-b.png"
-              className="opacity-80 w-16 
+              className="opacity-80 w-12 md:w-16 
               md:m-auto"
               alt="Fixam's logo"
               width={70}

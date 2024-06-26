@@ -12,9 +12,9 @@ const CustomerReviews = () => {
       <section className="flex flex-col md:flex-row gap-5">
         <section className=" min-w-[50%]">
           <section className="flex ">
-            <div className=" min-w-[50%]">
+            <div className="min-w-[40%] md:min-w-[50%] min-h-[170px] md:min-h-max">
               <header className="flex items-center gap-4">
-                <p className=" text-[5.6rem]">4.5</p>
+                <p className="text-[2.2rem] md:text-[5.6rem]">4.5</p>
                 <p>out of 5</p>
               </header>
               <div>
@@ -23,7 +23,7 @@ const CustomerReviews = () => {
                 <p>2 reviews</p>
               </div>
             </div>
-            <div className=" min-w-[50%]">
+            <div className="min-w-[60%] md:min-w-[50%]">
               <div className=" flex flex-col justify-between h-full">
                 {[1, 2, 3, 4, 5].reverse().map((v, i) => (
                   <div key={i} className="flex items-center gap-2">
@@ -46,7 +46,7 @@ const CustomerReviews = () => {
               {[
                 {
                   name: "Abdul Kareem Adamu",
-                  text: "Exactly what i ordered.",
+                  text: "Exactly what i ordered for us what i get, so love konga right now.",
                 },
                 {
                   name: "Patrick Chukwudifu",
@@ -55,24 +55,31 @@ const CustomerReviews = () => {
               ].map((customer) => (
                 <li
                   key={customer.name}
-                  className="flex items-center my-6 md:gap-6 gap-1"
+                  className="flex items-center my-6 gap-1
+                  md:gap-6"
                 >
                   <div
-                    className=" min-h-10 min-w-10 h-10 w-10 rounded-full bg-orange-400 text-white 
-                    font-semibold flex items-center justify-center "
+                    className=" min-h-10 min-w-10 h-10 w-10 rounded-full bg-orange-400 
+                    text-white font-semibold flex items-center justify-center"
                   >
                     {customer.name[0]}
                   </div>
-                  <div className="min-w-[50%] text-xs">
+
+                  <div className="min-w-[calc(50%-2.5rem)] text-xs">
                     <p>{customer.name}</p>
                     <Space spacing=" my-2" />
                     <p className="text-gray-400">October, 1 2024</p>
                   </div>
 
-                  <div className="min-w-[50%] text-xs ">
+                  <div
+                    className="min-w-[calc(50%-2.5rem)] max-w-[calc(50%-2.5rem)] 
+                  w-[calc(50%-2.5rem)] text-xs"
+                  >
                     <ShowcaseRating />
                     <Space spacing=" my-2" />
-                    <p className="">{customer.text}</p>
+                    <p className="overflow-hidden line-clamp-2">
+                      {customer.text}
+                    </p>
                   </div>
                 </li>
               ))}
