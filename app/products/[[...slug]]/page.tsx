@@ -1,16 +1,14 @@
-import Footer from "@/app/components/Footer/Footer";
-import Space from "@/app/components/Spacing/Space";
+import BrandPartners from "@/app/components/BrandPartners";
+import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
+import SubCategories from "@/app/components/Categories/SubCategories";
+import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
+import ProductCarousel from "@/app/components/Products/ProductCarousel";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import Wrapper from "@/app/components/Wrapper";
 import capitalize from "@/app/lib/capitalize";
 import { Metadata, ResolvingMetadata } from "next";
 import ProductCategories from "../components/ProductCategories";
 import ProductDetail from "../components/ProductDetail";
-import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
-import Wrapper from "@/app/components/Wrapper";
-import SubCategories from "@/app/components/Categories/SubCategories";
-import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
-import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
-import LatestProducts from "@/app/components/Products/LatestProducts";
-import BrandPartners from "@/app/components/BrandPartners";
 
 interface Props {
   params: { slug: string[] };
@@ -79,17 +77,17 @@ const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
             <ProductCategories
               dealFor={decodeURIComponent(slug.at(-1) || "")}
             />
+            <SectionSpacing />
+            <FixAdPremium />
+            <SectionSpacing />
+            <ProductCarousel title="Latest Products" />
+            <SectionSpacing />
+            <BrandPartners />
           </>
         )}
-
-        <SectionSpacing />
-        <FixAdPremium />
-        <SectionSpacing />
-        <LatestProducts size={4} />
-        <SectionSpacing />
-        <BrandPartners />
       </Wrapper>
       <SectionSpacing />
+      <div className="my-20 md:hidden"></div>
     </main>
   );
 };

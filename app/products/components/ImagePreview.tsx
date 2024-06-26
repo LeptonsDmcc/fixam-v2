@@ -3,6 +3,7 @@ import Carousel from "@/app/components/Carousel/Carousel";
 import Image from "next/image";
 import Space from "@/app/components/Spacing/Space";
 import { useEffect, useState } from "react";
+import AddFavoriteButton from "@/app/components/Buttons/AddFavoriteButton";
 
 const images = [
   {
@@ -42,8 +43,11 @@ const ImagePreview = () => {
   };
 
   return (
-    <section className="max-w-[620px]">
-      <section className="border rounded-lg">
+    <section className="max-w-[620px] relative">
+      <div className="absolute top-3 right-3 z-10">
+        <AddFavoriteButton isFavorited={false} />
+      </div>
+      <section className="border rounded-lg ">
         <Carousel
           activeIndex={activeIndex}
           withPrevNext
@@ -66,7 +70,7 @@ const ImagePreview = () => {
         </Carousel>
       </section>
       <Space spacing="my-12" />
-      <section className="flex justify-between items-center">
+      <section className="flex justify-between items-center gap-4">
         {images.map(({ src, alt }, i) => (
           <Image
             key={src}
@@ -76,7 +80,8 @@ const ImagePreview = () => {
             height={140}
             className={`${
               i === activeIndex ? " border-orange-400" : ""
-            } rounded-lg border`}
+            } rounded-lg border
+            w-24 md:w-[140px]`}
             onClick={() => {
               setActiveIndex(i);
             }}

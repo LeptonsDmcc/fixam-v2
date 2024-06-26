@@ -9,7 +9,7 @@ const CustomerReviews = () => {
   return (
     <section>
       <ProductTitleBar title="Customer Reviews" noSeeAll />
-      <section className="flex gap-5">
+      <section className="flex flex-col md:flex-row gap-5">
         <section className=" min-w-[50%]">
           <section className="flex">
             <div className=" min-w-[50%]">

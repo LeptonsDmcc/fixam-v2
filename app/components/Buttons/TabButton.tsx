@@ -12,7 +12,8 @@ const TabButton = ({
   return (
     <button
       onClick={onClick}
-      className={`${isActive && "font-semibold"} hover:font-semibold`}
+      className={`${isActive && "font-semibold"} hover:font-semibold
+      text-sm md:text-base`}
     >
       {children}
     </button>

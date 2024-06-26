@@ -51,7 +51,6 @@ const ProductInfo = () => {
           <ProductInfoSpace />
           <AddToCartButton full />
         </div>
-        <AddFavoriteButton isFavorited={false} />
       </section>
       <ProductInfoSpace />
       <section>

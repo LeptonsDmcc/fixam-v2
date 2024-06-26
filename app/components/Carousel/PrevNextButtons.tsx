@@ -14,13 +14,14 @@ const PrevNextButtons = ({
   leftRightPos = "36",
 }: Props) => {
   const pos = {
-    6: " md:left-6 md:right-6",
+    6: "left-6 right-6",
     36: "left-6 right-6 md:left-36 md:right-36",
   };
 
   return (
     <div
-      className={`${pos[leftRightPos]} absolute top-1/2 -translate-y-1/2  flex justify-between`}
+      className={`${pos[leftRightPos]} absolute top-1/2 -translate-y-1/2  
+      flex justify-between`}
     >
       <button
         onClick={onPreviousClick}

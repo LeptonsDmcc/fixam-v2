@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <HomeBanners />
-      <Space spacing="md:my-20" />
+      <SectionSpacing />
       <Wrapper>
         <SubCategories />
         <SectionSpacing />
@@ -30,11 +30,9 @@ export default function Home() {
           </Grid>
         </div>
         <SectionSpacing />
-
         <div className="hidden md:block">
           <ProductsShowcase title="Recommended for you" withShortDescription />
         </div>
-
         <div className="block md:hidden">
           <ProductCarousel title="Recommended for you" />
         </div>
