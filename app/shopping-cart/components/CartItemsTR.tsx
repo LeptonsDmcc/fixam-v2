@@ -1,7 +1,5 @@
-import CartItemTR from "./CartItemTR";
-import Space from "@/app/components/Spacing/Space";
-import HR from "@/app/components/HR";
 import { Fragment } from "react";
+import CartItemTR from "./CartItemTR";
 
 const items = [1, 2];
 const CartItemsTR = () => {

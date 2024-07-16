@@ -6,12 +6,22 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 const CartItemTR = () => {
   return (
-    <tr className="flex justify-between w-full items-center py-12 last-of-type:border-b-0 border-b">
-      <td className="flex items-center flex-grow">
+    <tr
+      className="flex justify-between w-full items-center py-6  
+    last-of-type:border-b-0 border-b flex-wrap
+    md:py-12"
+    >
+      <td
+        className="flex items-center w-1/3 
+      md:flex-grow md:w-auto"
+      >
         <>
           {/* <Checkbox /> */}
           <div className="flex items-center gap-3">
-            <div className="ml-2">
+            <div
+              className="ml-2 hidden
+             md:block"
+            >
               <Image
                 src="/assets/products/watch-1.jpg"
                 alt=""
@@ -32,15 +42,21 @@ const CartItemTR = () => {
         </>
       </td>
 
-      <td className="w-[22.5%]">
-        <ProductPrice discount={0} />
+      <td
+        className="w-1/3 md:w-[22.5%] text-center
+      md:text-left"
+      >
+        <ProductPrice discount={0} textSize="sm" />
       </td>
 
-      <td className="w-[22.5%]">
+      <td className="w-1/3 md:w-[22.5%]">
         <ProductQuantity />
       </td>
 
-      <td className=" w-[5%]">
+      <td
+        className="w-full flex justify-end mt-6
+      md:w-[5%] md:block md:mt-0"
+      >
         <RiDeleteBin6Line className=" cursor-pointer text-red-500" />
       </td>
     </tr>

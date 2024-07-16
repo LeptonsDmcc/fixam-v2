@@ -5,7 +5,7 @@ const ProductQuantity = ({ circled }: Props) => {
   return (
     <section
       className={`${
-        circled ? "gap-2 w-36" : "rounded-xl border w-32"
+        circled ? "gap-2 w-36" : "rounded-xl border min-w-20 md:w-32"
       } flex items-center h-12 font-semibold`}
     >
       <button

@@ -18,7 +18,7 @@ const ProductPrice = ({
 }: Props) => {
   const textSizes: { [key in TextSizeType]: string } = {
     xs: "text-xs",
-    sm: "text-sm",
+    sm: "text-xs md:text-sm",
     base: "text-base",
     lg: "text-lg",
     xl: "text-xl",
