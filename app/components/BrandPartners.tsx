@@ -11,7 +11,10 @@ const BrandPartners = () => {
         </Heading>
       </header>
       <Space spacing={"my-6"} />
-      <section className="flex justify-between">
+      <section
+        className="grid grid-cols-3 gap-5
+      lg:flex lg:justify-between"
+      >
         {[1, 2, 3, 4, 5, 6].map((b) => (
           <Image
             key={b}

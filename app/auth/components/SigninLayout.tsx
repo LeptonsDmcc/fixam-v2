@@ -5,6 +5,7 @@ import { PropsWithChildren } from "react";
 
 import fixAuthSideImage1 from "@/public/assets/fix-auth-side-image1.png";
 import fixAuthSideImage2 from "@/public/assets/fix-auth-side-image2.jpg";
+import Logo from "@/app/components/Logo";
 
 interface Props {
   swap?: boolean;
@@ -26,6 +27,7 @@ const SigninLayout = ({ children, swap }: PropsWithChildren<Props>) => {
       <div className={`${swap && " order-1"}  w-1/2 `}>
         <div className={`${swap ? "left-0" : "right-0"} fixed top-0 bottom-0 `}>
           <Link href="/">
+            {/* <Logo /> */}
             <Image
               src="/assets/fixamlogo-b.png"
               alt="fixam logo"

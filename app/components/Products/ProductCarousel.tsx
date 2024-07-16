@@ -24,12 +24,7 @@ interface Props {
   inDealOfTheDay?: boolean;
 }
 
-const ProductCarousel = ({
-  title,
-  noSeeAll,
-  inDealOfTheDay,
-  withShortDescription,
-}: Props) => {
+const ProductCarousel = ({ title, noSeeAll, inDealOfTheDay }: Props) => {
   return (
     <div>
       <ProductTitleBar title={title} noSeeAll={noSeeAll} />

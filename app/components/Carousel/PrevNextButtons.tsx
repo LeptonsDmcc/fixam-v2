@@ -20,8 +20,9 @@ const PrevNextButtons = ({
 
   return (
     <div
-      className={`${pos[leftRightPos]} absolute top-1/2 -translate-y-1/2  
-      flex justify-between`}
+      className={`${pos[leftRightPos]} hidden absolute top-1/2 -translate-y-1/2  
+       justify-between
+       lg:flex`}
     >
       <button
         onClick={onPreviousClick}

@@ -3,11 +3,12 @@ import CategoryImage from "./CategoryImage";
 const SubCategories = () => {
   return (
     <section
-      className="flex gap-4 relative 
+      className="hidden gap-4 relative 
       overflow-x-auto has-scrollbar 
       scroll-snap-type-inline-mandatory
       overscroll-behavior-inline-contain
-      md:gap-[3.2rem]"
+
+      md:gap-[3.2rem] md:flex"
     >
       {Array.from({ length: 10 }).map((_, i) => (
         <div key={i} className="scroll-snap-align-start">

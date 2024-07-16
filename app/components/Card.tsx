@@ -14,7 +14,7 @@ const Card = ({
   borderedCard,
 }: PropsWithChildren<Props>) => {
   const baseStyles = `${
-    borderedCard ? "border" : "shadow-10-01"
+    borderedCard ? "border" : "lg:shadow-10-01"
   }  rounded-md bg-gray-white ${!removePadding && "p-3"}`;
 
   switch (elementType) {

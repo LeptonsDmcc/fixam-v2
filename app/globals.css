@@ -6,6 +6,7 @@
     box-sizing: border-box;
   }
 
+  
   /* In your CSS file or <style> tag */
 .input-radio:checked + label > div {
   @apply opacity-100;
@@ -30,10 +31,15 @@
   }
 
   .grid-cat-showcase {
-    display: grid;
-    grid-template-columns: minmax(265px, 295px) minmax(100px, 1fr);  
+    grid-template-columns:100%;  
   }
   
+  @media (min-width: 768px) {
+    .grid-cat-showcase {
+      display: grid;
+      grid-template-columns: minmax(265px, 295px) minmax(100px, 1fr);  
+    }
+  }
   .desktop-menu-category-list .menu-category:not(:nth-child(2)) { position: relative; }
 
   .mobile-bottom-nav-shadow {

@@ -28,6 +28,7 @@ const Carousel = ({
 }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(activeIndex || 0);
 
+  // Nav button positions
   const pos = {
     6: "bottom-6",
     16: "bottom-6 md:bottom-16",

@@ -80,8 +80,8 @@ const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
             <SectionSpacing />
             <FixAdPremium />
             <SectionSpacing />
-            <ProductCarousel title="Latest Products" />
-            <SectionSpacing />
+            {/* <ProductCarousel title="Latest Products" /> */}
+            {/* <SectionSpacing /> */}
             <BrandPartners />
           </>
         )}

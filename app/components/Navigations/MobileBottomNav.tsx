@@ -3,6 +3,8 @@
 import useNavStore from "@/app/store copy/nav-store";
 import { Category, Crown1, Heart, Home } from "iconsax-react";
 import ActionButton from "../Buttons/ActionButton";
+import MobileCategoryNavigation from "./MobileCategoryNavigation";
+import CategoryMenuTrigger from "./CategoryMenuTrigger";
 
 const MobileBottomNav = () => {
   const { showMenu, showSidebar } = useNavStore();
@@ -34,13 +36,7 @@ const MobileBottomNav = () => {
           <p className="text-xs">Favorites</p>
         </div>
       </ActionButton>
-
-      <ActionButton onClick={showMenu} isMobile>
-        <div className="flex flex-col items-center justify-center">
-          <Category />
-          <p className="text-xs">Categories</p>
-        </div>
-      </ActionButton>
+      <CategoryMenuTrigger />
     </div>
   );
 };

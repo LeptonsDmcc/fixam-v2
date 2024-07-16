@@ -1,18 +1,18 @@
-import { HambergerMenu, ShoppingCart } from "iconsax-react";
-import Image from "next/image";
 import Link from "next/link";
 import ActionButton from "../components/Buttons/ActionButton";
 import Button from "../components/Buttons/Button";
 import CartButton from "../components/Buttons/CartButton";
 import QuestionCircleSVGrepoCom from "../components/Icons/svgs/QuestionCircleSVGrepoCom";
 import SearchInput from "../components/Inputs/SearchInput";
+import Logo from "../components/Logo";
 import MyAccountDropdown from "../components/MyAccount/MyAccountDropdown";
 import CategoryNavigations from "../components/Navigations/CategoryNavigations";
+import HamburgerMenuTrigger from "./HamburgerMenuTrigger";
 
 const HeaderMain = () => {
   return (
     <header
-      className="py-3 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-50
+      className="py-3 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-40
     md:py-6"
     >
       <div
@@ -22,26 +22,17 @@ const HeaderMain = () => {
       >
         <header className="flex md:hidden items-center justify-between">
           <Link href="/">
-            <Image
-              src="/assets/fixamlogo-b.png"
-              className="opacity-80 w-12 md:w-16 
-              md:m-auto"
-              alt="Fixam's logo"
-              width={70}
-              height={70}
-            />
+            <Logo />
           </Link>
 
           <div className="flex items-center gap-3">
             <Link href="/shopping-cart" className="flex items-center gap-1">
               <CartButton /> <span>Cart</span>
             </Link>
-            <HambergerMenu />
+            <HamburgerMenuTrigger />
           </div>
         </header>
-
         <CategoryNavigations heading="All Categories" isTop={true} />
-
         <SearchInput />
 
         <div className="lg:flex items-center gap-4 hidden">

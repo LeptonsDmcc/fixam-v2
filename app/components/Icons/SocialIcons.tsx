@@ -1,5 +1,5 @@
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter, FaFacebookF } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import SocialIcon from "./SocialIcon";
 
 const icons = [
@@ -7,9 +7,17 @@ const icons = [
   <FaInstagram key="2" />,
   <FaXTwitter key="3" />,
 ];
-const SocialIcons = () => {
+
+interface Props {
+  isMobile?: boolean;
+}
+const SocialIcons = ({ isMobile }: Props) => {
   return (
-    <ul className="hidden lg:flex items-center gap-1">
+    <ul
+      className={`${
+        isMobile ? "flex gap-8" : "hidden"
+      }  lg:flex items-center gap-1"`}
+    >
       {icons.map((icon, index) => (
         <SocialIcon key={index}>{icon}</SocialIcon>
       ))}
