@@ -20,7 +20,7 @@ const ProductDetail = () => {
       <SectionSpacing />
       <ProductOverviewPanel />
       <SectionSpacing />
-      <ProductCarousel title="More items from this seller" />
+      <ProductCarousel title="More items from seller" />
     </Wrapper>
   );
 };

@@ -11,6 +11,7 @@ import Button from "../Buttons/Button";
 import SocialIcons from "../Icons/SocialIcons";
 import SectionSpacing from "../Spacing/SectionSpacing";
 import MobileMenuHeader from "./MobileMenuHeader";
+import DrawerWrapper from "../DrawerWrapper";
 
 const mobileLinks = [
   {
@@ -47,17 +48,12 @@ const mobileLinks = [
 
 interface Props {
   onCloseMenu?: () => void;
-  showMenu?: boolean;
+  showMenu: boolean;
 }
 
 const MobileMenu = ({ onCloseMenu, showMenu }: Props) => {
   return (
-    <nav
-      className={`${
-        showMenu ? "w-full" : "w-0 overflow-hidden"
-      }  h-screen bg-white  duration-300
-        fixed top-0 bottom-0 left-0 right-0 z-50`}
-    >
+    <DrawerWrapper showMenu={showMenu}>
       <div className="px-4 py-6">
         <MobileMenuHeader onCloseMenu={onCloseMenu} />
         <SectionSpacing />
@@ -80,7 +76,7 @@ const MobileMenu = ({ onCloseMenu, showMenu }: Props) => {
           <SocialIcons isMobile />
         </div>
       </div>
-    </nav>
+    </DrawerWrapper>
   );
 };
 

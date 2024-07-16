@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import SectionSpacing from "../Spacing/SectionSpacing";
 import MobileMenuHeader from "./MobileMenuHeader";
 import Link from "next/link";
+import DrawerWrapper from "../DrawerWrapper";
 
 interface Props {
-  showCategory?: boolean;
+  showCategory: boolean;
   onCloseCategory: () => void;
 }
 
@@ -48,12 +49,7 @@ const MobileCategoryNavigation = ({ showCategory, onCloseCategory }: Props) => {
   if (currentIndex >= categories.length) return;
 
   return (
-    <nav
-      className={`${
-        showCategory ? "w-full" : "w-0 overflow-hidden"
-      }  h-screen bg-white  duration-300
-        fixed top-0 bottom-0 left-0 right-0 z-50`}
-    >
+    <DrawerWrapper showMenu={showCategory}>
       <div className="px-4 py-6">
         <MobileMenuHeader onCloseMenu={onCloseCategory} />
         <SectionSpacing />
@@ -91,7 +87,7 @@ const MobileCategoryNavigation = ({ showCategory, onCloseCategory }: Props) => {
           ))}
         </ul>
       </div>
-    </nav>
+    </DrawerWrapper>
   );
 };
 

@@ -12,7 +12,8 @@ import HamburgerMenuTrigger from "./HamburgerMenuTrigger";
 const HeaderMain = () => {
   return (
     <header
-      className="py-3 border-b border-cultured bg-white sticky top-0 right-0 left-0 z-40
+      className="py-3 border-b border-cultured bg-white 
+      sticky top-0 right-0 left-0 z-[39]
     md:py-6"
     >
       <div
