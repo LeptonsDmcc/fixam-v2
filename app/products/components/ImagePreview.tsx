@@ -81,7 +81,7 @@ const ImagePreview = () => {
             className={`${
               i === activeIndex ? " border-orange-400" : ""
             } rounded-lg border
-            min-w-24 md:w-[140px]`}
+            min-w-16 md:w-[140px]`}
             onClick={() => {
               setActiveIndex(i);
             }}

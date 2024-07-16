@@ -13,9 +13,9 @@ const MobileBottomNav = () => {
       <div
         className="mobile-bottom-navigation
       mobile-bottom-nav-shadow
-    bg-white fixed bottom-0  w-full left-0 right-0 
-    max-w-[500px] m-auto flex justify-around items-center py-[5px]
-    z-[39] rounded-t-[10px] "
+      bg-white fixed bottom-0  w-full left-0 right-0 
+      max-w-[500px] m-auto flex justify-around items-center py-[5px]
+      z-[30] rounded-t-[10px] "
       >
         <ActionButton isMobile styles=" text-orange-400">
           <div className="flex flex-col items-center justify-center">
