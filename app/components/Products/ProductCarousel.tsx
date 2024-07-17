@@ -18,16 +18,21 @@ const products = [
 ];
 
 interface Props {
-  title: string;
+  title?: string;
   withShortDescription?: boolean;
   noSeeAll?: boolean;
   inDealOfTheDay?: boolean;
+  href?: string;
 }
 
-const ProductCarousel = ({ title, noSeeAll, inDealOfTheDay }: Props) => {
+const ProductCarousel = ({ title, noSeeAll, href, inDealOfTheDay }: Props) => {
   return (
     <div>
-      <ProductTitleBar title={title} noSeeAll={noSeeAll} />
+      <ProductTitleBar
+        title={title || ""}
+        noSeeAll={noSeeAll}
+        href={href || ""}
+      />
       <article
         className="flex gap-6 overflow-x-auto has-scrollbar 
         scroll-snap-type-inline-mandatory

@@ -1,14 +1,12 @@
-import Card from "@/app/components/Card";
+import CustomerAddressList from "@/app/(checkout)/components/CustomerAddressList";
+import TextButtonWithIcon from "@/app/components/Buttons/TextButtonWithIcon";
 import Heading from "@/app/components/Heading";
 import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
+import { ROUTES } from "@/app/lib/contants";
+import Link from "next/link";
+import { FaPlus } from "react-icons/fa";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import AccountHeader from "../components/AccountHeader";
-import CustomerAddressList from "@/app/(checkout)/components/CustomerAddressList";
-import Button from "@/app/components/Buttons/Button";
-import { FaPlus } from "react-icons/fa";
-import TextButtonWithIcon from "@/app/components/Buttons/TextButtonWithIcon";
-import Link from "next/link";
-import { ROUTES } from "@/app/lib/contants";
 
 const ProfilePage = () => {
   return (
@@ -23,7 +21,10 @@ const ProfilePage = () => {
         </div>
       </section>
       <AccountSpacing />
-      <section className="rounded-md p-6">
+      <section
+        className="rounded-md 
+      lg:p-6"
+      >
         <header>
           <Heading variant="h4" bold>
             Shipping Information

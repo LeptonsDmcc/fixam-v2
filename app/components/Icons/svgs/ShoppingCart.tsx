@@ -6,7 +6,7 @@ interface Props {
   color: ShoppingCartColorType;
 }
 
-const ShoppingCart = ({ color }: Props) => {
+const MyShoppingCart = ({ color }: Props) => {
   const colors: { [key in ShoppingCartColorType]: string } = {
     orange: "#FB923C",
     white: "white",
@@ -57,4 +57,4 @@ const ShoppingCart = ({ color }: Props) => {
   );
 };
 
-export default ShoppingCart;
+export default MyShoppingCart;

@@ -12,7 +12,7 @@ const FixAdPremium = () => {
       <div
         className="flex flex-col justify-center
       relative max-w-[1200px] m-auto py-2 px-6 text-center
-      md:px-0"
+      lg:px-0 lg:text-left"
       >
         <Image
           src="/assets/black-woman.png"

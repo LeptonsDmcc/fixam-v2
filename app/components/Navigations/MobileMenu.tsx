@@ -12,27 +12,28 @@ import SocialIcons from "../Icons/SocialIcons";
 import SectionSpacing from "../Spacing/SectionSpacing";
 import MobileMenuHeader from "./MobileMenuHeader";
 import DrawerWrapper from "../DrawerWrapper";
+import { ROUTES } from "@/app/lib/contants";
 
 const mobileLinks = [
-  {
-    icon: <Bank />,
-    text: "Sell on Fixam",
-    href: "",
-  },
+  // {
+  //   icon: <Bank />,
+  //   text: "Sell on Fixam",
+  //   href: "",
+  // },
   {
     icon: <User />,
     text: "My Account",
-    href: "",
+    href: `${ROUTES.account}/profile`,
   },
   {
     icon: <GlobalSearch />,
     text: "Track Orders",
-    href: "",
+    href: "/order/track",
   },
   {
     icon: <ShoppingBag />,
     text: "Orders",
-    href: "",
+    href: `${ROUTES.account}/orders`,
   },
   {
     icon: <IoIosHelpCircleOutline size={24} />,

@@ -16,7 +16,7 @@ const SocialIcons = ({ isMobile }: Props) => {
     <ul
       className={`${
         isMobile ? "flex gap-8" : "hidden"
-      }  lg:flex items-center gap-1"`}
+      }  lg:flex items-center gap-2`}
     >
       {icons.map((icon, index) => (
         <SocialIcon key={index}>{icon}</SocialIcon>

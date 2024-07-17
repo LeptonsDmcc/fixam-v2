@@ -1,6 +1,8 @@
 import ProductPrice from "@/app/components/Products/ProductPrice";
 import ProductQuantity from "@/app/components/Products/ProductQuantity";
 import Space from "@/app/components/Spacing/Space";
+import TrashBin from "@/app/components/TrashBin";
+import { Trash } from "iconsax-react";
 import Image from "next/image";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -54,10 +56,10 @@ const CartItemTR = () => {
       </td>
 
       <td
-        className="w-full flex justify-end mt-6
+        className="w-full flex justify-end mt-5
       md:w-[5%] md:block md:mt-0"
       >
-        <RiDeleteBin6Line className=" cursor-pointer text-red-500" />
+        <TrashBin />
       </td>
     </tr>
   );

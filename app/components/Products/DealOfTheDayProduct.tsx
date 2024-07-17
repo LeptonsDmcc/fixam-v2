@@ -7,6 +7,7 @@ import Space from "../Spacing/Space";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import Link from "next/link";
 import ProgressBar from "../ProgressIndicators/ProgressBar";
+import { ROUTES } from "@/app/lib/contants";
 
 const DealOfTheDayProduct = () => {
   return (
@@ -14,7 +15,7 @@ const DealOfTheDayProduct = () => {
       <Image src={"/assets/television.png"} alt={""} width={368} height={298} />
       <div className="w-[442px]">
         <Link
-          href={`/products/?p=Brown Grey Designer Luxury Fashion Unisex Sunglasses`}
+          href={`${ROUTES.product}/?p=Brown Grey Designer Luxury Fashion Unisex Sunglasses`}
         >
           <Heading variant={"h4"}>
             <span className="font-semibold">

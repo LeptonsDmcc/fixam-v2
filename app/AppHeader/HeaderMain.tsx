@@ -13,7 +13,7 @@ const HeaderMain = () => {
   return (
     <header
       className="py-3 border-b border-cultured bg-white 
-      sticky top-0 right-0 left-0 z-[39]
+      sticky top-0 right-0 left-0 z-30
     md:py-6"
     >
       <div
@@ -21,7 +21,13 @@ const HeaderMain = () => {
         md:justify-between md:items-center 
         md:gap-8 md:flex-row"
       >
-        <header className="flex md:hidden items-center justify-between">
+        <Link href="/" className="hidden lg:block">
+          <Logo />
+        </Link>
+        <header
+          className="flex items-center justify-between
+        lg:hidden"
+        >
           <Link href="/">
             <Logo />
           </Link>

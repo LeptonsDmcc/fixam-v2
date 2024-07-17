@@ -33,7 +33,7 @@ const AccountOrderItem = ({ status }: Props) => {
           elementType="link"
           href={`${ROUTES.account}/orders/1`}
         >
-          <span className=" text-[10px]">SEE DETAILS</span>
+          <span className="text-[10px]">SEE DETAILS</span>
         </Button>
       </div>
     </section>

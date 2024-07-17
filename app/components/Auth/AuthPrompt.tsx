@@ -6,7 +6,10 @@ import HR from "../HR";
 
 const AuthPrompt = () => {
   return (
-    <section className="bg-white w-[600px]">
+    <section
+      className="bg-white
+      md:w-[600px]"
+    >
       <BorderedOrangeButton full>
         <div className="flex items-center gap-3">
           <FcGoogle size={20} />
@@ -17,7 +20,7 @@ const AuthPrompt = () => {
       <div className="relative">
         <HR />
         <span
-          className="absolute top-1/2  -translate-y-1/2 left-1/2 -translate-x-1/2
+          className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
         p-1 bg-white"
         >
           Or

@@ -5,14 +5,19 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import Image from "next/image";
 import Space from "@/app/components/Spacing/Space";
 import Card from "@/app/components/Card";
+import { Trash } from "iconsax-react";
+import TrashBin from "@/app/components/TrashBin";
 
 const SavedItem = () => {
   return (
     <Card borderedCard styles="flex justify-between w-full items-center">
-      <div className="flex items-center flex-grow">
+      <div
+        className="w-[50%] flex items-center 
+      lg:flex-grow lg:w-auto"
+      >
         <>
           <div className="flex items-center gap-3">
-            <div className="ml-2">
+            <div className="hidden lg:ml-2 lg:block">
               <Image
                 src="/assets/products/watch-1.jpg"
                 alt=""
@@ -37,12 +42,18 @@ const SavedItem = () => {
         <ProductPrice discount={0} />
       </div>
 
-      <div className="w-[22.5%]">
+      <div className="w-[22.5%] hidden lg:block">
         <AddToCartButton />
       </div>
 
-      <div className=" w-[5%]">
-        <RiDeleteBin6Line className=" cursor-pointer text-red-500" />
+      <div
+        className="flex flex-col justify-between items-center h-24 lg:w-[5%]
+      lg:flex-row"
+      >
+        <div className="lg:hidden">
+          <AddToCartButton cartOnly />
+        </div>
+        <TrashBin />
       </div>
     </Card>
   );

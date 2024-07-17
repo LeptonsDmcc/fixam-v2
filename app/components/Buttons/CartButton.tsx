@@ -1,4 +1,4 @@
-import ShoppingCart from "../Icons/svgs/ShoppingCart";
+import MyShoppingCart from "../Icons/svgs/ShoppingCart";
 import ActionButton from "./ActionButton";
 import Count from "./Count";
 
@@ -8,7 +8,7 @@ interface Props {
 const CartButton = ({ isMobile }: Props) => {
   return (
     <ActionButton isMobile={isMobile}>
-      <ShoppingCart color="dark" />
+      <MyShoppingCart color="dark" />
 
       <Count isMobile={isMobile} />
     </ActionButton>

@@ -10,7 +10,7 @@ interface Props {
 const Products = ({ title }: Props) => {
   return (
     <section>
-      <ProductTitleBar title={title || ""} noSeeAll />
+      <ProductTitleBar title={title || ""} noSeeAll href="cls" />
       <Grid cols={3}>
         {[1, 2, 3].map((product) => (
           <ProductCard key={product} />

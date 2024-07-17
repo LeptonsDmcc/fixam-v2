@@ -6,8 +6,8 @@ const Logo = () => {
     <div>
       <Image
         src="/assets/fixamlogo-b.png"
-        className="opacity-80 w-12 md:w-16 
-              md:m-auto"
+        className="opacity-80 w-12 
+        lg:w-16 lg:m-auto"
         alt="Fixam's logo"
         width={70}
         height={70}

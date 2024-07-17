@@ -11,12 +11,14 @@ const Overlay = ({ children }: PropsWithChildren) => {
   if (show)
     return (
       <div
-        className="fixed top-0 bottom-0 right-0 left-0 bg-black/40
-    z-50 flex items-center justify-center"
+        className="fixed top-0 bottom-0 right-0 left-0 bg-black/80
+        z-50 flex items-center justify-center"
       >
-        <div className="bg-white w-max p-8">
+        <div className="bg-white w-max p-8 rounded-lg">
           <header className="flex justify-end">
-            <button onClick={handleClose}>X</button>
+            <button onClick={handleClose} className="font-semibold">
+              X
+            </button>
           </header>
           <Space spacing="my-12" />
           {children}

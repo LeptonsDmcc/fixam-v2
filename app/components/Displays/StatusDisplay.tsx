@@ -15,7 +15,8 @@ const statusStyles: { [key in StausType]: string } = {
 const StatusDisplay = ({ status }: Props) => {
   return (
     <div
-      className={`${statusStyles[status]} italic py-[1px] w-20  items-center justify-center rounded-sm text-[10px]`}
+      className={`${statusStyles[status]} italic py-[1px] w-20  items-center justify-center rounded-sm 
+      lg:text-[10px]`}
     >
       {capitalize(status)}
     </div>

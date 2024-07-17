@@ -4,16 +4,25 @@ import Heading from "@/app/components/Heading";
 import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import Button from "@/app/components/Buttons/Button";
 import BorderedOrangeButton from "@/app/components/Buttons/BorderedOrangeButton";
+import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
+import Link from "next/link";
 
 const OrderSuccess = () => {
   return (
-    <section className="w-[70%] m-auto">
+    <section
+      className=" m-auto
+    lg:w-[70%]"
+    >
       <SectionSpacing />
-      <header className=" text-center px-4">
+      <header
+        className=" text-center 
+      lg:px-4"
+      >
         <Heading variant="h4" bold>
           Thanks for your Order!
         </Heading>
-        <p>
+
+        <p className="my-2">
           Your order confirmation and receipt has been sent to
           chibuzoezeh@yahoo.com
         </p>
@@ -21,10 +30,15 @@ const OrderSuccess = () => {
       <FormSpacing />
       <OrderReceipt />
       <FormSpacing />
-      <div className=" w-[80%] m-auto">
+      <div
+        className="m-auto
+      lg:w-[80%]"
+      >
         <Button full>Continue Shopping</Button>
         <FormSpacing />
-        <BorderedOrangeButton full>Track Order</BorderedOrangeButton>
+        <Link href="/order/track">
+          <BorderedOrangeButton full>Track Order</BorderedOrangeButton>
+        </Link>
       </div>
       <SectionSpacing />
     </section>

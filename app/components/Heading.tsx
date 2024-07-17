@@ -50,7 +50,7 @@ const Heading = ({
         <h4
           className={`${styles} ${
             bold && "font-semibold"
-          } text-gray-800 text-[1.25rem]/[32px]`}
+          } text-gray-800 lg:text-[1.25rem]/[32px]`}
         >
           {children}
         </h4>

@@ -2,15 +2,12 @@ import BrowseCategories from "@/app/components/Categories/BrowseCategories";
 import Filters from "@/app/components/Filters/Filters";
 import Grid from "@/app/components/Grid";
 import Pagination from "@/app/components/Pagination";
-import ProductTopDeals from "@/app/components/Products/ProductTopDeals";
+import ProductCarousel from "@/app/components/Products/ProductCarousel";
 import Products from "@/app/components/Products/Products";
 import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Space from "@/app/components/Spacing/Space";
 import capitalize from "@/app/lib/capitalize";
 import Link from "next/link";
-import SortBy from "./SortBy";
-import ProductCarousel from "@/app/components/Products/ProductCarousel";
-import { Filter } from "iconsax-react";
 import FilterMenuTrigger from "./FilterMenuTrigger";
 
 interface Props {

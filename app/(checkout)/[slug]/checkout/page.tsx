@@ -28,20 +28,28 @@ const CheckoutPage = ({ params: { slug } }: Props) => {
       <Wrapper>
         <CustomerAddressList />
         <SectionSpacing />
-        <section className="flex gap-6">
-          <Card styles="w-[70%] flex justify-center">
+        <section
+          className="flex flex-col gap-6
+        lg:flex-row"
+        >
+          <Card
+            styles=" flex justify-center
+          lg:w-[70%]"
+          >
             <div className="max-w-[513px] py-6">
               <ContactInfoFields />
               <FormSpacing />
               <ShippingAddressFields />
               <FormSpacing />
               <SelectPaymentMethod />
-              <FormSpacing />
-              <Button full>Proceed to Payment</Button>
-              <FormSpacing />
+              <div className=" hidden lg:block">
+                <FormSpacing />
+                <Button full>Proceed to Payment</Button>
+                <FormSpacing />
+              </div>
             </div>
           </Card>
-          <section className="w-[30%]">
+          <section className="lg:w-[30%]">
             <OrderSummary />
           </section>
         </section>

@@ -16,14 +16,16 @@ const OrderSummaryItem = ({ isReceipt }: Props) => {
       />
       <div
         className={`${
-          isReceipt && "flex justify-between flex-grow items-center"
+          isReceipt && "flex justify-between flex-grow items-center flex-wrap"
         }`}
       >
         <div>
           <p className=" text-gray-400 my-1">BINATONE</p>
           <p className="my-1">Rice Master Rice Co.....</p>
         </div>
-        <ProductPrice discount={0} priceLightGray={isReceipt} />
+        <div className="w-full lg:w-auto">
+          <ProductPrice discount={0} priceLightGray={isReceipt} />
+        </div>
       </div>
     </section>
   );

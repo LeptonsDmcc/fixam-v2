@@ -1,9 +1,10 @@
+import { ROUTES } from "@/app/lib/contants";
 import { ArrowLeft, ArrowRight2 } from "iconsax-react";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
+import DrawerWrapper from "../DrawerWrapper";
 import SectionSpacing from "../Spacing/SectionSpacing";
 import MobileMenuHeader from "./MobileMenuHeader";
-import Link from "next/link";
-import DrawerWrapper from "../DrawerWrapper";
 
 interface Props {
   showCategory: boolean;
@@ -73,7 +74,7 @@ const MobileCategoryNavigation = ({ showCategory, onCloseCategory }: Props) => {
             >
               {currentIndex >= categories.length - 1 ? (
                 <Link
-                  href={`/products/${category}`}
+                  href={`/${ROUTES.product}/${category}`}
                   className="flex items-center justify-between"
                 >
                   <span>{category}</span> <ArrowRight2 />

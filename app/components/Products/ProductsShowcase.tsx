@@ -22,13 +22,19 @@ interface Props {
   title: string;
   withShortDescription?: boolean;
   noSeeAll?: boolean;
+  href: string;
 }
 
-const ProductsShowcase = ({ title, noSeeAll, withShortDescription }: Props) => {
+const ProductsShowcase = ({
+  title,
+  noSeeAll,
+  href,
+  withShortDescription,
+}: Props) => {
   if (withShortDescription)
     return (
       <section>
-        <ProductTitleBar title={title} noSeeAll={noSeeAll} />
+        <ProductTitleBar title={title} noSeeAll={noSeeAll} href={href} />
 
         <article
           className="flex gap-6 overflow-x-auto has-scrollbar 
@@ -47,7 +53,7 @@ const ProductsShowcase = ({ title, noSeeAll, withShortDescription }: Props) => {
 
   return (
     <section>
-      <ProductTitleBar title={title} noSeeAll={noSeeAll} />
+      <ProductTitleBar title={title} noSeeAll={noSeeAll} href={href} />
       <Space spacing="my-4" />
       <section
         className="flex gap-6 overflow-x-auto has-scrollbar 

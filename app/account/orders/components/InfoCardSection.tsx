@@ -9,7 +9,9 @@ interface Props {
 const InfoCardSection = ({ heading, paragraphs }: Props) => {
   return (
     <section>
-      <Heading variant="h6">{heading}</Heading>
+      <Heading variant="h6" bold>
+        {heading}
+      </Heading>
       {paragraphs.map((paragraph, index) => (
         <p key={heading + index} className="my-1 text-gray-500">
           {paragraph}

@@ -41,7 +41,7 @@ const CustomerReviews = () => {
           <section>
             <ul className="shadow-10-01 rounded-md py-4 px-[14px]">
               <header className="flex justify-end">
-                <SeeAllButton noArrow />
+                <SeeAllButton noArrow href="" />
               </header>
               {[
                 {

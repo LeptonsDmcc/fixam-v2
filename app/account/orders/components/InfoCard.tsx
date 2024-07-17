@@ -10,7 +10,7 @@ interface Props {
 const InfoCard = ({ heading, infoSections }: Props) => {
   return (
     <section key={heading}>
-      <Heading variant="h5" styles=" text-orange-400">
+      <Heading variant="h5" styles="text-orange-400" bold>
         {heading}
       </Heading>
       <BaseSpacing />

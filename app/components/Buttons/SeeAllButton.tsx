@@ -1,11 +1,16 @@
+import Link from "next/link";
 import { HiOutlineChevronRight } from "react-icons/hi";
 
 interface Props {
   noArrow?: boolean;
+  href: string;
 }
-const SeeAllButton = ({ noArrow }: Props) => {
+const SeeAllButton = ({ noArrow, href }: Props) => {
   return (
-    <button className="group text-orange-400 flex gap-2 items-center hover:opacity-60 duration-300">
+    <Link
+      href={href}
+      className="group text-orange-400 flex gap-2 items-center hover:opacity-60 duration-300"
+    >
       <span>See All</span>
       {!noArrow && (
         <HiOutlineChevronRight
@@ -13,7 +18,7 @@ const SeeAllButton = ({ noArrow }: Props) => {
           className=" group-hover:opacity-60 duration-300"
         />
       )}
-    </button>
+    </Link>
   );
 };
 

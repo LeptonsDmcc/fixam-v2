@@ -1,6 +1,5 @@
 import BreadcrumbHeader from "../components/Breadcrumb/BreadcrumbHeader";
 import ProductCarousel from "../components/Products/ProductCarousel";
-import ProductsShowcase from "../components/Products/ProductsShowcase";
 import Space from "../components/Spacing/Space";
 import Wrapper from "../components/Wrapper";
 import CartTable from "./components/CartTable";

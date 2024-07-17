@@ -15,14 +15,14 @@ const Footer = () => {
     >
       <Wrapper>
         <div className="flex justify-between  gap-24">
-          <div className="w-[363px]">
+          <div className="w-[463px]">
             <FooterCompanyBIO />
           </div>
 
           <div className="flex justify-between w-full">
             <FooterCompany />
             <FooterHelp />
-            <FooterCategories />
+            {/* <FooterCategories /> */}
             <FooterContact />
           </div>
         </div>

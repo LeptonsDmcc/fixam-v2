@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import ActionButton from "../Buttons/ActionButton";
 import MobileCategoryNavigation from "./MobileCategoryNavigation";

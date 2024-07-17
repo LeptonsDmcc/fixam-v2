@@ -3,6 +3,7 @@ import Heading from "@/app/components/Heading";
 import RadioInput from "@/app/components/Inputs/RadioInput";
 import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import Space from "@/app/components/Spacing/Space";
+import { Edit2 } from "iconsax-react";
 import { MdOutlineEdit } from "react-icons/md";
 
 interface Props {
@@ -23,7 +24,7 @@ const CustomerAddress = ({ addressId, withBorder, isDefault }: Props) => {
 
         <div className="flex items-center gap-[6px] text-orange-400">
           <span>Edit</span>
-          <MdOutlineEdit />
+          <Edit2 />
         </div>
       </div>
       <FormSpacing />

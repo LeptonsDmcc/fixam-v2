@@ -7,7 +7,7 @@ import InfoCard from "../components/InfoCard";
 
 const OrderDetailPage = () => {
   return (
-    <section className=" text-xs">
+    <section className=" lg:text-xs">
       <AccountHeader withBackArrow>Order Detail</AccountHeader>
       <AccountSpacing />
       <p className=" text-base">Order nº 1389516282</p>
@@ -33,7 +33,10 @@ const OrderDetailPage = () => {
         />
       </section>
       <AccountSpacing />
-      <section className="grid grid-cols-2">
+      <section
+        className="grid 
+      lg:grid-cols-2"
+      >
         <InfoCard
           key={12324}
           heading="PAYMENT INFORMATION"

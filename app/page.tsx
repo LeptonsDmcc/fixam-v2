@@ -10,6 +10,7 @@ import ProductsShowcase from "./components/Products/ProductsShowcase";
 import SectionSpacing from "./components/Spacing/SectionSpacing";
 import Space from "./components/Spacing/Space";
 import Wrapper from "./components/Wrapper";
+import { ROUTES } from "./lib/contants";
 
 export default function Home() {
   return (
@@ -25,25 +26,39 @@ export default function Home() {
               <BrowseCategories />
             </section>
             <section className="my-12">
-              <ProductsShowcase title="Best Sellers" withShortDescription />
+              <ProductsShowcase
+                title="Best Sellers"
+                withShortDescription
+                href={`${ROUTES.specials}/best-sellers`}
+              />
             </section>
           </Grid>
         </div>
         <SectionSpacing />
         <div className="hidden md:block">
-          <ProductsShowcase title="Recommended for you" withShortDescription />
+          <ProductsShowcase
+            title="Recommended for you"
+            withShortDescription
+            href={`${ROUTES.specials}/recommended`}
+          />
         </div>
         <div className="block md:hidden">
-          <ProductCarousel title="Recommended for you" />
+          <ProductCarousel
+            title="Recommended for you"
+            href={`${ROUTES.specials}/recommended`}
+          />
         </div>
         <SectionSpacing />
         <Services />
         <SectionSpacing />
-        <DealOfTheDay />
+        <DealOfTheDay href={`${ROUTES.product}/deals`} />
         <SectionSpacing />
         <FixAdPremium />
         <SectionSpacing />
-        <ProductCarousel title="Latest Products" />
+        <ProductCarousel
+          title="Latest Products"
+          href={`${ROUTES.specials}/latest-product`}
+        />
       </Wrapper>
       <Space spacing={"my-20"} />
       {/* <Category />

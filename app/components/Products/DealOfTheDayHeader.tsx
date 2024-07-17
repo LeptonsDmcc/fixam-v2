@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Heading from "../Heading";
 
-const DealOfTheDayHeader = () => {
+interface Props {
+  href: string;
+}
+
+const DealOfTheDayHeader = ({ href }: Props) => {
   return (
     <header className="bg-orange-600 flex justify-between items-center p-4">
       <Heading variant={"h4"} styles="text-base text-white">
@@ -14,7 +18,7 @@ const DealOfTheDayHeader = () => {
       >
         Time Left: 18h : 27m : 29s
       </Heading>
-      <Link href={""} className="text-base  text-white">
+      <Link href={href} className="text-base  text-white">
         See all
       </Link>
     </header>

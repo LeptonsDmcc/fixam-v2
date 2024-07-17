@@ -10,10 +10,10 @@ const AccountLayout = ({ children }: PropsWithChildren) => {
     <Wrapper>
       <SectionSpacing />
       <Grid cols={2}>
-        <aside className="sticky top-12">
+        <aside className="sticky top-12 hidden lg:block">
           <AccountNavs />
         </aside>
-        <Card elementType="main" styles="mx-16">
+        <Card elementType="main" styles="lg:mx-16">
           {children}
         </Card>
       </Grid>

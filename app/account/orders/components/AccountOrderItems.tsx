@@ -8,7 +8,10 @@ interface Props {
 
 const AccountOrderItems = ({ items }: Props) => {
   return (
-    <div className=" grid grid-cols-2 gap-4">
+    <div
+      className=" grid  gap-4
+    lg:grid-cols-2"
+    >
       {items.map((item) => (
         <Fragment key={item.status}>
           <AccountOrderItem status={item.status} />

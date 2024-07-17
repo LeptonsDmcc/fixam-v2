@@ -11,6 +11,7 @@ import ArrowDown from "../Icons/svgs/ArrowDown";
 import { useState } from "react";
 import { LinkType } from "@/app/lib/types";
 import { ROUTES } from "@/app/lib/contants";
+import { GlobalSearch } from "iconsax-react";
 
 const myAccountNavs: LinkType[] = [
   {
@@ -27,6 +28,12 @@ const myAccountNavs: LinkType[] = [
     icon: <RxHeart />,
     text: "Save Items",
     to: `${ROUTES.account}/save-items`,
+  },
+
+  {
+    icon: <GlobalSearch />,
+    text: "Tracking",
+    to: "/order/track",
   },
 ];
 

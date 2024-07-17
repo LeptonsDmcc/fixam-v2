@@ -1,5 +1,4 @@
 import { SearchNormal } from "iconsax-react";
-import { IoSearchOutline } from "react-icons/io5";
 
 const SearchInput = () => {
   return (
