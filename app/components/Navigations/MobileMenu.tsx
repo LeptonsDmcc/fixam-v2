@@ -64,6 +64,7 @@ const MobileMenu = ({ onCloseMenu, showMenu }: Props) => {
         <ul className="px-2">
           {mobileLinks.map(({ text, icon, href }) => (
             <MobileMenuLink
+            key={text}
               onCloseMenu={onCloseMenu}
               text={text}
               icon={icon}
