@@ -14,7 +14,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Fixam - Buy and Sell Anything Buildings",
-  icons: "/assets/vercel.svg",
+  icons: "/assets/fixam-logo.png",
   description:
     "Discover a vibrant online marketplace dedicated to buying and selling all things buildings. Explore diverse listings of residential, commercial, and historic properties. Start your building journey with BuildTrade Hub today",
 };
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/assets/fixamlogo-b.png" />
+        <link rel="icon" href="/assets/fixamlogo-o.png" />
       </head>
       <body className={poppins.className}>
         <AuthPageChecker component={<AppHeader />} />
