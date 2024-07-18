@@ -54,7 +54,7 @@ const MobileCategoryNavigation = ({ showCategory, onCloseCategory }: Props) => {
       <div className="px-4 py-6">
         <MobileMenuHeader onCloseMenu={onCloseCategory} />
         <SectionSpacing />
-        <p className=" font-semibold flex items-center gap-2">
+        <p className="font-semibold flex items-center gap-2">
           {currentIndex > 0 && (
             <ArrowLeft
               onClick={() => {
@@ -74,7 +74,8 @@ const MobileCategoryNavigation = ({ showCategory, onCloseCategory }: Props) => {
             >
               {currentIndex >= categories.length - 1 ? (
                 <Link
-                  href={`/${ROUTES.product}/${category}`}
+                  onClick={onCloseCategory}
+                  href={`${ROUTES.product}/${category}`}
                   className="flex items-center justify-between"
                 >
                   <span>{category}</span> <ArrowRight2 />

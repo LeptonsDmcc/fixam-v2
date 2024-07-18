@@ -13,6 +13,7 @@ import SectionSpacing from "../Spacing/SectionSpacing";
 import MobileMenuHeader from "./MobileMenuHeader";
 import DrawerWrapper from "../DrawerWrapper";
 import { ROUTES } from "@/app/lib/contants";
+import MobileMenuLink from "./MobileMenuLink";
 
 const mobileLinks = [
   // {
@@ -38,12 +39,12 @@ const mobileLinks = [
   {
     icon: <IoIosHelpCircleOutline size={24} />,
     text: "Help",
-    href: "",
+    href: "/#help",
   },
   {
     icon: <CallCalling />,
     text: "Contact",
-    href: "",
+    href: "/#contact",
   },
 ];
 
@@ -62,14 +63,12 @@ const MobileMenu = ({ onCloseMenu, showMenu }: Props) => {
         <SectionSpacing />
         <ul className="px-2">
           {mobileLinks.map(({ text, icon, href }) => (
-            <li key={text} className="my-8">
-              <Link
-                href={href}
-                className="flex gap-4 hover:text-orange-400 duration-300"
-              >
-                {icon} <span>{text}</span>
-              </Link>
-            </li>
+            <MobileMenuLink
+              onCloseMenu={onCloseMenu}
+              text={text}
+              icon={icon}
+              to={href}
+            />
           ))}
         </ul>
         <div className="my-20 flex justify-center flex-col items-center gap-6">
