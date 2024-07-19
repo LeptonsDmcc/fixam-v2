@@ -14,19 +14,19 @@ const HeaderMain = () => {
     <header
       className="py-3 border-b border-cultured bg-white 
       sticky top-0 right-0 left-0 z-30
-    md:py-6"
+      lg:py-6"
     >
       <div
         className="wrapper flex-col gap-4 flex 
-        md:justify-between md:items-center 
-        md:gap-8 md:flex-row"
+        lg:justify-between lg:items-center 
+        lg:gap-8 lg:flex-row"
       >
         <Link href="/" className="hidden lg:block">
           <Logo />
         </Link>
         <header
           className="flex items-center justify-between
-        lg:hidden"
+          lg:hidden"
         >
           <Link href="/">
             <Logo />
@@ -40,6 +40,7 @@ const HeaderMain = () => {
           </div>
         </header>
         <CategoryNavigations heading="All Categories" isTop={true} />
+
         <SearchInput />
 
         <div className="lg:flex items-center gap-4 hidden">

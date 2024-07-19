@@ -20,7 +20,7 @@ const Carousel = ({
   isNavBtnsBottom,
   withPrevNext,
   leftRightPos,
-  bottomPos = "16",
+  bottomPos = "6",
   activeIndex,
   onHandlePrev,
   onHandleNext,
@@ -31,7 +31,7 @@ const Carousel = ({
   // Nav button positions
   const pos = {
     6: "bottom-6",
-    16: "bottom-6 md:bottom-16",
+    16: "bottom-6",
   };
 
   useEffect(() => {

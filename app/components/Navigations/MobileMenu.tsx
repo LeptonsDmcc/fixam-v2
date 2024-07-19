@@ -14,6 +14,7 @@ import MobileMenuHeader from "./MobileMenuHeader";
 import DrawerWrapper from "../DrawerWrapper";
 import { ROUTES } from "@/app/lib/contants";
 import MobileMenuLink from "./MobileMenuLink";
+import MobileSocials from "./MobileSocials";
 
 const mobileLinks = [
   // {
@@ -64,7 +65,7 @@ const MobileMenu = ({ onCloseMenu, showMenu }: Props) => {
         <ul className="px-2">
           {mobileLinks.map(({ text, icon, href }) => (
             <MobileMenuLink
-            key={text}
+              key={text}
               onCloseMenu={onCloseMenu}
               text={text}
               icon={icon}
@@ -72,10 +73,7 @@ const MobileMenu = ({ onCloseMenu, showMenu }: Props) => {
             />
           ))}
         </ul>
-        <div className="my-20 flex justify-center flex-col items-center gap-6">
-          <p>Socials</p>
-          <SocialIcons isMobile />
-        </div>
+        <MobileSocials />
       </div>
     </DrawerWrapper>
   );

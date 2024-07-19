@@ -15,7 +15,7 @@ interface Props {
 const SliderItem = ({ image, title, text }: Props) => {
   return (
     <div
-      className=" relative min-w-full max-h-[450px] overflow-hidden scroll-snap-align-start
+      className="relative min-w-full max-h-[450px] overflow-hidden scroll-snap-align-start
       aspect-square sm:aspect-4-2 h-[296px]
       md:aspect-auto md:h-[350px]
       lg:h-[380px]

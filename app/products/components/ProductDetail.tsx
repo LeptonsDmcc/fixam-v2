@@ -9,7 +9,7 @@ const ProductDetail = () => {
   return (
     <Wrapper>
       <SectionSpacing />
-      <section className="flex flex-col gap-6 md:flex-row">
+      <section className="flex flex-col gap-6 lg:flex-row">
         <ImagePreview />
         <ProductInfo />
       </section>

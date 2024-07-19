@@ -2,7 +2,10 @@ import { SearchNormal } from "iconsax-react";
 
 const SearchInput = () => {
   return (
-    <div className="min-w-full md:min-w-[300px] relative flex-grow">
+    <div
+      className="min-w-full relative flex-grow
+    lg:min-w-[300px]"
+    >
       <input
         type="search"
         name="search"

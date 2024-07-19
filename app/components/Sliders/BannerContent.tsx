@@ -14,28 +14,27 @@ const BannerContent = ({ title, text }: Props) => {
       <Space spacing="my-6" />
       <div
         className="absolute py-5 w-full
+         md:w-[80%] m-auto
         md:top-[50%] md:-translate-y-1/2 md:left-[50%] 
         md:-translate-x-1/2 md:bg-remove md:text-center 
-        md:px-6 md:w-[80%] md:m-auto"
+        md:px-6"
       >
         <div className="flex justify-center">
           <Heading
             variant="h3"
-            styles="banner-title h-20 
-              text-white font-semibold md:text-4xl/[48px] mb-[10px]
-              md:w-[70%] text-center md:md:h-20"
+            styles="banner-title  text-center 
+            text-white font-semibold mb-[10px]
+            lg:text-4xl/[38px] lg:w-[70%]"
           >
             {title}
           </Heading>
         </div>
-
         <Space spacing="my-6" />
-
         <p
-          className="banner-text hidden
+          className="banner-text hidden text-center
           text-white font-semibold m-auto text-xl/10
-            md:block md:text-base md:font-medium md:mb-[10px] md:h-20
-            md:w-[60%]"
+            md:block md:text-base 
+            lg:font-medium lg:mb-[10px] lg:h-20 lg:w-[60%]"
         >
           {text}
         </p>

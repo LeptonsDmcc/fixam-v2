@@ -1,7 +1,6 @@
 import HR from "../HR";
 import Space from "../Spacing/Space";
 import Wrapper from "../Wrapper";
-import FooterCategories from "./FooterCategories";
 import FooterCompany from "./FooterCompany";
 import FooterCompanyBIO from "./FooterCompanyBIO";
 import FooterContact from "./FooterContact";
@@ -11,7 +10,7 @@ const Footer = () => {
   return (
     <footer
       className="bg-gray-900 py-16 hidden
-    md:block"
+    lg:block"
     >
       <Wrapper>
         <div className="flex justify-between  gap-24">
