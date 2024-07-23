@@ -4,8 +4,13 @@ import Wrapper from "@/app/components/Wrapper";
 import ImagePreview from "./ImagePreview";
 import ProductInfo from "./ProductInfo";
 import ProductOverviewPanel from "./ProductOverviewPanel";
+import { ProductType } from "@/app/lib/types";
 
-const ProductDetail = () => {
+const ProductDetail = async () => {
+  const productsRes = await fetch(`${process.env.FIXAM_BASE_URL}/products/`);
+  const productsJsonRes = await productsRes.json();
+  const products: ProductType[] = productsJsonRes.results;
+
   return (
     <Wrapper>
       <SectionSpacing />
@@ -14,11 +19,11 @@ const ProductDetail = () => {
         <ProductInfo />
       </section>
       <SectionSpacing />
-      <ProductCarousel title="Related Item" />
+      <ProductCarousel products={products} title="Related Item" />
       <SectionSpacing />
       <ProductOverviewPanel />
       <SectionSpacing />
-      <ProductCarousel title="More items from seller" />
+      <ProductCarousel products={products} title="More items from seller" />
     </Wrapper>
   );
 };

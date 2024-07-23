@@ -25,7 +25,7 @@ const CategoryImage = ({ image: { src, alt }, label }: Props) => {
           height={100}
           width={100}
           className=" w-20 h-20
-          md:w-24 md:h-24 md:object-cover"
+          md:w-24 md:h-24 md:object-cover opacity-60"
         />
       </figure>
       {label && <figcaption className="my-2 w-max">{label}</figcaption>}

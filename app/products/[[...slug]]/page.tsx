@@ -1,8 +1,7 @@
 import BrandPartners from "@/app/components/BrandPartners";
 import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
-import SubCategories from "@/app/components/Categories/SubCategories";
+import ShowcaseSubCategories from "@/app/components/Categories/ShowcaseSubCategories";
 import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
-import ProductCarousel from "@/app/components/Products/ProductCarousel";
 import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Wrapper from "@/app/components/Wrapper";
 import capitalize from "@/app/lib/capitalize";
@@ -57,6 +56,8 @@ export async function generateMetadata(
 }
 
 const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
+  const lastSlug = slug[slug.length - 1];
+
   let updatedSlug = slug;
   if (p && slug) updatedSlug = slug.concat(p);
 
@@ -72,7 +73,7 @@ const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
         ) : (
           <>
             <SectionSpacing />
-            <SubCategories />
+            <ShowcaseSubCategories slug={lastSlug} />
             <SectionSpacing />
             <ProductCategories
               dealFor={decodeURIComponent(slug.at(-1) || "")}

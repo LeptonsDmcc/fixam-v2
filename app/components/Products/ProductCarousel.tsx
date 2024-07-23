@@ -1,21 +1,22 @@
 import React from "react";
 import ProductTitleBar from "./ProductTitleBar";
 import ProductCard from "./ProductCard";
+import { ProductType } from "@/app/lib/types";
 
-const products = [
-  {
-    name: "",
-    rating: "",
-  },
-  {
-    name: "",
-    rating: "",
-  },
-  {
-    name: "",
-    rating: "",
-  },
-];
+// const products = [
+//   {
+//     name: "",
+//     rating: "",
+//   },
+//   {
+//     name: "",
+//     rating: "",
+//   },
+//   {
+//     name: "",
+//     rating: "",
+//   },
+// ];
 
 interface Props {
   title?: string;
@@ -23,9 +24,18 @@ interface Props {
   noSeeAll?: boolean;
   inDealOfTheDay?: boolean;
   href?: string;
+  products: ProductType[];
 }
 
-const ProductCarousel = ({ title, noSeeAll, href, inDealOfTheDay }: Props) => {
+const ProductCarousel = ({
+  title,
+  noSeeAll,
+  href,
+  products,
+  inDealOfTheDay,
+}: Props) => {
+  console.log("PRODUCTS", products);
+
   return (
     <div>
       <ProductTitleBar
@@ -36,12 +46,15 @@ const ProductCarousel = ({ title, noSeeAll, href, inDealOfTheDay }: Props) => {
       <article
         className="flex gap-6 overflow-x-auto has-scrollbar 
         scroll-snap-type-inline-mandatory
-        overscroll-behavior-inline-contain 
-        "
+        overscroll-behavior-inline-contain"
       >
-        {products.map((product, i) => (
-          <div key={i} className="scroll-snap-align-start">
-            <ProductCard key={i} inDealOfTheDay={inDealOfTheDay} />
+        {products.map((product) => (
+          <div key={product.name} className="scroll-snap-align-start">
+            <ProductCard
+              key={product.name}
+              product={product}
+              inDealOfTheDay={inDealOfTheDay}
+            />
           </div>
         ))}
       </article>

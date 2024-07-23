@@ -1,4 +1,5 @@
 "use client";
+import { ProductType } from "@/app/lib/types";
 import Carousel from "../Carousel/Carousel";
 import BaseSpacing from "../Spacing/BaseSpacing";
 import DealOfTheDayHeader from "./DealOfTheDayHeader";
@@ -7,8 +8,9 @@ import ProductCarousel from "./ProductCarousel";
 
 interface Props {
   href: string;
+  productsDayDeal: ProductType[];
 }
-const DealOfTheDay = ({ href }: Props) => {
+const DealOfTheDay = ({ href, productsDayDeal }: Props) => {
   return (
     <>
       <section className="hidden lg:block">
@@ -25,7 +27,7 @@ const DealOfTheDay = ({ href }: Props) => {
         <p>Time Left: 18h : 27m : 29s</p>
         <BaseSpacing />
         {/* <section className="flex gap-8"> */}
-        <ProductCarousel inDealOfTheDay />
+        <ProductCarousel inDealOfTheDay products={productsDayDeal} />
         {/* </section> */}
       </section>
     </>

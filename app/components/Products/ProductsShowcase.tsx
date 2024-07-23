@@ -2,6 +2,7 @@ import Space from "../Spacing/Space";
 import ProductShowcase from "./ProductShowCase";
 import ProductTitleBar from "./ProductTitleBar";
 import ProductCard from "./ProductCard";
+import { ProductType } from "@/app/lib/types";
 
 const products = [
   {
@@ -25,12 +26,16 @@ interface Props {
   href: string;
 }
 
-const ProductsShowcase = ({
+const ProductsShowcase = async ({
   title,
   noSeeAll,
   href,
   withShortDescription,
 }: Props) => {
+  const latestProdsRes = await fetch(`${process.env.FIXAM_BASE_URL}/products/`);
+  const latestProdsJsonRes = await latestProdsRes.json();
+  const latestProducts: ProductType[] = latestProdsJsonRes.results;
+
   if (withShortDescription)
     return (
       <section>
@@ -38,9 +43,8 @@ const ProductsShowcase = ({
 
         <article
           className="flex gap-6 overflow-x-auto has-scrollbar 
-        scroll-snap-type-inline-mandatory
-        overscroll-behavior-inline-contain 
-        "
+          scroll-snap-type-inline-mandatory
+          overscroll-behavior-inline-contain"
         >
           {products.map((product, i) => (
             <div key={i} className="scroll-snap-align-start">
@@ -60,9 +64,12 @@ const ProductsShowcase = ({
       scroll-snap-type-inline-mandatory
       overscroll-behavior-inline-contain "
       >
-        {Array.from({ length: 8 }).map((product, i) => (
-          <div key={i} className="scroll-snap-align-start min-w-[25%] pb-4">
-            <ProductCard key={i} />
+        {latestProducts.map((product) => (
+          <div
+            key={product.name}
+            className="scroll-snap-align-start min-w-[25%] pb-4"
+          >
+            <ProductCard product={product} key={product.name} />
           </div>
         ))}
       </section>

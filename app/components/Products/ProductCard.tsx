@@ -12,11 +12,13 @@ import ProductPrice from "./ProductPrice";
 import ReviewsRating from "../Reviews/ReviewsRating";
 import BaseSpacing from "../Spacing/BaseSpacing";
 import ProgressBar from "../ProgressIndicators/ProgressBar";
+import { ProductType } from "@/app/lib/types";
 
 interface Props {
   inDealOfTheDay?: boolean;
+  product: ProductType;
 }
-const ProductCard = ({ inDealOfTheDay }: Props) => {
+const ProductCard = ({ product, inDealOfTheDay }: Props) => {
   const pathname = usePathname();
   return (
     <article
@@ -24,13 +26,16 @@ const ProductCard = ({ inDealOfTheDay }: Props) => {
       md:w-[292px]"
     >
       <div className="group relative rounded-md">
-        <Image
-          src={"/assets/watch.jpg"}
-          alt={""}
-          width={292}
-          height={200}
-          className="w-full rounded-t-md"
-        />
+        <div className="h-[200px]">
+          <Image
+            src={Object.values(product.images[0])[0]}
+            alt={product.name}
+            width={292}
+            height={200}
+            className="w-full h-full object-cover rounded-t-md"
+          />
+        </div>
+
         <div
           className="hidden md:block absolute top-0 bottom-0 right-0 left-0 bg-black/20 rounded-t-md
            opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300"
@@ -47,12 +52,10 @@ const ProductCard = ({ inDealOfTheDay }: Props) => {
         </div>
       </div>
       <Link
-        href={`${
-          pathname === "/" ? "/products" : pathname
-        }/?p=HISENSE Cool Breeze Air Conditioner`}
+        href={`${pathname === "/" ? "/products" : pathname}/?p=${product.slug}`}
       >
         <Space spacing="my-4" />
-        HISENSE Cool Breeze Air Conditioner
+        {product.name}
         <Space spacing="my-4" />
         <ReviewsRating />
         <Space spacing="my-4" />

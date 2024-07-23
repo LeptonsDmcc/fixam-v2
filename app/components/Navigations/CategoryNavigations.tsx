@@ -1,5 +1,3 @@
-"use client";
-
 import { IoIosMenu } from "react-icons/io";
 import CollapsibleCard from "../Cards/CollapsibleCard";
 import IconHolder from "../Icons/IconHolder";

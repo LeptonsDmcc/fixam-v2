@@ -1,8 +1,7 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
-import { ScrollType } from "../Banners/HomeBanners";
+import { ReactNode } from "react";
 import Button from "../Buttons/Button";
-import Space from "../Spacing/Space";
 import Heading from "../Heading";
+import Space from "../Spacing/Space";
 
 interface Props {
   title: string;
@@ -13,11 +12,9 @@ const BannerContent = ({ title, text }: Props) => {
     <div className="absolute top-0 bottom-0 right-0 left-0 bg-black/20">
       <Space spacing="my-6" />
       <div
-        className="absolute py-5 w-full
-         md:w-[80%] m-auto
-        md:top-[50%] md:-translate-y-1/2 md:left-[50%] 
-        md:-translate-x-1/2 md:bg-remove md:text-center 
-        md:px-6"
+        className="absolute py-5 w-full m-auto
+        md:w-[80%] md:top-[50%] md:-translate-y-1/2 md:left-[50%] 
+        md:-translate-x-1/2 md:bg-remove md:text-center md:px-6"
       >
         <div className="flex justify-center">
           <Heading

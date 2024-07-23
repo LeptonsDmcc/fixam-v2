@@ -9,12 +9,17 @@ import Space from "@/app/components/Spacing/Space";
 import capitalize from "@/app/lib/capitalize";
 import Link from "next/link";
 import FilterMenuTrigger from "./FilterMenuTrigger";
+import { ProductType } from "@/app/lib/types";
 
 interface Props {
   dealFor: string;
 }
 
-const ProductCategories = ({ dealFor }: Props) => {
+const ProductCategories = async ({ dealFor }: Props) => {
+  const topDealsRes = await fetch(`${process.env.FIXAM_BASE_URL}/products/`);
+  const topDealProdsJsonRes = await topDealsRes.json();
+  const topDealProds: ProductType[] = topDealProdsJsonRes.results;
+
   return (
     <Grid cols={2}>
       <section>
@@ -54,7 +59,10 @@ const ProductCategories = ({ dealFor }: Props) => {
         <SectionSpacing />
         {/* <Products /> */}
         <SectionSpacing />
-        <ProductCarousel title={`Top Deals on ${capitalize(dealFor)}`} />
+        <ProductCarousel
+          products={topDealProds}
+          title={`Top Deals on ${capitalize(dealFor)}`}
+        />
         {/* <ProductTopDeals title={`Top Deals on ${capitalize(dealFor)}`} /> */}
         <SectionSpacing />
         <Products title={`Latest ${capitalize(dealFor)}`} />

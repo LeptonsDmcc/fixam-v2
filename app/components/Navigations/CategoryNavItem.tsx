@@ -1,35 +1,36 @@
+import capitalize from "@/app/lib/capitalize";
 import { ROUTES } from "@/app/lib/contants";
-import { LinkType } from "@/app/lib/types";
+import { CategoryType } from "@/app/lib/types";
 import Link from "next/link";
-
-const cats = [
-  "Home Appliances",
-  "Television",
-  "Camera and Photo",
-  "Home Appliances",
-  "Television",
-  "Camera and Photo",
-  "Home Appliances",
-  "Television",
-];
 
 interface Props {
   previousRoute?: string;
+  categoryId: string;
 }
-const CategoryNavItem = ({ previousRoute }: Props) => {
+
+const CategoryNavItem = async ({ categoryId, previousRoute }: Props) => {
+  const categoriesRes = await fetch(
+    `${process.env.FIXAM_BASE_URL}/products/categories/${categoryId}/subcategories/`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  const categories: CategoryType[] = await categoriesRes.json();
+
   return (
     <>
-      {cats.map((cat, i) => (
-        <li key={i} className="py-2 text-xs group">
+      {categories.map(({ name, slug }) => (
+        <li key={name} className="py-2 text-xs group">
           <Link
             href={`${ROUTES.product}/${
               previousRoute
-                ? previousRoute.toLowerCase() + "/" + cat.toLowerCase()
-                : cat.toLowerCase()
+                ? previousRoute.toLowerCase() + "/" + slug.toLowerCase()
+                : slug.toLowerCase()
             }`}
             className="hover:text-orange-400 duration-300"
           >
-            {cat}
+            {capitalize(name)}
           </Link>
         </li>
       ))}

@@ -1,18 +1,10 @@
-import {
-  Bank,
-  CallCalling,
-  GlobalSearch,
-  ShoppingBag,
-  User,
-} from "iconsax-react";
-import Link from "next/link";
+import { ROUTES } from "@/app/lib/contants";
+import { CallCalling, GlobalSearch, ShoppingBag, User } from "iconsax-react";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import Button from "../Buttons/Button";
-import SocialIcons from "../Icons/SocialIcons";
+import DrawerWrapper from "../DrawerWrapper";
 import SectionSpacing from "../Spacing/SectionSpacing";
 import MobileMenuHeader from "./MobileMenuHeader";
-import DrawerWrapper from "../DrawerWrapper";
-import { ROUTES } from "@/app/lib/contants";
 import MobileMenuLink from "./MobileMenuLink";
 import MobileSocials from "./MobileSocials";
 
