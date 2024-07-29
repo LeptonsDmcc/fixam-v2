@@ -4,9 +4,10 @@ import ShowcaseSubCategories from "./components/Categories/ShowcaseSubCategories
 import FixAdPremium from "./components/FixAds.tsx/FixAdPremium";
 import Grid from "./components/Grid";
 import Services from "./components/OurServices/Services";
+import BestSellingProducts from "./components/Products/BestSellingProducts";
 import DealOfTheDay from "./components/Products/DealOfTheDay";
 import ProductCarousel from "./components/Products/ProductCarousel";
-import ProductsShowcase from "./components/Products/ProductsShowcase";
+import RecommendedProducts from "./components/Products/RecommendedProducts";
 import SectionSpacing from "./components/Spacing/SectionSpacing";
 import Space from "./components/Spacing/Space";
 import Wrapper from "./components/Wrapper";
@@ -30,37 +31,15 @@ export default async function Home() {
             <section>
               <BrowseCategories />
             </section>
-            <section className="my-12">
-              <ProductsShowcase
-                title="Best Sellers"
-                withShortDescription
-                href={`${ROUTES.specials}/best-sellers`}
-              />
-            </section>
+            <BestSellingProducts />
           </Grid>
         </div>
         <SectionSpacing />
-        <div className="hidden md:block">
-          <ProductsShowcase
-            title="Recommended for you"
-            withShortDescription
-            href={`${ROUTES.specials}/recommended`}
-          />
-        </div>
-        <div className="block md:hidden">
-          <ProductCarousel
-            title="Recommended for you"
-            products={latestProducts}
-            href={`${ROUTES.specials}/recommended`}
-          />
-        </div>
+        <RecommendedProducts />
         <SectionSpacing />
         <Services />
         <SectionSpacing />
-        <DealOfTheDay
-          productsDayDeal={latestProducts}
-          href={`${ROUTES.product}/deals`}
-        />
+        <DealOfTheDay href={`${ROUTES.product}/deals`} />
         <SectionSpacing />
         <FixAdPremium />
         <SectionSpacing />

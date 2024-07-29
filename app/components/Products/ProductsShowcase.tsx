@@ -4,38 +4,21 @@ import ProductTitleBar from "./ProductTitleBar";
 import ProductCard from "./ProductCard";
 import { ProductType } from "@/app/lib/types";
 
-const products = [
-  {
-    name: "",
-    rating: "",
-  },
-  {
-    name: "",
-    rating: "",
-  },
-  {
-    name: "",
-    rating: "",
-  },
-];
-
 interface Props {
   title: string;
   withShortDescription?: boolean;
   noSeeAll?: boolean;
   href: string;
+  products: ProductType[];
 }
 
 const ProductsShowcase = async ({
   title,
   noSeeAll,
   href,
+  products,
   withShortDescription,
 }: Props) => {
-  const latestProdsRes = await fetch(`${process.env.FIXAM_BASE_URL}/products/`);
-  const latestProdsJsonRes = await latestProdsRes.json();
-  const latestProducts: ProductType[] = latestProdsJsonRes.results;
-
   if (withShortDescription)
     return (
       <section>
@@ -46,9 +29,9 @@ const ProductsShowcase = async ({
           scroll-snap-type-inline-mandatory
           overscroll-behavior-inline-contain"
         >
-          {products.map((product, i) => (
-            <div key={i} className="scroll-snap-align-start">
-              <ProductShowcase key={i} />
+          {products.map((product) => (
+            <div key={product.name} className="scroll-snap-align-start">
+              <ProductShowcase product={product} key={product.name} />
             </div>
           ))}
         </article>
@@ -64,7 +47,7 @@ const ProductsShowcase = async ({
       scroll-snap-type-inline-mandatory
       overscroll-behavior-inline-contain "
       >
-        {latestProducts.map((product) => (
+        {products.map((product) => (
           <div
             key={product.name}
             className="scroll-snap-align-start min-w-[25%] pb-4"

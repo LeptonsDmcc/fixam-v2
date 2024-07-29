@@ -1,29 +1,38 @@
-import Image from "next/image";
-import Button from "../Buttons/Button";
-import ShowcaseRating from "../Reviews/ShowcaseRating";
-import ProductPrice from "./ProductPrice";
-import Heading from "../Heading";
-import Space from "../Spacing/Space";
-import AddToCartButton from "../Buttons/AddToCartButton";
-import Link from "next/link";
-import ProgressBar from "../ProgressIndicators/ProgressBar";
 import { ROUTES } from "@/app/lib/contants";
+import getImageFromArrObj from "@/app/lib/getImageFromArrObj";
+import { ProductType } from "@/app/lib/types";
+import Image from "next/image";
+import Link from "next/link";
+import AddToCartButton from "../Buttons/AddToCartButton";
+import Heading from "../Heading";
+import ProgressBar from "../ProgressIndicators/ProgressBar";
+import ShowcaseRating from "../Reviews/ShowcaseRating";
+import Space from "../Spacing/Space";
+import ProductPrice from "./ProductPrice";
+import BuyNowButton from "../Buttons/BuyNowButton";
 
-const DealOfTheDayProduct = () => {
+interface Props {
+  product: ProductType;
+}
+
+const DealOfTheDayProduct = ({ product }: Props) => {
   return (
     <section className="flex gap-6 p-20 justify-between min-w-full">
-      <Image src={"/assets/television.png"} alt={""} width={368} height={298} />
+      <Image
+        src={getImageFromArrObj(product.images)}
+        alt={product.name}
+        width={368}
+        height={298}
+      />
       <div className="w-[442px]">
         <Link
           href={`${ROUTES.product}/?p=Brown Grey Designer Luxury Fashion Unisex Sunglasses`}
         >
           <Heading variant={"h4"}>
-            <span className="font-semibold">
-              Brown Grey Designer Luxury Fashion Unisex Sunglasses
-            </span>
+            <span className="font-semibold">{product.name}</span>
           </Heading>
           <Space spacing={"my-[20px]"} />
-          <ProductPrice />
+          <ProductPrice price={product.selling_price} />
           <Space spacing={"my-[20px]"} />
         </Link>
 

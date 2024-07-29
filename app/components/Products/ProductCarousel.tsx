@@ -3,21 +3,6 @@ import ProductTitleBar from "./ProductTitleBar";
 import ProductCard from "./ProductCard";
 import { ProductType } from "@/app/lib/types";
 
-// const products = [
-//   {
-//     name: "",
-//     rating: "",
-//   },
-//   {
-//     name: "",
-//     rating: "",
-//   },
-//   {
-//     name: "",
-//     rating: "",
-//   },
-// ];
-
 interface Props {
   title?: string;
   withShortDescription?: boolean;
@@ -34,8 +19,6 @@ const ProductCarousel = ({
   products,
   inDealOfTheDay,
 }: Props) => {
-  console.log("PRODUCTS", products);
-
   return (
     <div>
       <ProductTitleBar

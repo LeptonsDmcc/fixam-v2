@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import MyShoppingCart from "../Icons/svgs/ShoppingCart";
-import Button from "./Button";
 import { ShoppingCart } from "iconsax-react";
+import { useState } from "react";
+import Button from "./Button";
 
 interface Props {
   full?: boolean;
@@ -23,7 +22,7 @@ const AddToCartButton = ({ cartOnly, full }: Props) => {
       full={full}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      icon={<MyShoppingCart color={isHovered ? "orange" : "white"} />}
+      icon={<ShoppingCart color={isHovered ? "orange" : "white"} />}
     >
       Add to Cart
     </Button>

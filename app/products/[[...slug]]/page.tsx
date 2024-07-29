@@ -56,7 +56,7 @@ export async function generateMetadata(
 }
 
 const ProductsPage = ({ params: { slug }, searchParams: { p } }: Props) => {
-  const lastSlug = slug[slug.length - 1];
+  const lastSlug = slug && slug[slug.length - 1];
 
   let updatedSlug = slug;
   if (p && slug) updatedSlug = slug.concat(p);

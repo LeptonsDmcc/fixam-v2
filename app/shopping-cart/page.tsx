@@ -23,7 +23,7 @@ const CartPage = async () => {
       <Wrapper>
         <section
           className="flex flex-col gap-11 
-        md:flex-row"
+          md:flex-row"
         >
           <CartTable />
           <section className="lg:min-w-[200px] lg:w-[400px] lg:max-w-[400px]">

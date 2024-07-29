@@ -47,7 +47,7 @@ const ImagePreview = () => {
       <div className="absolute top-3 right-3 z-10">
         <AddFavoriteButton isFavorited={false} />
       </div>
-      <section className="border rounded-lg ">
+      <section className="border rounded-lg">
         <Carousel
           activeIndex={activeIndex}
           withPrevNext

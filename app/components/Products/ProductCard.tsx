@@ -55,11 +55,11 @@ const ProductCard = ({ product, inDealOfTheDay }: Props) => {
         href={`${pathname === "/" ? "/products" : pathname}/?p=${product.slug}`}
       >
         <Space spacing="my-4" />
-        {product.name}
+        <p className=" line-clamp-1">{product.name}</p>
         <Space spacing="my-4" />
         <ReviewsRating />
         <Space spacing="my-4" />
-        <ProductPrice />
+        <ProductPrice price={product.selling_price} />
         {inDealOfTheDay && (
           <>
             <BaseSpacing />

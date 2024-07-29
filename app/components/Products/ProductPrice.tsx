@@ -9,11 +9,13 @@ interface Props {
   discount?: number;
   priceLightGray?: boolean;
   textSize?: TextSizeType;
+  price?: number;
 }
 
 const ProductPrice = ({
   priceLightGray,
   textSize = "base",
+  price,
   discount = 950.0,
 }: Props) => {
   const textSizes: { [key in TextSizeType]: string } = {
@@ -24,16 +26,17 @@ const ProductPrice = ({
     xl: "text-xl",
   };
   return (
-    <p>
+    <p className="flex gap-2 items-baseline">
       <span
         className={
           priceLightGray ? "text-gray-500" : `${textSizes[textSize]}  mr-1"`
         }
       >
-        {currency()}850.00
+        {currency()}
+        {price}
       </span>
       {discount ? (
-        <del className="text-sm text-gray-500">
+        <del className="text-xs text-gray-500">
           {currency()} {discount}
         </del>
       ) : null}

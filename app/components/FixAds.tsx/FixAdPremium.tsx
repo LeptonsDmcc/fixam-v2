@@ -36,7 +36,7 @@ const FixAdPremium = () => {
         </p>
         <Space spacing="my-3" />
         <div className="flex justify-center md:justify-start">
-          <Button>Love</Button>
+          <Button>Shop Now</Button>
         </div>
       </div>
     </section>
