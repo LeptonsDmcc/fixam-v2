@@ -29,11 +29,18 @@ export type CategoryType = {
 };
 
 export type ProductType = {
-  id: string;
+  id?: string;
+  description?: string;
+  category?: string;
+  waranty?: boolean;
+  crumbs?: string[];
+  is_dod?: boolean;
+  categories?: string;
   name: string;
+  brand?: string;
   slug: string;
   images: { [key: string]: string }[];
   selling_price: number;
-  description: string;
-  waranty: boolean;
+  average_rating: number;
+  review_count: number;
 };
