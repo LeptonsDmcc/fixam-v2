@@ -1,12 +1,12 @@
-import Button, {
-  ButtonVariantType,
-} from "@/app/(main)/components/Buttons/Button";
+"use client";
+
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   PropsWithChildren,
 } from "react";
 import { useFormStatus } from "react-dom";
+import Button, { ButtonVariantType } from "./Button";
 
 // Attributes specific to button
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -27,13 +27,14 @@ interface CommonAttributes {
 // Discriminated union of props
 type Props = CommonAttributes & (ButtonProps | LinkProps);
 
-const SubmitAuth = ({
+const SubmitForm = ({
   variant,
   elementType,
   children,
   full = true,
 }: PropsWithChildren<Props>) => {
   const { pending } = useFormStatus();
+
   return (
     <Button
       disabled={pending}
@@ -46,4 +47,4 @@ const SubmitAuth = ({
   );
 };
 
-export default SubmitAuth;
+export default SubmitForm;

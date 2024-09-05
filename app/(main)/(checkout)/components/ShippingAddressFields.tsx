@@ -1,32 +1,66 @@
-import Checkbox from "../../components/Inputs/Checkbox";
-import FormInput from "../../components/Inputs/FormInput";
-import FormInputGroup from "../../components/Inputs/FormInputGroup";
-import GroupInput from "../../components/Inputs/GroupInput";
-import FormSpacing from "../../components/Spacing/FormSpacing";
+import Checkbox from "@/app/components/Inputs/Checkbox";
+import FormInput from "@/app/components/Inputs/FormInput";
+import FormInputGroup from "@/app/components/Inputs/FormInputGroup";
+import GroupInput from "@/app/components/Inputs/GroupInput";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
 
 interface Props {
   shippingOnly?: boolean;
+  streetAddress?: string;
+  state?: string;
+  city?: string;
+  zipcode?: number;
+  idDefualt?: boolean;
 }
 
-const ShippingAddressFields = ({ shippingOnly }: Props) => {
+const ShippingAddressFields = ({
+  shippingOnly,
+  streetAddress,
+  state,
+  city,
+  zipcode,
+  idDefualt,
+}: Props) => {
   return (
     <FormInputGroup heading="Shipping Address" withClear>
-      <FormInput variant="address" />
+      <FormInput
+        variant="address"
+        name="street_address"
+        defaultValue={streetAddress || ""}
+      />
       <FormSpacing />
       <section>
         <GroupInput>
-          <FormInput variant="address_select" placeholder="State" />
-          <FormInput variant="address_select" placeholder="City" />
+          <FormInput
+            variant="address_select"
+            placeholder="State"
+            name="state"
+            defaultValue={state || ""}
+          />
+          <FormInput
+            variant="address_select"
+            placeholder="City"
+            name="city"
+            defaultValue={city || ""}
+          />
         </GroupInput>
         <FormSpacing />
-        <FormInput variant="zipcode" />
+        <FormInput
+          variant="zipcode"
+          name="zipcode"
+          defaultValue={zipcode || ""}
+        />
       </section>
       <FormSpacing />
       <section>
         {!shippingOnly && (
           <section>
             <div className="flex gap-3 items-center">
-              <Checkbox htmlFor="shipToAnotherAddress" small />
+              <Checkbox
+                htmlFor="shipToAnotherAddress"
+                small
+                defaultChecked={idDefualt || false}
+              />
               <p className=" text-orange-400">Ship to another address</p>
             </div>
             <FormSpacing />

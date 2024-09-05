@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 import productImage from "@/public/assets/products/watch-1.jpg";
+
+import { ROUTES } from "@/app/lib/contants";
+import Button from "@/app/components/Buttons/Button";
 import StatusDisplay, {
   StausType,
-} from "@/app/(main)/components/Displays/StatusDisplay";
-import Button from "@/app/(main)/components/Buttons/Button";
-import { ROUTES } from "@/app/lib/contants";
+} from "@/app/components/Displays/StatusDisplay";
 
 interface Props {
   status: StausType;

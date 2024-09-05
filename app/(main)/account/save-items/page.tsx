@@ -1,5 +1,5 @@
-import AccountSpacing from "../../components/Spacing/AccountSpacing";
-import BaseSpacing from "../../components/Spacing/BaseSpacing";
+import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
+import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
 import AccountHeader from "../components/AccountHeader";
 import SavedItem from "./SavedItem";
 import { Fragment } from "react";

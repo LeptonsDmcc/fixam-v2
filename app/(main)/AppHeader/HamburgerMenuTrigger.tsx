@@ -1,8 +1,8 @@
 "use client";
 
+import MobileMenu from "@/app/components/Navigations/MobileMenu";
 import { HambergerMenu } from "iconsax-react";
 import { useState } from "react";
-import MobileMenu from "../components/Navigations/MobileMenu";
 
 const HamburgerMenuTrigger = () => {
   const [showMenu, setShowMenu] = useState(false);

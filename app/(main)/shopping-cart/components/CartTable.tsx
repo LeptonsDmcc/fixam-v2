@@ -1,8 +1,12 @@
-"use client";
+import useCartStore from "../../store/cart";
+import CartItemTR from "./CartItemTR";
 
-import CartItemsTR from "./CartItemsTR";
-
-const CartTable = () => {
+interface Props {
+  fixamBaseUrl: string;
+  isAuth?: boolean;
+}
+const CartTable = ({ fixamBaseUrl, isAuth }: Props) => {
+  const { cartItems } = useCartStore();
   return (
     <>
       <table className="flex-grow">
@@ -31,7 +35,18 @@ const CartTable = () => {
         </thead>
         {/* <Space spacing="my-12" />*/}
         <tbody>
-          <CartItemsTR />
+          {cartItems && cartItems.length ? (
+            cartItems.map((item) => (
+              <CartItemTR
+                key={item.id}
+                item={item}
+                fixamBaseUrl={fixamBaseUrl}
+                isAuth={isAuth}
+              />
+            ))
+          ) : (
+            <p className=" text-center pt-20">Your Cart is Empty</p>
+          )}
         </tbody>
       </table>
     </>

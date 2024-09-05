@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Wrapper from "./components/Wrapper";
-import SectionSpacing from "./components/Spacing/SectionSpacing";
+import Wrapper from "../components/Wrapper";
+import SectionSpacing from "../components/Spacing/SectionSpacing";
 
 interface Props {
   error: Error & { digest?: string };

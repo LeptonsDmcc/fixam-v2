@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useFormState } from "react-dom";
 import { toast } from "sonner";
-import SubmitAuth from "../signup/SubmitAuth";
+import SubmitForm from "../../components/Buttons/SubmitForm";
 import OtpTimer from "./OtpTimer";
 import { resendOTPAction, verifyAction } from "@/actions/auth";
 import Wrapper from "@/app/(main)/components/Wrapper";
@@ -74,7 +74,7 @@ const OTPage = ({ searchParams }: Props) => {
 
             <CodeInputs />
             <FormSpacing />
-            <SubmitAuth>Verify</SubmitAuth>
+            <SubmitForm>Verify</SubmitForm>
             <FormSpacing />
           </form>
           <form
@@ -84,9 +84,9 @@ const OTPage = ({ searchParams }: Props) => {
           >
             <div className=" text-center">
               Didn’t receive the code yet?{" "}
-              <SubmitAuth variant="text" elementType="button" full={false}>
+              <SubmitForm variant="text" elementType="button" full={false}>
                 Resend Code
-              </SubmitAuth>
+              </SubmitForm>
             </div>
           </form>
         </section>

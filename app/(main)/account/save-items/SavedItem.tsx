@@ -1,9 +1,9 @@
+import AddToCartButton from "@/app/components/Buttons/AddToCartButton";
+import Card from "@/app/components/Card";
+import ProductPrice from "@/app/components/Products/ProductPrice";
+import Space from "@/app/components/Spacing/Space";
+import TrashBin from "@/app/components/TrashBin";
 import Image from "next/image";
-import Card from "../../components/Card";
-import Space from "../../components/Spacing/Space";
-import ProductPrice from "../../components/Products/ProductPrice";
-import AddToCartButton from "../../components/Buttons/AddToCartButton";
-import TrashBin from "../../components/TrashBin";
 
 const SavedItem = () => {
   return (
@@ -40,7 +40,7 @@ const SavedItem = () => {
       </div>
 
       <div className="w-[22.5%] hidden lg:block">
-        <AddToCartButton />
+        <AddToCartButton productId={""} productPrice={0} />
       </div>
 
       <div
@@ -48,7 +48,7 @@ const SavedItem = () => {
       lg:flex-row"
       >
         <div className="lg:hidden">
-          <AddToCartButton cartOnly />
+          <AddToCartButton cartOnly productId={""} productPrice={0} />
         </div>
         <TrashBin />
       </div>

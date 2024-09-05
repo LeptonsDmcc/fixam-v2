@@ -3,12 +3,12 @@
 import { signinAction } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import SigninLayout from "../components/SigninLayout";
-import SubmitAuth from "../signup/SubmitAuth";
-import FormSpacing from "@/app/(main)/components/Spacing/FormSpacing";
-import Heading from "@/app/(main)/components/Heading";
-import FormInput from "@/app/(main)/components/Inputs/FormInput";
-import Checkbox from "@/app/(main)/components/Inputs/Checkbox";
-import Button from "@/app/(main)/components/Buttons/Button";
+import SubmitForm from "../../components/Buttons/SubmitForm";
+import Button from "@/app/components/Buttons/Button";
+import Heading from "@/app/components/Heading";
+import Checkbox from "@/app/components/Inputs/Checkbox";
+import FormInput from "@/app/components/Inputs/FormInput";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
 
 const SigninPage = () => {
   const [state, formSigninAction] = useFormState(signinAction, {
@@ -51,7 +51,7 @@ const SigninPage = () => {
           </Button>
         </div>
         <FormSpacing />
-        <SubmitAuth full>Sign In</SubmitAuth>
+        <SubmitForm full>Sign In</SubmitForm>
         <FormSpacing />
         <div className=" text-center">
           Don't have an account?{" "}

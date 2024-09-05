@@ -1,7 +1,8 @@
 interface Props {
   isMobile?: boolean;
+  itemCount: number;
 }
-const Count = ({ isMobile }: Props) => {
+const Count = ({ isMobile, itemCount }: Props) => {
   return (
     <span
       className={`${
@@ -13,7 +14,7 @@ const Count = ({ isMobile }: Props) => {
           text-xs font-medium leading-none py-[2px] px-[4px] rounded-full
         `}
     >
-      1
+      {itemCount}
     </span>
   );
 };

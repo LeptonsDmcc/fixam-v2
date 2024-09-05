@@ -1,4 +1,3 @@
-import AddFavoriteButton from "@/app/components/Buttons/AddFavoriteButton";
 import AddToCartButton from "@/app/components/Buttons/AddToCartButton";
 import BuyNowButton from "@/app/components/Buttons/BuyNowButton";
 import ShareButton from "@/app/components/Buttons/ShareButton";
@@ -7,6 +6,7 @@ import ProductPrice from "@/app/components/Products/ProductPrice";
 import ProductQuantity from "@/app/components/Products/ProductQuantity";
 import ReviewsRating from "@/app/components/Reviews/ReviewsRating";
 import Space from "@/app/components/Spacing/Space";
+import isAuthenticated from "@/app/lib/data/verifyAuth";
 import { ProductType } from "@/app/lib/types";
 import Link from "next/link";
 
@@ -15,7 +15,9 @@ const ProductInfoSpace = () => <Space spacing="my-6" />;
 interface Props {
   product: ProductType;
 }
-const ProductInfo = ({ product }: Props) => {
+const ProductInfo = async ({ product }: Props) => {
+  const isAuth = await isAuthenticated();
+
   return (
     <section>
       <section className=" text-xs">
@@ -54,7 +56,12 @@ const ProductInfo = ({ product }: Props) => {
         <div className=" flex-grow">
           <BuyNowButton full />
           <ProductInfoSpace />
-          <AddToCartButton full />
+          <AddToCartButton
+            full
+            isAuth={isAuth}
+            productId={product.id || ""}
+            productPrice={product.selling_price}
+          />
         </div>
       </section>
       <ProductInfoSpace />

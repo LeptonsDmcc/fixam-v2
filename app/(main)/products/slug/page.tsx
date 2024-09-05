@@ -1,6 +1,5 @@
 import BrandPartners from "@/app/components/BrandPartners";
 import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
-import ShowcaseSubCategories from "@/app/components/Categories/ShowcaseSubCategories";
 import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
 import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Wrapper from "@/app/components/Wrapper";

@@ -86,7 +86,10 @@ const SearchedProducts = ({ searchTerm }: Props) => {
           //   const linkValue = hit.document.categories.join("/").replace(/\s/img, "-");
 
           return (
-            <li className="flex items-center gap-2 hover:bg-gray-100">
+            <li
+              key={hit.document.id}
+              className="flex items-center gap-2 hover:bg-gray-100"
+            >
               {/* TODO: Show suggestion */}
               {hit.document.image && (
                 <div className="p-2">

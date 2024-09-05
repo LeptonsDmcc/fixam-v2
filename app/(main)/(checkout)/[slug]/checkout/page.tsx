@@ -3,12 +3,12 @@ import SelectPaymentMethod from "../../components/SelectPaymentMethod";
 import ShippingAddressFields from "../../components/ShippingAddressFields";
 import OrderSummary from "../../components/OrderSummary";
 import CustomerAddressList from "../../components/CustomerAddressList";
-import BreadcrumbHeader from "@/app/(main)/components/Breadcrumb/BreadcrumbHeader";
-import SectionSpacing from "@/app/(main)/components/Spacing/SectionSpacing";
-import Wrapper from "@/app/(main)/components/Wrapper";
-import Card from "@/app/(main)/components/Card";
-import FormSpacing from "@/app/(main)/components/Spacing/FormSpacing";
-import Button from "@/app/(main)/components/Buttons/Button";
+import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
+import Button from "@/app/components/Buttons/Button";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import Wrapper from "@/app/components/Wrapper";
+import Card from "@/app/components/Card";
 
 interface Props {
   params: { slug: string };
@@ -26,7 +26,7 @@ const CheckoutPage = ({ params: { slug } }: Props) => {
       />
       <SectionSpacing />
       <Wrapper>
-        <CustomerAddressList />
+        <CustomerAddressList addresses={[]} />
         <SectionSpacing />
         <section
           className="flex flex-col gap-6

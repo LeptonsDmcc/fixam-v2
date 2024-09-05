@@ -1,17 +1,15 @@
 "use server";
 
+import { fixamBaseUrl } from "@/app/lib/contants";
 import formatNigeriaNumber from "@/app/lib/formatNigeriaNumber";
 import Joi from "joi";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-
-type AuthActionState = {
-  message: string;
-  hasError: boolean;
-};
+import { ActionErrorType } from "./error-type";
+import { revalidatePath } from "next/cache";
 
 export const signupAction = async (
-  prevState: AuthActionState,
+  prevState: ActionErrorType,
   formData: FormData
 ) => {
   const data = {
@@ -40,7 +38,6 @@ export const signupAction = async (
   const { error, value } = schema.validate(data);
 
   if (error) {
-    console.log("ERROR", error);
     return {
       message: error.message,
       hasError: true,
@@ -49,7 +46,7 @@ export const signupAction = async (
 
   try {
     //  Send request to save user
-    await fetch(`${process.env.FIXAM_BASE_URL}/users/auth/register/`, {
+    await fetch(`${fixamBaseUrl}/users/auth/register/`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -68,7 +65,7 @@ export const signupAction = async (
 
 // Signin form action
 export const signinAction = async (
-  prevState: AuthActionState,
+  prevState: ActionErrorType,
   formData: FormData
 ) => {
   const data = {
@@ -79,18 +76,14 @@ export const signinAction = async (
 
   try {
     //  Send request to save user
-    const signinRes = await fetch(
-      `${process.env.FIXAM_BASE_URL}/users/auth/login/`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(data),
-      }
-    );
+    const signinRes = await fetch(`${fixamBaseUrl}/users/auth/login/`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    });
 
-    console.log("signinRes", signinRes);
     if (signinRes.status == 400)
       return {
         hasError: true,
@@ -99,7 +92,7 @@ export const signinAction = async (
 
     const userData = await signinRes.json();
     cookies().set("auth_access", userData.access);
-    cookies().set("refresh", userData.refresh);
+    cookies().set("auth_refresh", userData.refresh);
     // console.log("userData", userData);
   } catch (error) {
     console.log("ERROR SAVING USER", error);
@@ -109,12 +102,24 @@ export const signinAction = async (
     };
   }
 
-  redirect(`/?message=lok`);
+  redirect(`/`);
+
+  // return {
+  //   hasError: false,
+  //   message: "Your account has been verified successfully :)",
+  // };
+};
+
+//  logout
+export const logout = () => {
+  cookies().delete("auth_access");
+  cookies().delete("auth_refresh");
+  redirect("/");
 };
 
 // Verify Action
 export const verifyAction = async (
-  prevState: AuthActionState,
+  prevState: ActionErrorType,
   formData: FormData
 ) => {
   const data = {
@@ -139,16 +144,13 @@ export const verifyAction = async (
 
   try {
     //  Send request to save user
-    const res = await fetch(
-      `${process.env.FIXAM_BASE_URL}/users/auth/verify/account/`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(value),
-      }
-    );
+    const res = await fetch(`${fixamBaseUrl}/users/auth/verify/account/`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(value),
+    });
 
     console.log("resData", res.status, res.statusText, res.ok);
 
@@ -166,7 +168,7 @@ export const verifyAction = async (
     };
   }
 
-  redirect(`/?message=vok`);
+  redirect(`/`);
   // return {
   //   hasError: false,
   //   message: "Your account has been verified successfully :)",
@@ -198,16 +200,13 @@ export const resendOTPAction = async (data: ResendOTPType) => {
   }
 
   if (data.email || data.phone) {
-    const resendOTPRes = await fetch(
-      `${process.env.FIXAM_BASE_URL}/users/auth/resend_otp/`,
-      {
-        method: "POST",
-        body: JSON.stringify(resendData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const resendOTPRes = await fetch(`${fixamBaseUrl}/users/auth/resend_otp/`, {
+      method: "POST",
+      body: JSON.stringify(resendData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     const resendOTPJsonRes = await resendOTPRes.json();
     console.log("resendOTPJsonRes", resendOTPJsonRes);

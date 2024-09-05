@@ -1,7 +1,7 @@
-import Heading from "@/app/(main)/components/Heading";
+import Heading from "@/app/components/Heading";
+import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
 import InfoCardSection from "./InfoCardSection";
 import { Fragment, ReactNode } from "react";
-import BaseSpacing from "@/app/(main)/components/Spacing/BaseSpacing";
 
 interface Props {
   heading: string;

@@ -1,9 +1,9 @@
-import AccountSpacing from "@/app/(main)/components/Spacing/AccountSpacing";
+import Heading from "@/app/components/Heading";
+import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
 import AccountHeader from "../../components/AccountHeader";
 import AccountOrderItems from "../components/AccountOrderItems";
 import InfoCard from "../components/InfoCard";
 import currency from "@/app/lib/currency";
-import Heading from "@/app/(main)/components/Heading";
 
 const OrderDetailPage = () => {
   return (

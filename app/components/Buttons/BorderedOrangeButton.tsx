@@ -2,11 +2,17 @@ import { PropsWithChildren } from "react";
 
 interface Props {
   full?: boolean;
+  onClick?: () => void;
 }
 
-const BorderedOrangeButton = ({ full, children }: PropsWithChildren<Props>) => {
+const BorderedOrangeButton = ({
+  full,
+  onClick,
+  children,
+}: PropsWithChildren<Props>) => {
   return (
     <button
+      onClick={onClick}
       className={`${
         full ? "w-full text-orange-400" : "w-36 text-white"
       } h-12 text-sm flex items-center gap-1 justify-center

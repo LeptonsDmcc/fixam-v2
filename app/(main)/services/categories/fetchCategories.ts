@@ -1,4 +1,3 @@
-import { FetchResponse } from "../apiClient";
 import { CategoryType, categoryService } from "./categoryService";
 
 const fetchCategories = async () => {

@@ -1,5 +1,5 @@
+import Space from "@/app/components/Spacing/Space";
 import { PropsWithChildren, useState } from "react";
-import Space from "../../components/Spacing/Space";
 
 const Overlay = ({ children }: PropsWithChildren) => {
   const [show, setShow] = useState(true);

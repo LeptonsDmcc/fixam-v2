@@ -1,10 +1,10 @@
+import Heading from "@/app/components/Heading";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Link from "next/link";
-import SectionSpacing from "../../components/Spacing/SectionSpacing";
-import Heading from "../../components/Heading";
-import FormSpacing from "../../components/Spacing/FormSpacing";
 import OrderReceipt from "./OrderReceipt";
-import Button from "../../components/Buttons/Button";
-import BorderedOrangeButton from "../../components/Buttons/BorderedOrangeButton";
+import Button from "@/app/components/Buttons/Button";
+import BorderedOrangeButton from "@/app/components/Buttons/BorderedOrangeButton";
 
 const OrderSuccess = () => {
   return (

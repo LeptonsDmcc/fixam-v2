@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { headers } from "next/headers";
-import { Toaster } from "sonner";
-import AppHeader from "./AppHeader/AppHeader";
-import Footer from "./components/Footer/Footer";
-import MobileBottomNav from "./components/Navigations/MobileBottomNav";
 import "../globals.css";
+import AppHeader from "./AppHeader/AppHeader";
+import Footer from "../components/Footer/Footer";
+import MobileBottomNav from "../components/Navigations/MobileBottomNav";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
@@ -24,15 +22,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isAuthPage = headers().get("x-auth-page") === "true";
-
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/assets/fixamlogo-o.png" />
       </head>
       <body className={poppins.className}>
-        <Toaster richColors />
         <AppHeader />
         <main>{children}</main>
         <Footer />

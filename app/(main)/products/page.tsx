@@ -1,11 +1,11 @@
-import BrandPartners from "../components/BrandPartners";
-import BreadcrumbHeader from "../components/Breadcrumb/BreadcrumbHeader";
-import ShowcaseSubCategories from "../components/Categories/ShowcaseSubCategories";
-import FixAdPremium from "../components/FixAds.tsx/FixAdPremium";
-import SectionSpacing from "../components/Spacing/SectionSpacing";
-import Wrapper from "../components/Wrapper";
-import { ROUTES } from "../lib/contants";
-import { fetchProductsBaseOnQuery } from "../lib/data/fetchProductsBaseOnQuery";
+import BrandPartners from "@/app/components/BrandPartners";
+import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
+import ShowcaseSubCategories from "@/app/components/Categories/ShowcaseSubCategories";
+import FixAdPremium from "@/app/components/FixAds.tsx/FixAdPremium";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import Wrapper from "@/app/components/Wrapper";
+import { ROUTES } from "@/app/lib/contants";
+import { fetchProductsBaseOnQuery } from "@/app/lib/data/fetchProductsBaseOnQuery";
 import ProductCategories from "./components/ProductCategories";
 
 interface Props {

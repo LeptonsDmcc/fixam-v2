@@ -1,11 +1,11 @@
-import Button from "../../components/Buttons/Button";
-import Card from "../../components/Card";
-import Heading from "../../components/Heading";
-import HR from "../../components/HR";
-import LabelValueDisplay from "../../components/LabelValueDisplay";
-import FormSpacing from "../../components/Spacing/FormSpacing";
-import SectionSpacing from "../../components/Spacing/SectionSpacing";
+import Card from "@/app/components/Card";
 import OrderSummaryItem from "./OrderSummaryItem";
+import Heading from "@/app/components/Heading";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import HR from "@/app/components/HR";
+import LabelValueDisplay from "@/app/components/LabelValueDisplay";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import Button from "@/app/components/Buttons/Button";
 
 const OrderSummary = () => {
   return (

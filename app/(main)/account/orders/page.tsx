@@ -1,10 +1,10 @@
 import { ROUTES } from "@/app/lib/contants";
-import NavLink from "../../components/Navigations/NavLink";
-import AccountSpacing from "../../components/Spacing/AccountSpacing";
 import AccountHeader from "../components/AccountHeader";
-import Button from "../../components/Buttons/Button";
-import HR from "../../components/HR";
 import AccountOrderItems from "./components/AccountOrderItems";
+import Button from "@/app/components/Buttons/Button";
+import HR from "@/app/components/HR";
+import NavLink from "@/app/components/Navigations/NavLink";
+import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
 
 const OrderPage = () => {
   return (

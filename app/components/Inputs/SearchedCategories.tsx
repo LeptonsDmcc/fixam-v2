@@ -67,7 +67,7 @@ const SearchedCategories = ({ searchTerm }: Props) => {
             /* TODO: Show suggestion */
           }
           return (
-            <li>
+            <li key={hit.document.id}>
               <Link
                 className="flex items-center gap-2 hover:bg-gray-100"
                 href={`${ROUTES.product}/?category=${categorySlug}`}

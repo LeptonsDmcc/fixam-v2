@@ -3,8 +3,8 @@ import Link from "next/link";
 import { PropsWithChildren } from "react";
 
 import fixAuthSideImage1 from "@/public/assets/fix-auth-side-image.jpg";
-import Logo from "@/app/(main)/components/Logo";
-import BackButton from "@/app/(main)/components/Buttons/BackButton";
+import BackButton from "@/app/components/Buttons/BackButton";
+import Logo from "@/app/components/Logo";
 
 interface Props {
   swap?: boolean;

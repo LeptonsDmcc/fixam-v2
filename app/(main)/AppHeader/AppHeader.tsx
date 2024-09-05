@@ -1,11 +1,14 @@
+import getAuthUser from "@/app/lib/data/user";
 import HeaderMain from "./HeaderMain";
 import HeaderTop from "./HeaderTop";
 
-const AppHeader = () => {
+const AppHeader = async () => {
+  const user = await getAuthUser();
+
   return (
     <>
-      <HeaderTop />
-      <HeaderMain />
+      <HeaderTop name={user?.first_name} />
+      <HeaderMain isAuthenticated={user !== null} />
     </>
   );
 };

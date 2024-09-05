@@ -1,29 +1,11 @@
 "use client";
-import Carousel from "@/app/components/Carousel/Carousel";
-import Image from "next/image";
-import Space from "@/app/components/Spacing/Space";
-import { useEffect, useState } from "react";
-import AddFavoriteButton from "@/app/components/Buttons/AddFavoriteButton";
-import { convertImageFromArrObj } from "@/app/lib/image-helpers";
 
-// const dummyImages = [
-//   {
-//     src: "/assets/products/watch-1.jpg",
-//     alt: "",
-//   },
-//   {
-//     src: "/assets/products/watch-2.jpg",
-//     alt: "",
-//   },
-//   {
-//     src: "/assets/products/watch-3.jpg",
-//     alt: "",
-//   },
-//   {
-//     src: "/assets/products/shampoo.jpg",
-//     alt: "",
-//   },
-// ];
+import AddFavoriteButton from "@/app/components/Buttons/AddFavoriteButton";
+import Carousel from "@/app/components/Carousel/Carousel";
+import Space from "@/app/components/Spacing/Space";
+import { convertImageFromArrObj } from "@/app/lib/image-helpers";
+import Image from "next/image";
+import { useState } from "react";
 
 interface Props {
   images: { [key: string]: string }[];
@@ -87,7 +69,7 @@ const ImagePreview = ({ images, alt }: Props) => {
             width={140}
             height={140}
             className={`${
-              i === activeIndex ? " border-orange-400" : ""
+              i === activeIndex ? "border-orange-400" : ""
             } rounded-lg border
             min-w-16 md:w-[140px]`}
             onClick={() => {

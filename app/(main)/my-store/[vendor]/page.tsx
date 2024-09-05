@@ -1,10 +1,10 @@
 import Image from "next/image";
-import VendorStoreBanners from "../../components/Banners/VendorStoreBanners";
-import BreadcrumbHeader from "../../components/Breadcrumb/BreadcrumbHeader";
-import SectionSpacing from "../../components/Spacing/SectionSpacing";
-import Wrapper from "../../components/Wrapper";
-import ServiceItem from "../../components/OurServices/ServiceItem";
 import ProductCategories from "../../products/components/ProductCategories";
+import VendorStoreBanners from "@/app/components/Banners/VendorStoreBanners";
+import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
+import ServiceItem from "@/app/components/OurServices/ServiceItem";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import Wrapper from "@/app/components/Wrapper";
 
 const VenodrStorePage = () => {
   return (

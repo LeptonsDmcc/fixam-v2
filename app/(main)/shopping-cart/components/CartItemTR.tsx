@@ -1,10 +1,35 @@
-import Image from "next/image";
-import Space from "../../components/Spacing/Space";
-import ProductPrice from "../../components/Products/ProductPrice";
-import ProductQuantity from "../../components/Products/ProductQuantity";
-import TrashBin from "../../components/TrashBin";
+import { CartItemType, ProductType } from "@/app/lib/types";
+import ProductCartItem from "./ProductCartItem";
+import { useEffect, useState } from "react";
+import useCartStore from "../../store/cart";
+import ProductPrice from "@/app/components/Products/ProductPrice";
+import ProductQuantity from "@/app/components/Products/ProductQuantity";
+import TrashBin from "@/app/components/TrashBin";
 
-const CartItemTR = () => {
+interface Props {
+  item: CartItemType;
+  fixamBaseUrl: string;
+  isAuth?: boolean;
+}
+
+const CartItemTR = ({ item, fixamBaseUrl, isAuth }: Props) => {
+  const [cartProduct, setCartProduct] = useState<ProductType>();
+  const { removeItem, incrementQuantity, decrementQuantity } = useCartStore();
+
+  useEffect(() => {
+    const initCartProd = async () => {
+      const res = await fetch(`${fixamBaseUrl}/products/${item.prod_id}/`);
+
+      const prods = await res.json();
+
+      setCartProduct(prods);
+    };
+
+    initCartProd();
+  }, []);
+
+  if (!cartProduct) return <p>Loading...</p>;
+
   return (
     <tr
       className="flex justify-between w-full items-center py-6  
@@ -13,32 +38,11 @@ const CartItemTR = () => {
     >
       <td
         className="flex items-center w-1/3 
-      md:flex-grow md:w-auto"
+        md:flex-grow md:w-auto"
       >
         <>
           {/* <Checkbox /> */}
-          <div className="flex items-center gap-3">
-            <div
-              className="ml-2 hidden
-             md:block"
-            >
-              <Image
-                src="/assets/products/watch-1.jpg"
-                alt=""
-                width={120}
-                height={120}
-                className=" rounded-md"
-              />
-            </div>
-
-            <div>
-              <h4>Rice Master Rice Cooker</h4>
-              <Space spacing="py-1" />
-              <p className=" text-xs text-gray-400">
-                Sold by: Three Ace Technology Services Ltd
-              </p>
-            </div>
-          </div>
+          <ProductCartItem product={cartProduct} />
         </>
       </td>
 
@@ -46,14 +50,23 @@ const CartItemTR = () => {
         className="w-1/3 md:w-[22.5%] text-center
       md:text-left"
       >
-        <ProductPrice discount={0} textSize="sm" />
+        <ProductPrice
+          discount={0}
+          textSize="sm"
+          price={cartProduct.selling_price * item.quantity}
+        />
       </td>
 
       <td className="w-1/3 md:w-[22.5%]">
-        <ProductQuantity />
+        <ProductQuantity
+          quantity={item.quantity}
+          incrementQuantity={() => incrementQuantity(item.id || "", isAuth)}
+          decrementQuantity={() => decrementQuantity(item.id || "", isAuth)}
+        />
       </td>
 
       <td
+        onClick={() => removeItem(item.id || "", isAuth)}
         className="w-full flex justify-end mt-5
       md:w-[5%] md:block md:mt-0"
       >

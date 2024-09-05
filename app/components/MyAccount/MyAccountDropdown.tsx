@@ -36,12 +36,16 @@ const myAccountNavs: LinkType[] = [
   },
 ];
 
-const MyAccountDropdown = () => {
+interface Props {
+  isAuthenticated?: boolean;
+}
+const MyAccountDropdown = ({ isAuthenticated }: Props) => {
   const [isVisible, setIsVisibility] = useState(false);
 
   const handleDropdownVisibility = () => {
     setIsVisibility(!isVisible);
   };
+
   return (
     <section className="relative">
       <ActionButton
@@ -57,14 +61,21 @@ const MyAccountDropdown = () => {
         bg-white shadow-md flex justify-center py-6 rounded-md`}
       >
         <ul role="menu" className="  flex flex-col ">
-          <li>
-            <Button elementType="link" href="/signin">
-              Sign In
-            </Button>
-          </li>
-          <Space spacing={"my-2"} />
+          {!isAuthenticated && (
+            <li>
+              <Button elementType="link" href="/signin">
+                Sign In
+              </Button>
+              <Space spacing={"my-2"} />
+            </li>
+          )}
+
           {myAccountNavs.map(({ text, to, icon }) => (
-            <li key={text} className="py-3">
+            <li
+              onClick={() => setIsVisibility(false)}
+              key={text}
+              className="py-3"
+            >
               <Link
                 href={to}
                 className="flex gap-2 items-center hover:text-orange-400 duration-200"

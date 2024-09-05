@@ -1,7 +1,15 @@
 interface Props {
   circled?: boolean;
+  quantity: number;
+  incrementQuantity: () => void;
+  decrementQuantity: () => void;
 }
-const ProductQuantity = ({ circled }: Props) => {
+const ProductQuantity = ({
+  circled,
+  quantity,
+  incrementQuantity,
+  decrementQuantity,
+}: Props) => {
   return (
     <section
       className={`${
@@ -9,11 +17,13 @@ const ProductQuantity = ({ circled }: Props) => {
       } flex items-center h-12 font-semibold`}
     >
       <button
+        disabled={quantity === 1}
+        onClick={decrementQuantity}
         className={`${
           circled
             ? "rounded-full bg-orange-400 text-white w-10 h-10"
             : "w-1/3 text-xl"
-        }`}
+        } disabled:cursor-not-allowed`}
       >
         -
       </button>
@@ -24,9 +34,10 @@ const ProductQuantity = ({ circled }: Props) => {
             : "w-1/3 border-none focus:border-none focus:outline-none "
         } flex justify-center items-center`}
       >
-        1
+        {quantity}
       </div>
       <button
+        onClick={incrementQuantity}
         className={`${
           circled
             ? "rounded-full bg-orange-400 text-white w-10 h-10"

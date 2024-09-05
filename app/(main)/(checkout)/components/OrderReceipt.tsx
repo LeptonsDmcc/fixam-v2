@@ -1,11 +1,11 @@
-import Card from "../../components/Card";
-import Heading from "../../components/Heading";
-import HR from "../../components/HR";
-import LabelValueDisplay from "../../components/LabelValueDisplay";
-import FormSpacing from "../../components/Spacing/FormSpacing";
-import SectionSpacing from "../../components/Spacing/SectionSpacing";
+import { Card } from "iconsax-react";
 import OrderSummaryItem from "./OrderSummaryItem";
 import { Fragment } from "react";
+import Heading from "@/app/components/Heading";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import LabelValueDisplay from "@/app/components/LabelValueDisplay";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import HR from "@/app/components/HR";
 
 const OrderReceipt = () => {
   return (

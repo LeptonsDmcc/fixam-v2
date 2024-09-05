@@ -2,16 +2,15 @@ import BrowseCategories from "@/app/components/Categories/BrowseCategories";
 import Filters from "@/app/components/Filters/Filters";
 import Grid from "@/app/components/Grid";
 import Pagination from "@/app/components/Pagination";
-import ProductCarousel from "@/app/components/Products/ProductCarousel";
 import Products from "@/app/components/Products/Products";
+import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
 import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Space from "@/app/components/Spacing/Space";
-import { ProductType } from "@/app/lib/types";
-import FilterMenuTrigger from "../components/FilterMenuTrigger";
 import Wrapper from "@/app/components/Wrapper";
-import Link from "next/link";
+import { ProductType } from "@/app/lib/types";
 import { ArrowDown2 } from "iconsax-react";
-import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
+import Link from "next/link";
+import FilterMenuTrigger from "../components/FilterMenuTrigger";
 
 const page = async () => {
   const latestProdsRes = await fetch(`${process.env.FIXAM_BASE_URL}/products/`);

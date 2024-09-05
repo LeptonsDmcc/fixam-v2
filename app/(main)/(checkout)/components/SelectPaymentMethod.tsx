@@ -1,4 +1,4 @@
-import RadioInput from "../../components/Inputs/RadioInput";
+import RadioInput from "@/app/components/Inputs/RadioInput";
 
 const SelectPaymentMethod = () => {
   return (

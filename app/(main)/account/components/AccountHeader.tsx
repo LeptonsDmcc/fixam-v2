@@ -1,6 +1,6 @@
+import BackButton from "@/app/components/Buttons/BackButton";
+import Heading from "@/app/components/Heading";
 import React, { PropsWithChildren } from "react";
-import BackButton from "../../components/Buttons/BackButton";
-import Heading from "../../components/Heading";
 
 interface Props {
   withBack?: boolean;

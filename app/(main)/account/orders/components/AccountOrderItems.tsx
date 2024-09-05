@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import AccountOrderItem from "./AccountOrderItem";
-import { StausType } from "@/app/(main)/components/Displays/StatusDisplay";
+import { StausType } from "@/app/components/Displays/StatusDisplay";
 
 interface Props {
   items: { status: StausType }[];

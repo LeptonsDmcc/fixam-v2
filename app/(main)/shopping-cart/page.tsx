@@ -1,14 +1,20 @@
-import BreadcrumbHeader from "../components/Breadcrumb/BreadcrumbHeader";
-import ProductCarousel from "../components/Products/ProductCarousel";
-import Space from "../components/Spacing/Space";
-import Wrapper from "../components/Wrapper";
-import { ProductType } from "../services/products/productService";
-import CartTable from "./components/CartTable";
-import CheckoutSummary from "./components/CheckoutSummary";
+import { fixamBaseUrl } from "@/app/lib/contants";
+import CartTableSummary from "./components/CartTableSummary";
+import { ProductType } from "@/app/lib/types";
+import getAuthUser, { getAuthToken } from "@/app/lib/data/user";
+import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
+import ProductCarousel from "@/app/components/Products/ProductCarousel";
+import Space from "@/app/components/Spacing/Space";
+import Wrapper from "@/app/components/Wrapper";
 
 const CartSpacing = () => <Space spacing="my-12" />;
 
 const CartPage = async () => {
+  const user = await getAuthUser();
+  const accessToken = getAuthToken();
+
+  const isAuth = user !== null;
+
   const productsRes = await fetch(`${process.env.FIXAM_BASE_URL}/products/`);
   const productsJsonRes = await productsRes.json();
   const products: ProductType[] = productsJsonRes.results;
@@ -21,15 +27,11 @@ const CartPage = async () => {
       />
       <CartSpacing />
       <Wrapper>
-        <section
-          className="flex flex-col gap-11 
-          md:flex-row"
-        >
-          <CartTable />
-          <section className="lg:min-w-[200px] lg:w-[400px] lg:max-w-[400px]">
-            <CheckoutSummary />
-          </section>
-        </section>
+        <CartTableSummary
+          fixamBaseUrl={fixamBaseUrl || ""}
+          isAuth={isAuth}
+          accessToken={accessToken || ""}
+        />
         <CartSpacing />
         <ProductCarousel products={products} title="Recently Viewed" noSeeAll />
         <CartSpacing />

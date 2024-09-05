@@ -1,8 +1,8 @@
-import FormSpacing from "@/app/(main)/components/Spacing/FormSpacing";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import SigninLayout from "../components/SigninLayout";
-import Heading from "@/app/(main)/components/Heading";
-import FormInput from "@/app/(main)/components/Inputs/FormInput";
-import Button from "@/app/(main)/components/Buttons/Button";
+import Heading from "@/app/components/Heading";
+import FormInput from "@/app/components/Inputs/FormInput";
+import Button from "@/app/components/Buttons/Button";
 
 const ResetPasswordPage = () => {
   return (

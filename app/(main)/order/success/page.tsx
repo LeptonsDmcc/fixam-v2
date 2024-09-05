@@ -1,5 +1,5 @@
-import OrderSuccess from "@/app/(checkout)/components/OrderSuccess";
 import Wrapper from "@/app/components/Wrapper";
+import OrderSuccess from "../../(checkout)/components/OrderSuccess";
 
 const OrderSuccessPage = () => {
   return (

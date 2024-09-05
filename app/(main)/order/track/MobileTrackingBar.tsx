@@ -1,4 +1,3 @@
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import Image from "next/image";
 
 const MobileTrackingBar = () => {

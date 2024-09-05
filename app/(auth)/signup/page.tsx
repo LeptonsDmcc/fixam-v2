@@ -4,13 +4,13 @@ import { signupAction } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import { IoMailOutline } from "react-icons/io5";
 import SigninLayout from "../components/SigninLayout";
-import SubmitAuth from "./SubmitAuth";
-import FormSpacing from "@/app/(main)/components/Spacing/FormSpacing";
-import Heading from "@/app/(main)/components/Heading";
-import FormInput from "@/app/(main)/components/Inputs/FormInput";
-import Input from "@/app/(main)/components/Inputs/Input";
-import PerfectCenter from "@/app/(main)/components/PerfectCenter";
-import Button from "@/app/(main)/components/Buttons/Button";
+import SubmitForm from "../../components/Buttons/SubmitForm";
+import Button from "@/app/components/Buttons/Button";
+import Heading from "@/app/components/Heading";
+import FormInput from "@/app/components/Inputs/FormInput";
+import PerfectCenter from "@/app/components/PerfectCenter";
+import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import Input from "@/app/components/Inputs/Input";
 
 const SingupPage = () => {
   const [state, formSignupAction] = useFormState(signupAction, {
@@ -72,7 +72,7 @@ const SingupPage = () => {
         <FormSpacing />
         <p className="text-red-400">{state.hasError && state.message}</p>
         <FormSpacing />
-        <SubmitAuth>Sign In</SubmitAuth>
+        <SubmitForm>Sign In</SubmitForm>
         <FormSpacing />
         <PerfectCenter>
           Already have an account?

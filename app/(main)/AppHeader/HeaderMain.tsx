@@ -1,15 +1,19 @@
 import Link from "next/link";
-import ActionButton from "../components/Buttons/ActionButton";
-import Button from "../components/Buttons/Button";
-import CartButton from "../components/Buttons/CartButton";
-import QuestionCircleSVGrepoCom from "../components/Icons/svgs/QuestionCircleSVGrepoCom";
-import SearchInput from "../components/Inputs/SearchInput";
-import Logo from "../components/Logo";
-import MyAccountDropdown from "../components/MyAccount/MyAccountDropdown";
-import CategoryNavigations from "../components/Navigations/CategoryNavigations";
 import HamburgerMenuTrigger from "./HamburgerMenuTrigger";
+import Logo from "@/app/components/Logo";
+import CartButton from "@/app/components/Buttons/CartButton";
+import CategoryNavigations from "@/app/components/Navigations/CategoryNavigations";
+import SearchInput from "@/app/components/Inputs/SearchInput";
+import ActionButton from "@/app/components/Buttons/ActionButton";
+import QuestionCircleSVGrepoCom from "@/app/components/Icons/svgs/QuestionCircleSVGrepoCom";
+import MyAccountDropdown from "@/app/components/MyAccount/MyAccountDropdown";
+import Button from "@/app/components/Buttons/Button";
 
-const HeaderMain = () => {
+interface Props {
+  isAuthenticated?: boolean;
+}
+
+const HeaderMain = ({ isAuthenticated }: Props) => {
   return (
     <header
       className="py-3 border-b border-cultured bg-white 
@@ -48,7 +52,7 @@ const HeaderMain = () => {
             <QuestionCircleSVGrepoCom /> Help
           </ActionButton>
 
-          <MyAccountDropdown />
+          <MyAccountDropdown isAuthenticated={isAuthenticated} />
 
           <Link href="/shopping-cart">
             <CartButton />

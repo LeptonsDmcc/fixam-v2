@@ -1,9 +1,7 @@
-import React from "react";
-import ProductCard from "./ProductCard";
-import Grid from "../Grid";
-import ProductTitleBar from "./ProductTitleBar";
 import { ProductType } from "@/app/lib/types";
-import DealOfTheDayProduct from "./DealOfTheDayProduct";
+import Grid from "../Grid";
+import ProductCard from "./ProductCard";
+import ProductTitleBar from "./ProductTitleBar";
 
 interface Props {
   title?: string;

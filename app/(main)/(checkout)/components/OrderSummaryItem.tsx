@@ -1,5 +1,5 @@
+import ProductPrice from "@/app/components/Products/ProductPrice";
 import Image from "next/image";
-import ProductPrice from "../../components/Products/ProductPrice";
 
 interface Props {
   isReceipt?: boolean;

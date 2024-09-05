@@ -1,8 +1,6 @@
 import { Poppins } from "next/font/google";
 import { Toaster } from "sonner";
 import "../globals.css";
-import AppHeader from "../(main)/AppHeader/AppHeader";
-import Footer from "../(main)/components/Footer/Footer";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],

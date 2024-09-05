@@ -10,13 +10,16 @@ import ReviewsRating from "../Reviews/ReviewsRating";
 import BaseSpacing from "../Spacing/BaseSpacing";
 import Space from "../Spacing/Space";
 import ProductPrice from "./ProductPrice";
+import isAuthenticated from "@/app/lib/data/verifyAuth";
 
 interface Props {
   inDealOfTheDay?: boolean;
   product: ProductType;
 }
 
-const ProductCard = ({ product, inDealOfTheDay }: Props) => {
+const ProductCard = async ({ product, inDealOfTheDay }: Props) => {
+  const isAuth = await isAuthenticated();
+
   return (
     <article
       className="rounded-md select-none w-[210px]
@@ -38,7 +41,11 @@ const ProductCard = ({ product, inDealOfTheDay }: Props) => {
            opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300"
         >
           <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
-            <AddToCartButton />
+            <AddToCartButton
+              productId={product.id || ""}
+              productPrice={product.selling_price}
+              isAuth={isAuth}
+            />
             <Space spacing={"my-6"} />
             <BuyNowButton />
           </div>
@@ -49,9 +56,11 @@ const ProductCard = ({ product, inDealOfTheDay }: Props) => {
             className="absolute left-2 top-2 text-orange-400"
           />
         )}
-        <div className="absolute right-2 top-2">
-          <AddFavoriteButton isFavorited={false} />
-        </div>
+        {isAuth && (
+          <div className="absolute right-2 top-2">
+            <AddFavoriteButton isFavorited={false} />
+          </div>
+        )}
       </div>
       <Link href={`/products/p/${product.slug}`}>
         <Space spacing="my-4" />

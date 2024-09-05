@@ -1,4 +1,4 @@
-import Heading from "@/app/(main)/components/Heading";
+import Heading from "@/app/components/Heading";
 import { ReactNode } from "react";
 
 interface Props {
