@@ -1,13 +1,20 @@
 "use client";
 
-import ProductDescription from "./ProductDescription";
-import Space from "@/app/components/Spacing/Space";
-import Warranty from "./Warranty";
-import HR from "@/app/components/HR";
-import CustomerReviews from "./CustomerReviews";
 import TabButton from "@/app/components/Buttons/TabButton";
-import { useEffect, useRef, useState } from "react";
+import HR from "@/app/components/HR";
+import Space from "@/app/components/Spacing/Space";
 import { ProductType } from "@/app/lib/types";
+import { useEffect, useRef, useState } from "react";
+import ProductDescription from "./ProductDescription";
+import Warranty from "./Warranty";
+import CustomerReviews from "./CustomerReviews";
+import SeeAllButton from "@/app/components/Buttons/SeeAllButton";
+import ProductTitleBar from "@/app/components/Products/ProductTitleBar";
+import ProgressBar from "@/app/components/ProgressIndicators/ProgressBar";
+import ShowcaseRating from "@/app/components/Reviews/ShowcaseRating";
+import WriteReview from "./WriteReview";
+import ReviewRatingSummary from "./ReviewRatingSummary";
+import ReviewsByCustomers from "./ReviewsByCustomers";
 
 interface Props {
   product: ProductType;
@@ -93,7 +100,18 @@ const ProductOverviewPanel = ({ product }: Props) => {
       <HR />
       <Space spacing="my-12" />
       <section ref={customerReviewsRef} id="customer-reviews">
-        <CustomerReviews productId={product.id || ""} />
+        <section>
+          <ProductTitleBar title="Customer Reviews" noSeeAll />
+          <section className="flex flex-col md:flex-row gap-5">
+            <section className=" min-w-[50%]">
+              <ReviewRatingSummary productId={product.id} />
+            </section>
+
+            {/* <section className="min-w-[50%]">
+              <WriteReview />
+            </section> */}
+          </section>
+        </section>
       </section>
       <Space spacing="my-12" />
       <HR />

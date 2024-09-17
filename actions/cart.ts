@@ -43,7 +43,7 @@ export const addItemToCartAction = async (productId: string) => {
         );
 
         // Add item to newCartForUser
-        await postData(`carts/${newCartForUser.id}/items`, item);
+        await postData(`carts/${newCartForUser!.id}/items`, item);
 
         revalidateTag("cart");
       }
@@ -80,10 +80,10 @@ export const addItemToCartAction = async (productId: string) => {
           user_id: null,
         });
 
-        cookies().set("cartId", createdCart.id || "");
+        cookies().set("cartId", createdCart!.id || "");
 
         // Add item to newCartForUser
-        await postData(`carts/${createdCart.id}/items`, item);
+        await postData(`carts/${createdCart!.id}/items`, item);
 
         revalidateTag("cart");
       } catch (err) {
@@ -96,15 +96,19 @@ export const addItemToCartAction = async (productId: string) => {
 };
 
 export const addItemToWishlist = async (productId: string, userId: string) => {
-  await postData(`carts/carts/wishlist`, {
-    user_id: userId,
-    product_id: productId,
-  });
+  await postData(
+    `carts/carts/wishlist`,
+    {
+      user_id: userId,
+      product_id: productId,
+    },
+    { withAuth: true }
+  );
 
   revalidateTag("wishlist");
 };
 
 export const removeFromWishlist = async (wishlistId: string) => {
-  await deleteData(`carts/carts/wishlist/${wishlistId}/`);
+  await deleteData(`carts/carts/wishlist/${wishlistId}/`, { withAuth: true });
   revalidateTag("wishlist");
 };

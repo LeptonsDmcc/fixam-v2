@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import Button from "../Buttons/Button";
 import Heading from "../Heading";
-import FormSpacing from "../Spacing/FormSpacing";
+import ContentSpacing from "../Spacing/ContentSpacing";
 
 interface Props {
   heading: string;
@@ -20,7 +20,7 @@ const FormInputGroup = ({
         </Heading>
         {withClear && <Button variant="text">Clear</Button>}
       </header>
-      <FormSpacing />
+      <ContentSpacing />
       <section>{children}</section>
     </section>
   );

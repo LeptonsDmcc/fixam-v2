@@ -12,7 +12,7 @@ const ProfilePage = async () => {
       <AccountSpacing />
       <UserInformation user={user} />
       <AccountSpacing />
-      <ShippingInformation user={user} />
+      <ShippingInformation />
     </>
   );
 };

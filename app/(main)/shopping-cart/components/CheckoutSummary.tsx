@@ -1,39 +1,41 @@
+import AuthPrompt from "@/app/components/Auth/AuthPrompt";
+import Card from "@/app/components/Card";
+import HR from "@/app/components/HR";
+import LabelValueDisplay from "@/app/components/LabelValueDisplay";
+import Space from "@/app/components/Spacing/Space";
 import { formatPrice } from "@/app/lib/number-formatter";
 import { useState } from "react";
 import useCartStore from "../../store/cart";
 import Overlay from "./Overlay";
-import AuthPrompt from "@/app/components/Auth/AuthPrompt";
-import Button from "@/app/components/Buttons/Button";
-import HR from "@/app/components/HR";
-import LabelValueDisplay from "@/app/components/LabelValueDisplay";
-import Space from "@/app/components/Spacing/Space";
-import Card from "@/app/components/Card";
+import ProceedToCheckout from "./ProceedToCheckout";
+import { calculateCartItemsSubtoalPrice } from "@/app/lib/data/cart";
+import { ROUTES } from "@/app/lib/contants";
 
-const CheckoutSummary = () => {
+interface Props {
+  isAuth: boolean;
+}
+const CheckoutSummary = ({ isAuth }: Props) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const { cartItems } = useCartStore();
 
-  const subtotal =
-    cartItems &&
-    cartItems.reduce((acc, cur) => {
-      return acc + (cur.price || 0) * cur.quantity;
-    }, 0);
+  const subtotal = cartItems && calculateCartItemsSubtoalPrice(cartItems);
 
-  const deliveryFee = 100;
-  const discount = 0;
-  const promoOffer = 0;
-  const grandTotal = subtotal + deliveryFee + discount + promoOffer;
+  // const deliveryFee = subtotal === 0 ? 0 : 100;
+  // const discount = 0;
+  // const promoOffer = 0;
+  // const grandTotal = subtotal + deliveryFee + discount + promoOffer;
+  const grandTotal = subtotal;
 
   return (
     <Card>
       {showOverlay && (
         <Overlay>
-          <AuthPrompt />
+          <AuthPrompt from="/shopping-cart" to={ROUTES.shoppingCartcheckout} />
         </Overlay>
       )}
       <div className=" py-8 px-6">
-        <LabelValueDisplay
+        {/* <LabelValueDisplay
           label="Subtotal"
           value={formatPrice(subtotal).toString()}
         />
@@ -54,7 +56,7 @@ const CheckoutSummary = () => {
           value={formatPrice(promoOffer).toString()}
         />
         <Space spacing="my-6" />
-        <HR />
+        <HR /> */}
         <Space spacing="my-6" />
         <LabelValueDisplay
           label="Grand Total"
@@ -64,14 +66,13 @@ const CheckoutSummary = () => {
         <Space spacing="my-6" />
         <HR />
         <Space spacing="my-6" />
-        <Button
-          full
-          onClick={() => {
-            setShowOverlay(!showOverlay);
-          }}
-        >
-          Checkout({formatPrice(grandTotal)})
-        </Button>
+        <ProceedToCheckout
+          subtotal={subtotal}
+          handleShowOverlay={setShowOverlay}
+          grandTotal={grandTotal}
+          showOverlay={showOverlay}
+          isAuth={isAuth}
+        />
       </div>
     </Card>
   );

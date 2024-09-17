@@ -1,15 +1,14 @@
-import { Card } from "iconsax-react";
-import OrderSummaryItem from "./OrderSummaryItem";
-import { Fragment } from "react";
 import Heading from "@/app/components/Heading";
-import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
-import LabelValueDisplay from "@/app/components/LabelValueDisplay";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
 import HR from "@/app/components/HR";
+import LabelValueDisplay from "@/app/components/LabelValueDisplay";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
+import OrderReceiptSummary from "./OrderReceiptSummary";
+import Card from "@/app/components/Cards/Card";
 
 const OrderReceipt = () => {
   return (
-    <Card>
+    <Card withPaddingRight>
       <Heading variant="h4" styles="text-center" bold>
         Order Receipt
       </Heading>
@@ -20,29 +19,23 @@ const OrderReceipt = () => {
           value="22-02-2024"
           darkLabel
         />
-        <FormSpacing />
+        <ContentSpacing />
         <LabelValueDisplay
           label="Transaction ID"
           value="9876543210CSRCS"
           darkLabel
         />
-        <FormSpacing />
+        <ContentSpacing />
         <LabelValueDisplay
           label="Estimated Arrival Date"
           value="01-03-2024"
           darkLabel
         />
-        <FormSpacing />
+        <ContentSpacing />
         <HR />
-        {[1, 2, 3].map((item) => (
-          <Fragment key={item}>
-            <FormSpacing />
-            <OrderSummaryItem isReceipt />
-            <FormSpacing />
-          </Fragment>
-        ))}
+        <OrderReceiptSummary />
         <HR />
-        <FormSpacing />
+        <ContentSpacing />
         <section>
           <LabelValueDisplay
             label="Subtotal"
@@ -50,21 +43,14 @@ const OrderReceipt = () => {
             isCurrency
             darkLabel
           />
-          <FormSpacing />
+          <ContentSpacing />
           <LabelValueDisplay
             label="Delivery Fee"
             value="10.00"
             isCurrency
             darkLabel
           />
-          <FormSpacing />
-          <LabelValueDisplay
-            label="Discount"
-            value="-5.00"
-            isCurrency
-            darkLabel
-          />
-          <FormSpacing />
+          <ContentSpacing />
           <LabelValueDisplay
             label="Grand Total"
             value="1,305.00"
@@ -73,7 +59,7 @@ const OrderReceipt = () => {
             boldLabelValue
           />
         </section>
-        <FormSpacing />
+        <ContentSpacing />
       </section>
     </Card>
   );

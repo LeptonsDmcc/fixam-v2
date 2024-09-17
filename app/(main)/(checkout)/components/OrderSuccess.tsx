@@ -1,5 +1,5 @@
 import Heading from "@/app/components/Heading";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
 import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Link from "next/link";
 import OrderReceipt from "./OrderReceipt";
@@ -9,13 +9,13 @@ import BorderedOrangeButton from "@/app/components/Buttons/BorderedOrangeButton"
 const OrderSuccess = () => {
   return (
     <section
-      className=" m-auto
-    lg:w-[70%]"
+      className="m-auto
+      lg:w-[70%]"
     >
       <SectionSpacing />
       <header
         className=" text-center 
-      lg:px-4"
+        lg:px-4"
       >
         <Heading variant="h4" bold>
           Thanks for your Order!
@@ -26,15 +26,15 @@ const OrderSuccess = () => {
           chibuzoezeh@yahoo.com
         </p>
       </header>
-      <FormSpacing />
+      <ContentSpacing />
       <OrderReceipt />
-      <FormSpacing />
+      <ContentSpacing />
       <div
         className="m-auto
-      lg:w-[80%]"
+        lg:w-[80%]"
       >
         <Button full>Continue Shopping</Button>
-        <FormSpacing />
+        <ContentSpacing />
         <Link href="/order/track">
           <BorderedOrangeButton full>Track Order</BorderedOrangeButton>
         </Link>

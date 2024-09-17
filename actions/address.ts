@@ -1,20 +1,22 @@
 "use server";
 
 import getAuthUser from "@/app/lib/data/user";
-import { postData, putData } from "@/app/lib/services/apiClient";
+import { deleteData, postData, putData } from "@/app/lib/services/apiClient";
 import { AddressType } from "@/app/lib/types";
 import Joi from "joi";
 import { redirect } from "next/navigation";
 import { ActionErrorType } from "./error-type";
+import { revalidatePath } from "next/cache";
+import { ROUTES } from "@/app/lib/contants";
 
 export const addAddressAction = async (
   prevState: ActionErrorType,
   formData: FormData
 ) => {
-  // If this field is available then the user wants to edit
+  // If this value is available then the user wants to edit
   const editId = formData.get("editId");
+  const isCheckingout = formData.get("isCheckingout");
 
-  console.log("editId", editId);
   const data = {
     first_name: formData.get("first_name"),
     last_name: formData.get("last_name"),
@@ -79,5 +81,43 @@ export const addAddressAction = async (
       };
   }
 
+  // The user is adding a new address at checkout point
+  if (isCheckingout) {
+    revalidatePath(ROUTES.profile);
+    return {
+      hasError: false,
+      message: "Address Updated successfully!",
+    };
+  }
+
   redirect("/account/profile");
+};
+
+export const deleteAddressAction = async (
+  prevState: ActionErrorType,
+  formData: FormData
+) => {
+  const addressId = formData.get("addressId");
+  if (addressId) {
+    try {
+      await deleteData(`users/adresses/${addressId}`);
+      revalidatePath(ROUTES.profile);
+      return {
+        message: "Address deleted",
+        hasError: false,
+      };
+    } catch (error) {
+      console.log("ERROR DELETING ADDRESS", error);
+      revalidatePath(ROUTES.profile);
+      return {
+        message: "Address deleted",
+        hasError: true,
+      };
+    }
+  }
+
+  return {
+    message: "No address provided for deletion",
+    hasError: true,
+  };
 };

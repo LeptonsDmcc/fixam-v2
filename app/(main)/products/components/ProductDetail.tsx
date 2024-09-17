@@ -6,6 +6,8 @@ import { ProductType } from "@/app/lib/types";
 import ImagePreview from "./ImagePreview";
 import ProductInfo from "./ProductInfo";
 import ProductOverviewPanel from "./ProductOverviewPanel";
+import { isFavorite } from "@/app/lib/data/product";
+import isAuthenticated from "@/app/lib/data/verifyAuth";
 
 interface Props {
   product: ProductType;
@@ -14,18 +16,26 @@ interface Props {
 const ProductDetail = async ({ product }: Props) => {
   const productsRes = await fetch(
     `${process.env.FIXAM_BASE_URL}/products/categories/${getIdFromString(
-      product.category || "32ce9760-c703-41b3-8d6b-09a8537706b4"
+      product.category!
     )}/random_products/`
   );
 
   const productsJsonRes = await productsRes.json();
   const products: ProductType[] = productsJsonRes;
+  const isFavorited = await isFavorite(product.id!);
+  const isAuth = await isAuthenticated();
 
   return (
     <Wrapper>
       <SectionSpacing />
       <section className="flex flex-col gap-6 lg:flex-row">
-        <ImagePreview images={product.images} alt={product.name} />
+        <ImagePreview
+          images={product.images}
+          alt={product.name}
+          isFavorited={isFavorited}
+          productId={product.id!}
+          isAuth={isAuth}
+        />
         <ProductInfo product={product} />
       </section>
       <SectionSpacing />

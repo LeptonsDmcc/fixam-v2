@@ -14,7 +14,7 @@ interface Props {
 const CartTableSummary = ({ fixamBaseUrl, isAuth, accessToken }: Props) => {
   useEffect(() => {
     const initV = async () => {
-      const cartValue = await initializeCartStore(isAuth, accessToken);
+      await initializeCartStore(isAuth, accessToken);
     };
 
     initV();
@@ -26,7 +26,7 @@ const CartTableSummary = ({ fixamBaseUrl, isAuth, accessToken }: Props) => {
     >
       <CartTable fixamBaseUrl={fixamBaseUrl || ""} isAuth={isAuth} />
       <section className="lg:min-w-[200px] lg:w-[400px] lg:max-w-[400px]">
-        <CheckoutSummary />
+        <CheckoutSummary isAuth={isAuth} />
       </section>
     </section>
   );

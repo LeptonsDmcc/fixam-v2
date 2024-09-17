@@ -68,6 +68,8 @@ export const signinAction = async (
   prevState: ActionErrorType,
   formData: FormData
 ) => {
+  const redirectTo = formData.get("redirectTo");
+
   const data = {
     email: formData.get("email"),
     // phone: formatNigeriaNumber(formData.get("phone") || ""),
@@ -102,7 +104,7 @@ export const signinAction = async (
     };
   }
 
-  redirect(`/`);
+  redirect(redirectTo?.toString() || `/`);
 
   // return {
   //   hasError: false,

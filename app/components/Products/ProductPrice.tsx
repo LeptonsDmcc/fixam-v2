@@ -10,7 +10,7 @@ interface Props {
   discount?: number;
   priceLightGray?: boolean;
   textSize?: TextSizeType;
-  price?: number;
+  price?: number | string;
 }
 
 const ProductPrice = ({

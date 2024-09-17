@@ -2,7 +2,7 @@
 
 import AddFavoriteButton from "@/app/components/Buttons/AddFavoriteButton";
 import Carousel from "@/app/components/Carousel/Carousel";
-import Space from "@/app/components/Spacing/Space";
+import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
 import { convertImageFromArrObj } from "@/app/lib/image-helpers";
 import Image from "next/image";
 import { useState } from "react";
@@ -10,9 +10,18 @@ import { useState } from "react";
 interface Props {
   images: { [key: string]: string }[];
   alt: string;
+  isFavorited: boolean;
+  productId: string;
+  isAuth: boolean;
 }
 
-const ImagePreview = ({ images, alt }: Props) => {
+const ImagePreview = ({
+  images,
+  alt,
+  isFavorited,
+  productId,
+  isAuth,
+}: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const convertedImages = convertImageFromArrObj(images, alt);
 
@@ -34,9 +43,11 @@ const ImagePreview = ({ images, alt }: Props) => {
 
   return (
     <section className="max-w-[620px] relative">
-      <div className="absolute top-3 right-3 z-10">
-        <AddFavoriteButton isFavorited={false} />
-      </div>
+      {isAuth && (
+        <div className="absolute top-3 right-3 z-10">
+          <AddFavoriteButton isFavorited={isFavorited} productId={productId} />
+        </div>
+      )}
       <section className="border rounded-lg">
         <Carousel
           activeIndex={activeIndex}
@@ -54,12 +65,12 @@ const ImagePreview = ({ images, alt }: Props) => {
               alt={alt}
               width={610}
               height={500}
-              className="rounded-lg "
+              className="rounded-lg min-w-[618px] max-h-[500px] "
             />
           ))}
         </Carousel>
       </section>
-      <Space spacing="my-12" />
+      <BaseSpacing />
       <section className="flex justify-between items-center gap-4">
         {convertedImages.map(({ src, alt }, i) => (
           <Image
@@ -71,7 +82,7 @@ const ImagePreview = ({ images, alt }: Props) => {
             className={`${
               i === activeIndex ? "border-orange-400" : ""
             } rounded-lg border
-            min-w-16 md:w-[140px]`}
+            min-w-16 md:w-[140px] md:max-h-[100px] object-contain`}
             onClick={() => {
               setActiveIndex(i);
             }}

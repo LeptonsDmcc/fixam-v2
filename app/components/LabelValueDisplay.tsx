@@ -23,7 +23,7 @@ const LabelValueDisplay = ({
         {label}
       </span>
       <span className="flex items-center gap-[1px]">
-        {isCurrency && <span>{currency()}</span>}
+        {/* {isCurrency && <span>{currency()}</span>} */}
         <span>{value}</span>
       </span>
     </div>

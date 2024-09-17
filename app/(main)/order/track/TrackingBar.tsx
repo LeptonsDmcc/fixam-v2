@@ -1,4 +1,4 @@
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
 import Image from "next/image";
 
 const TrackingBar = () => {
@@ -18,7 +18,7 @@ const TrackingBar = () => {
           ))}
         </div>
       </div>
-      <FormSpacing />
+      <ContentSpacing />
       <div className="flex w-full justify-between">
         {[
           { text: "Ordered Created", date: "01/03/24" },

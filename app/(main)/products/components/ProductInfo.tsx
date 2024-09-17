@@ -1,32 +1,30 @@
-import AddToCartButton from "@/app/components/Buttons/AddToCartButton";
-import BuyNowButton from "@/app/components/Buttons/BuyNowButton";
 import ShareButton from "@/app/components/Buttons/ShareButton";
 import Heading from "@/app/components/Heading";
 import ProductPrice from "@/app/components/Products/ProductPrice";
-import ProductQuantity from "@/app/components/Products/ProductQuantity";
 import ReviewsRating from "@/app/components/Reviews/ReviewsRating";
 import Space from "@/app/components/Spacing/Space";
 import isAuthenticated from "@/app/lib/data/verifyAuth";
 import { ProductType } from "@/app/lib/types";
-import Link from "next/link";
+import ProductDetailButtons from "./ProductDetailButtons";
 
 const ProductInfoSpace = () => <Space spacing="my-6" />;
 
 interface Props {
   product: ProductType;
 }
+
 const ProductInfo = async ({ product }: Props) => {
   const isAuth = await isAuthenticated();
 
   return (
-    <section>
+    <section className=" lg:min-w-[50%]">
       <section className=" text-xs">
-        <p className="flex">
+        {/* <p className="flex">
           <span className=" font-light">Sold by:</span>
           <Link href="/store/vendor" className="hover:text-gray-400">
             Three Ace Technology Services Ltd
           </Link>
-        </p>
+        </p> */}
 
         <p className="text-orange-400 bg-orange-100 rounded-sm max-w-fit p-1">
           Official Store
@@ -47,23 +45,12 @@ const ProductInfo = async ({ product }: Props) => {
       <ProductInfoSpace />
       <ProductPrice price={product.selling_price} />
       <ProductInfoSpace />
-      <div>
-        Quantity:
-        <ProductQuantity circled />
-      </div>
-      <ProductInfoSpace />
-      <section className="flex items-end gap-6">
-        <div className=" flex-grow">
-          <BuyNowButton full />
-          <ProductInfoSpace />
-          <AddToCartButton
-            full
-            isAuth={isAuth}
-            productId={product.id || ""}
-            productPrice={product.selling_price}
-          />
-        </div>
-      </section>
+      <ProductDetailButtons
+        productSlug={product.slug}
+        isAuth={isAuth}
+        productId={product.id || ""}
+        productSellingPrice={product.selling_price}
+      />
       <ProductInfoSpace />
       <section>
         <p>Share With Friends</p>

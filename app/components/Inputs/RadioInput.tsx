@@ -11,7 +11,6 @@ const RadioInput = ({ text, htmlFor, ...rest }: Props) => {
         type="radio"
         {...rest}
         id={htmlFor}
-        name="radio"
         className="peer input-radio"
         hidden
       />

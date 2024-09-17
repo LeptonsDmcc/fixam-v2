@@ -1,10 +1,17 @@
-import FormSpacing from "../Spacing/FormSpacing";
+import ContentSpacing from "../Spacing/ContentSpacing";
 import { FcGoogle } from "react-icons/fc";
 import BorderedOrangeButton from "../Buttons/BorderedOrangeButton";
 import Button from "../Buttons/Button";
 import HR from "../HR";
+import Link from "next/link";
+import { ROUTES } from "@/app/lib/contants";
 
-const AuthPrompt = () => {
+interface Props {
+  from: string;
+  to: string;
+  guestLink?: string;
+}
+const AuthPrompt = ({ from, to, guestLink }: Props) => {
   return (
     <section
       className="bg-white
@@ -16,7 +23,7 @@ const AuthPrompt = () => {
           Sign in with Google
         </div>
       </BorderedOrangeButton>
-      <FormSpacing />
+      <ContentSpacing />
       <div className="relative">
         <HR />
         <span
@@ -26,19 +33,22 @@ const AuthPrompt = () => {
           Or
         </span>
       </div>
-      <FormSpacing />
-      <Button full elementType="link" href="/signin">
+      <ContentSpacing />
+      <Button full elementType="link" href={`/signin?from=${from}&to=${to}`}>
         Sign in via email
       </Button>
-      <FormSpacing />
+      <ContentSpacing />
       <p className=" text-center text-sm">
         By continuing you agree to the Policy and Rules
       </p>
-      <FormSpacing />
+      <ContentSpacing />
       <div className=" flex justify-center">
-        <button className="text-gray-400 hover:text-gray-500">
+        <Link
+          href={`${guestLink ? guestLink : ROUTES.shoppingCartcheckout}?g=y`}
+          className="text-gray-400 hover:text-gray-500"
+        >
           Checkout as guest
-        </button>
+        </Link>
       </div>
     </section>
   );

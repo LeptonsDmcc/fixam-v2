@@ -16,20 +16,20 @@ const AccountLayout = async ({ children }: PropsWithChildren) => {
 
   if (isAuth)
     return (
-      <Suspense fallback={<p>Loading...</p>}>
-        <Wrapper>
-          <SectionSpacing />
-          <Grid cols={2}>
-            <aside className="sticky top-12 hidden lg:block">
-              <AccountNavs />
-            </aside>
+      <Wrapper>
+        <SectionSpacing />
+        <Grid cols={2}>
+          <aside className="sticky top-12 hidden lg:block">
+            <AccountNavs />
+          </aside>
+          <Suspense fallback={<p>Loading...</p>}>
             <Card elementType="main" styles="lg:mx-16">
               {children}
-            </Card>
-          </Grid>
-          <SectionSpacing />
-        </Wrapper>
-      </Suspense>
+            </Card>{" "}
+          </Suspense>
+        </Grid>
+        <SectionSpacing />
+      </Wrapper>
     );
 };
 

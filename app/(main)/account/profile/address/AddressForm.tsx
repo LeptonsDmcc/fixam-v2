@@ -10,6 +10,7 @@ import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
 import { useFormState } from "react-dom";
 import Cancel from "./Cancel";
 import { AddressType } from "@/app/lib/types";
+import HiddenInput from "@/app/components/Inputs/HiddenInput";
 
 interface Props {
   address?: AddressType;
@@ -22,7 +23,7 @@ const AddressForm = ({ address }: Props) => {
 
   return (
     <form action={formAddAddressAction}>
-      <input type="text" hidden name="editId" value={address?.id} />
+      <HiddenInput name="editId" value={address?.id || ""} />
       <ContactInfoFields
         email={address?.email}
         phone={address?.phone_one}
@@ -57,7 +58,7 @@ const AddressForm = ({ address }: Props) => {
           <SubmitForm>Save</SubmitForm>
         </div>
         <div className="w-1/2">
-          <Cancel />
+          <Cancel full />
         </div>
       </div>
     </form>

@@ -4,6 +4,7 @@ import { IoMailOutline, IoMapOutline, IoPersonOutline } from "react-icons/io5";
 import Input from "./Input";
 import { CiGlobe, CiLock } from "react-icons/ci";
 import { BsSend } from "react-icons/bs";
+import { Sms } from "iconsax-react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   variant:
@@ -23,7 +24,7 @@ const FormInput = ({ variant, ...rest }: Props) => {
         <Input
           {...rest}
           type="email"
-          icon={<IoMailOutline />}
+          icon={<Sms />}
           placeholder="Enter Your Email"
         />
       );

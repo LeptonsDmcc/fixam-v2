@@ -9,7 +9,7 @@ import OtpTimer from "./OtpTimer";
 import { resendOTPAction, verifyAction } from "@/actions/auth";
 import Wrapper from "@/app/(main)/components/Wrapper";
 import BackButton from "@/app/(main)/components/Buttons/BackButton";
-import FormSpacing from "@/app/(main)/components/Spacing/FormSpacing";
+import ContentSpacing from "@/app/(main)/components/Spacing/ContentSpacing";
 import Heading from "@/app/(main)/components/Heading";
 import CodeInputs from "@/app/(main)/components/Inputs/CodeInputs";
 
@@ -43,7 +43,7 @@ const OTPage = ({ searchParams }: Props) => {
         <section className="lg:max-w-[340px] xl:max-w-[440px] 2xl:max-w-[540px] m-auto">
           <BackButton>Go Back</BackButton>
           <form action={formVerifyAction}>
-            <FormSpacing />
+            <ContentSpacing />
             <div className="flex justify-center">
               <div
                 className=" w-[120px] h-[120px] rounded-full bg-orange-400 
@@ -57,25 +57,25 @@ const OTPage = ({ searchParams }: Props) => {
                 />
               </div>
             </div>
-            <FormSpacing />
+            <ContentSpacing />
             <div className="text-center">
               <Heading variant="h4">
                 <span className=" font-semibold">Verify your Email</span>
               </Heading>
-              <FormSpacing />
+              <ContentSpacing />
               <p>
                 Enter the 5-digit verification code sent to the email address or
                 phone number to proceed
               </p>
-              <FormSpacing />
+              <ContentSpacing />
               <OtpTimer />
-              <FormSpacing />
+              <ContentSpacing />
             </div>
 
             <CodeInputs />
-            <FormSpacing />
+            <ContentSpacing />
             <SubmitForm>Verify</SubmitForm>
-            <FormSpacing />
+            <ContentSpacing />
           </form>
           <form
             action={resendOTPAction.bind(null, {

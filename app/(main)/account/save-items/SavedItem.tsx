@@ -3,21 +3,38 @@ import Card from "@/app/components/Card";
 import ProductPrice from "@/app/components/Products/ProductPrice";
 import Space from "@/app/components/Spacing/Space";
 import TrashBin from "@/app/components/TrashBin";
+import fetchAll from "@/app/lib/data/fetchAll";
+import isAuthenticated from "@/app/lib/data/verifyAuth";
+import { getImageFromArrObj } from "@/app/lib/image-helpers";
+import { ProductType } from "@/app/lib/types";
 import Image from "next/image";
+import { Suspense } from "react";
+import StoreForProduct from "./StoreForProduct";
+import getIdFromString from "@/app/lib/data/getIdFromString";
+import { removeItemToWishlistAction } from "@/actions/product";
 
-const SavedItem = () => {
+interface Props {
+  productId: string;
+  wishItemId: string;
+}
+
+const SavedItem = async ({ productId, wishItemId }: Props) => {
+  const isAuth = await isAuthenticated();
+
+  const product = await fetchAll<ProductType>(`products/${productId}`);
+
   return (
     <Card borderedCard styles="flex justify-between w-full items-center">
       <div
         className="w-[50%] flex items-center 
       lg:flex-grow lg:w-auto"
       >
-        <>
+        <Suspense>
           <div className="flex items-center gap-3">
             <div className="hidden lg:ml-2 lg:block">
               <Image
-                src="/assets/products/watch-1.jpg"
-                alt=""
+                src={getImageFromArrObj(product!.images)}
+                alt={product!.name}
                 width={120}
                 height={120}
                 className=" rounded-md"
@@ -25,22 +42,26 @@ const SavedItem = () => {
             </div>
 
             <div>
-              <h4>Rice Master Rice Cooker</h4>
+              <h4>{product?.name}</h4>
               <Space spacing="py-1" />
-              <p className=" text-xs text-gray-400">
-                Sold by: Three Ace Technology Services Ltd
-              </p>
+              <StoreForProduct
+                storeId={getIdFromString(product?.store || "")}
+              />
             </div>
           </div>
-        </>
+        </Suspense>
       </div>
 
       <div className="w-[22.5%] text-center">
-        <ProductPrice discount={0} />
+        <ProductPrice discount={0} price={product?.selling_price} />
       </div>
 
       <div className="w-[22.5%] hidden lg:block">
-        <AddToCartButton productId={""} productPrice={0} />
+        <AddToCartButton
+          productId={productId}
+          productPrice={product!.selling_price}
+          isAuth={isAuth}
+        />
       </div>
 
       <div
@@ -48,9 +69,18 @@ const SavedItem = () => {
       lg:flex-row"
       >
         <div className="lg:hidden">
-          <AddToCartButton cartOnly productId={""} productPrice={0} />
+          <AddToCartButton
+            productId={product?.id || ""}
+            productPrice={product!.selling_price}
+            isAuth={isAuth}
+            cartOnly
+          />
         </div>
-        <TrashBin />
+        <form action={removeItemToWishlistAction.bind(null, wishItemId)}>
+          <button>
+            <TrashBin />
+          </button>
+        </form>
       </div>
     </Card>
   );

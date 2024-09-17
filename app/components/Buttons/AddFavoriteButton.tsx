@@ -1,17 +1,23 @@
-import { Heart } from "iconsax-react";
+// "use client";
+
+import { toggleFavoriteAction } from "@/actions/product";
+import AddToFavoriteSubmit from "./AddToFavoriteSubmit";
 
 interface Props {
   isFavorited: boolean;
+  productId: string;
 }
-const AddFavoriteButton = ({ isFavorited }: Props) => {
+
+const AddFavoriteButton = ({ isFavorited, productId }: Readonly<Props>) => {
   return (
-    <div className="flex justify-center items-center rounded-full h-7 w-7 p-1 bg-gray-200">
-      <Heart
-        variant={isFavorited ? "Bold" : "Outline"}
-        size={24}
-        className="text-red-600"
-      />
-    </div>
+    <form
+      action={toggleFavoriteAction.bind(null, {
+        productId: productId,
+        is_favorited: !isFavorited,
+      })}
+    >
+      <AddToFavoriteSubmit isFavorited={isFavorited} />
+    </form>
   );
 };
 

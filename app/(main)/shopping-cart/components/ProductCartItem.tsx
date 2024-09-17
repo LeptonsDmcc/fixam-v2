@@ -2,6 +2,8 @@ import { ProductType } from "@/app/lib/types";
 import Image from "next/image";
 import { getImageFromArrObj } from "@/app/lib/image-helpers";
 import Space from "@/app/components/Spacing/Space";
+import StoreForProductClient from "../../account/save-items/StoreForProductClient";
+import getIdFromString from "@/app/lib/data/getIdFromString";
 
 interface Props {
   product: ProductType;
@@ -30,7 +32,9 @@ const ProductCartItem = ({ product }: Props) => {
           </h4>
           <Space spacing="py-1" />
           <p className=" text-xs text-gray-400">
-            Sold by: Three Ace Technology Services Ltd
+            <StoreForProductClient
+              storeId={getIdFromString(product?.store || "")}
+            />
           </p>
         </div>
       </div>

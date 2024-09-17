@@ -4,6 +4,7 @@ import "../globals.css";
 import AppHeader from "./AppHeader/AppHeader";
 import Footer from "../components/Footer/Footer";
 import MobileBottomNav from "../components/Navigations/MobileBottomNav";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
@@ -28,6 +29,8 @@ export default function RootLayout({
         <link rel="icon" href="/assets/fixamlogo-o.png" />
       </head>
       <body className={poppins.className}>
+        <Toaster richColors />
+
         <AppHeader />
         <main>{children}</main>
         <Footer />

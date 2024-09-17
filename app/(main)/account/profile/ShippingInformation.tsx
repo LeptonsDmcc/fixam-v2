@@ -1,23 +1,16 @@
-import { ROUTES } from "@/app/lib/contants";
-import fetchAll from "@/app/lib/data/fetchAll";
-import { AddressType, UserType } from "@/app/lib/types";
-import Link from "next/link";
-import { FaPlus } from "react-icons/fa";
-import CustomerAddressList from "../../(checkout)/components/CustomerAddressList";
 import TextButtonWithIcon from "@/app/components/Buttons/TextButtonWithIcon";
 import Heading from "@/app/components/Heading";
 import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
+import { ROUTES } from "@/app/lib/contants";
+import fetchUserAddresses from "@/app/lib/data/fetchUserAddresses";
+import Link from "next/link";
+import { FaPlus } from "react-icons/fa";
+import CustomerAddressList from "../../(checkout)/components/CustomerAddressList";
 
-interface Props {
-  user: UserType;
-}
-const ShippingInformation = async ({ user }: Props) => {
-  const userAddresses = await fetchAll<AddressType[]>(
-    `users/${user!.id}/addresses`,
-    {
-      withAuth: true,
-    }
-  );
+const ShippingInformation = async () => {
+  const userAddresses = await fetchUserAddresses();
+  const addressLength = userAddresses?.length;
+  const hasAddress = addressLength && addressLength !== 0;
 
   return (
     <section
@@ -30,19 +23,23 @@ const ShippingInformation = async ({ user }: Props) => {
         </Heading>
       </header>
       <AccountSpacing />
-      {userAddresses?.length ? (
-        <CustomerAddressList isInAccount addresses={userAddresses} />
+      {hasAddress ? (
+        <CustomerAddressList withBorder addresses={userAddresses} />
       ) : (
         <p className=" text-center">No address added</p>
       )}
 
       <AccountSpacing />
-      <Link
-        href={`${ROUTES.account}/profile/address/new`}
-        className="flex justify-end"
-      >
-        <TextButtonWithIcon icon={<FaPlus />}>Add Address</TextButtonWithIcon>
-      </Link>
+      {!hasAddress || addressLength < 3 ? (
+        <Link
+          href={`${ROUTES.account}/profile/address/new`}
+          className="flex justify-end"
+        >
+          <TextButtonWithIcon icon={<FaPlus />}>Add Address</TextButtonWithIcon>
+        </Link>
+      ) : (
+        <></>
+      )}
     </section>
   );
 };

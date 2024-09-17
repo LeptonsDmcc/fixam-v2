@@ -26,9 +26,7 @@ const DealOfTheDayProduct = async ({ product }: Props) => {
         height={298}
       />
       <div className="w-[442px]">
-        <Link
-          href={`${ROUTES.product}/?p=Brown Grey Designer Luxury Fashion Unisex Sunglasses`}
-        >
+        <Link href={`${ROUTES.product}/p/${product.slug}`}>
           <Heading variant={"h4"}>
             <span className="font-semibold">{product.name}</span>
           </Heading>

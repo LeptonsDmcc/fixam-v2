@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCart } from "iconsax-react";
+import { ShoppingBag, ShoppingCart } from "iconsax-react";
 import { useState } from "react";
 import Button from "./Button";
 import useCartStore from "@/app/(main)/store/cart";
@@ -10,6 +10,7 @@ interface Props {
   cartOnly?: boolean;
   productId: string;
   productPrice: number;
+  productQuantity?: number;
   isAuth: boolean;
 }
 
@@ -18,13 +19,10 @@ const AddToCartButton = ({
   full,
   productId,
   productPrice,
+  productQuantity,
   isAuth,
 }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCartStore();
-
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
 
   if (cartOnly) return <ShoppingCart />;
 
@@ -33,14 +31,16 @@ const AddToCartButton = ({
     <Button
       onClick={() =>
         addItem(
-          { prod_id: productId, quantity: 1, price: productPrice },
+          {
+            prod_id: productId,
+            quantity: productQuantity || 1,
+            price: productPrice,
+          },
           isAuth
         )
       }
       full={full}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      icon={<ShoppingCart color={isHovered ? "orange" : "white"} />}
+      icon={<ShoppingCart />}
     >
       Add to Cart
     </Button>

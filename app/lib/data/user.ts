@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { UserType } from "../types";
+// import { getCookieValueByName } from "../cookies";
 
 const getAuthUser = async (): Promise<UserType> => {
   // Get access token from cookie

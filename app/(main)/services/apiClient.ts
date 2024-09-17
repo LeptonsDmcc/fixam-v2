@@ -1,10 +1,10 @@
+import { fixamBaseUrlClient } from "@/app/lib/contants";
+
 export interface FetchResponse<T> {
   count: number;
   next: string | null;
   results: T[];
 }
-
-const baseURL = process.env.FIXAM_BASE_URL;
 
 const headers = {
   "Content-Type": "application/json",
@@ -14,7 +14,7 @@ class APIClient<TData, TVariables = Partial<any>> {
   endpoint: string;
 
   constructor(endpoint: string) {
-    this.endpoint = baseURL + endpoint;
+    this.endpoint = fixamBaseUrlClient + endpoint;
   }
 
   getAll = async (
@@ -30,7 +30,7 @@ class APIClient<TData, TVariables = Partial<any>> {
   };
 
   get = async (id: number | string): Promise<TData> => {
-    const url = `${this.endpoint}/${id}`;
+    const url = `${this.endpoint}/${id}/`;
     const response = await fetch(url.toString());
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

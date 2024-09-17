@@ -1,7 +1,7 @@
 import FormInput from "@/app/components/Inputs/FormInput";
 import FormInputGroup from "@/app/components/Inputs/FormInputGroup";
 import GroupInput from "@/app/components/Inputs/GroupInput";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
 
 interface Props {
   email?: string;
@@ -17,7 +17,7 @@ const ContactInfoFields = ({ email, phone, first_name, last_name }: Props) => {
         <FormInput variant="email" name="email" defaultValue={email || ""} />
         <FormInput variant="phone" name="phone" defaultValue={phone || ""} />
       </GroupInput>
-      <FormSpacing />
+      <ContentSpacing />
       <GroupInput>
         <FormInput
           variant="name"

@@ -68,7 +68,7 @@ const CartItemTR = ({ item, fixamBaseUrl, isAuth }: Props) => {
       <td
         onClick={() => removeItem(item.id || "", isAuth)}
         className="w-full flex justify-end mt-5
-      md:w-[5%] md:block md:mt-0"
+        md:w-[5%] md:block md:mt-0"
       >
         <TrashBin />
       </td>

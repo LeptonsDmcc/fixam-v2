@@ -1,21 +1,38 @@
+import { cancelOrderAction } from "@/actions/order";
+import CopyButton from "@/app/components/Buttons/CopyButton";
+import SubmitForm from "@/app/components/Buttons/SubmitForm";
 import Heading from "@/app/components/Heading";
 import AccountSpacing from "@/app/components/Spacing/AccountSpacing";
+import fetchAll from "@/app/lib/data/fetchAll";
+import { formatPrice } from "@/app/lib/number-formatter";
+import truncateOrderId from "@/app/lib/truncateOrderId";
+import { OrderType } from "@/app/lib/types";
 import AccountHeader from "../../components/AccountHeader";
 import AccountOrderItems from "../components/AccountOrderItems";
 import InfoCard from "../components/InfoCard";
-import currency from "@/app/lib/currency";
 
-const OrderDetailPage = () => {
+interface Props {
+  params: { orderId: string };
+}
+
+const OrderDetailPage = async ({ params: { orderId } }: Readonly<Props>) => {
+  const order = await fetchAll<OrderType>(`orders/${orderId}`, {
+    withAuth: true,
+  });
+
   return (
     <section className=" lg:text-xs">
       <AccountHeader withBackArrow>Order Detail</AccountHeader>
       <AccountSpacing />
-      <p className=" text-base">Order nº 1389516282</p>
+      <p className=" text-base flex gap-2">
+        Order nº{" "}
+        <CopyButton orderId={orderId}>{truncateOrderId(orderId)}...</CopyButton>
+      </p>
       <AccountSpacing />
       <section>
-        <p>2 Items</p>
+        <p>{order?.order_items.length} Items</p>
         <p>Placed on 16-04-2024</p>
-        <p>Total: {currency()} 2,919</p>
+        <p>Total: {formatPrice(order?.order_total_price || 0)}</p>
       </section>
       <AccountSpacing />
       <section>
@@ -24,18 +41,15 @@ const OrderDetailPage = () => {
         </Heading>
         <AccountSpacing />
         <AccountOrderItems
-          items={[
-            { status: "canceled" },
-            { status: "delivered" },
-            { status: "pending" },
-            { status: "delivered" },
-          ]}
+          orderItems={order!.order_items}
+          status={order?.order_delivery_status!}
+          isCanceled={order?.is_order_cancelled!}
         />
       </section>
       <AccountSpacing />
       <section
         className="grid 
-      lg:grid-cols-2"
+        lg:grid-cols-2"
       >
         <InfoCard
           key={12324}
@@ -43,19 +57,18 @@ const OrderDetailPage = () => {
           infoSections={[
             {
               heading: "Payment Method",
-              paragraphs: ["Pay with Cards, Bank Transfer or USSD"],
+              paragraphs: [order!.order_payment_method],
             },
             {
               heading: "Payment Details",
               paragraphs: [
-                `Items total: ${currency()} 2,279`,
-                `Delivery Fees: ${currency()} 640`,
-                `Total: ${currency()} 2,919`,
+                `Items total: ${formatPrice(order?.order_total_price || 0)}`,
+                `Delivery Fees: ${formatPrice(order?.shipping_cost || 0)}`,
+                `Total: ${formatPrice(order?.order_total_price || 0)}`,
               ],
             },
           ]}
         />
-
         <InfoCard
           key={23443}
           heading="DELIVERY INFORMATION"
@@ -63,16 +76,32 @@ const OrderDetailPage = () => {
             {
               heading: "Delivery Address",
               paragraphs: [
-                `Patrick Chimezie Chukwudifu Chukwudifu`,
-                `AWKA TOWN, Anambra`,
+                order?.delivery_address?.first_name +
+                  " " +
+                  order?.delivery_address?.last_name,
+                order?.delivery_address?.city +
+                  ", " +
+                  order?.delivery_address?.state +
+                  ", " +
+                  order?.delivery_address?.country,
                 <a key={Math.random()} href="tel:+234 8167000077">
-                  +234 8167000077
+                  {order?.delivery_address?.phone_one}
                 </a>,
               ],
             },
           ]}
         />
       </section>
+      {!order?.is_order_cancelled && (
+        <form
+          action={cancelOrderAction.bind(null, order?.id || "")}
+          className="flex justify-end"
+        >
+          <SubmitForm color="red" full={false}>
+            Cancel
+          </SubmitForm>
+        </form>
+      )}
     </section>
   );
 };

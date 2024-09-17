@@ -1,13 +1,12 @@
 import BreadcrumbHeader from "@/app/components/Breadcrumb/BreadcrumbHeader";
 import Button from "@/app/components/Buttons/Button";
-import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
-import Input from "@/app/components/Inputs/Input";
 import Heading from "@/app/components/Heading";
+import Input from "@/app/components/Inputs/Input";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
+import SectionSpacing from "@/app/components/Spacing/SectionSpacing";
 import Wrapper from "@/app/components/Wrapper";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
-import Image from "next/image";
-import TrackingBar from "./TrackingBar";
 import MobileTrackingBar from "./MobileTrackingBar";
+import TrackingBar from "./TrackingBar";
 
 const TrackPage = () => {
   return (
@@ -22,19 +21,19 @@ const TrackPage = () => {
           <Heading variant="h4" styles="text-center" bold>
             Track Your Order
           </Heading>
-          <FormSpacing />
+          <ContentSpacing />
           <Input placeholder="Enter your Tracking ID" />
-          <FormSpacing />
+          <ContentSpacing />
           <div className="flex justify-center">
             <Button>Track</Button>
           </div>
         </section>
-        <FormSpacing />
+        <ContentSpacing />
         <section>
           <Heading variant="h4" styles="text-center" bold>
             Tracking ID: f911943179001
           </Heading>
-          <FormSpacing />
+          <ContentSpacing />
           <TrackingBar />
           <MobileTrackingBar />
         </section>

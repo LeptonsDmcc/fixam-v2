@@ -1,5 +1,4 @@
 import { fixamBaseUrlClient } from "../contants";
-import { postData } from "../services/apiClient";
 import { CartItemType } from "../types";
 
 export const getLocalCart = () => {
@@ -133,6 +132,11 @@ export const initializeCartStore = async (
     }
   }
 };
+
+export const calculateCartItemsSubtoalPrice = (values: any[]) =>
+  values.reduce((acc, cur) => {
+    return acc + (cur.price || 0) * cur.quantity;
+  }, 0);
 
 export const clearLocalCart = () => {
   localStorage.removeItem("cart");

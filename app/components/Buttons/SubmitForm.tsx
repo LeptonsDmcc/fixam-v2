@@ -6,7 +6,7 @@ import React, {
   PropsWithChildren,
 } from "react";
 import { useFormStatus } from "react-dom";
-import Button, { ButtonVariantType } from "./Button";
+import Button, { ButtonColorType, ButtonVariantType } from "./Button";
 
 // Attributes specific to button
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -22,6 +22,8 @@ interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 interface CommonAttributes {
   variant?: ButtonVariantType;
   full?: boolean;
+  isDefault?: boolean;
+  color?: ButtonColorType;
 }
 
 // Discriminated union of props
@@ -30,21 +32,25 @@ type Props = CommonAttributes & (ButtonProps | LinkProps);
 const SubmitForm = ({
   variant,
   elementType,
+  color,
   children,
   full = true,
+  isDefault = true,
 }: PropsWithChildren<Props>) => {
   const { pending } = useFormStatus();
 
-  return (
-    <Button
-      disabled={pending}
-      variant={variant}
-      elementType={elementType}
-      full={full}
-    >
-      {pending ? "Loading..." : children}
-    </Button>
-  );
+  if (isDefault)
+    return (
+      <Button
+        color={color || "orange"}
+        disabled={pending}
+        variant={variant}
+        elementType={elementType}
+        full={full}
+      >
+        {pending ? "Loading..." : children}
+      </Button>
+    );
 };
 
 export default SubmitForm;

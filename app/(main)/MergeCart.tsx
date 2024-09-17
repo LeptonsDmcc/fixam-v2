@@ -10,7 +10,7 @@ interface Props {
 }
 
 const MergeCart = ({ isAuth, accessToken }: Readonly<Props>) => {
-  const { initializeCartItems, cartItems } = useCartStore();
+  const { initializeCartItems } = useCartStore();
   useEffect(() => {
     const fetchAndInitializeCart = async () => {
       const result = await initializeCartStore(isAuth, accessToken);

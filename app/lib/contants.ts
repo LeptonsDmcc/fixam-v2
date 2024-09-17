@@ -1,8 +1,10 @@
 export const ROUTES = {
-  product: "/products",
   account: "/account",
-  specials: "/products/specials",
+  product: "/products",
+  orders: "/account/orders",
   profile: "/account/profile",
+  specials: "/products/specials",
+  shoppingCartcheckout: "/shopping-cart/checkout",
 };
 
 export const fixamBaseUrl = process.env.FIXAM_BASE_URL;

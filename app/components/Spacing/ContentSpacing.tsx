@@ -1,7 +1,7 @@
 import Space from "./Space";
 
-const FormSpacing = () => {
+const ContentSpacing = () => {
   return <Space spacing="my-6" />;
 };
 
-export default FormSpacing;
+export default ContentSpacing;

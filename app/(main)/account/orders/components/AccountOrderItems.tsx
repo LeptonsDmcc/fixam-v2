@@ -1,24 +1,34 @@
 import { Fragment } from "react";
 import AccountOrderItem from "./AccountOrderItem";
-import { StausType } from "@/app/components/Displays/StatusDisplay";
+import { OrderItemType, OrderStatusType, OrderType } from "@/app/lib/types";
 
 interface Props {
-  items: { status: StausType }[];
+  orderItems: OrderItemType[];
+  isCanceled: boolean;
+  status: OrderStatusType;
+  showSeeDetailButton?: boolean;
 }
 
-const AccountOrderItems = ({ items }: Props) => {
-  return (
-    <div
-      className=" grid  gap-4
-    lg:grid-cols-2"
-    >
-      {items.map((item) => (
-        <Fragment key={item.status}>
-          <AccountOrderItem status={item.status} />
-        </Fragment>
-      ))}
-    </div>
-  );
+const AccountOrderItems = ({
+  orderItems,
+  isCanceled,
+  status,
+  showSeeDetailButton,
+}: Props) => {
+  if (orderItems.length)
+    return (
+      <div className=" grid gap-4 lg:grid-cols-2">
+        {orderItems.map((item) => (
+          <AccountOrderItem
+            showSeeDetailButton={showSeeDetailButton}
+            key={item.id}
+            orderItem={item}
+            isCanceled={isCanceled}
+            status={status}
+          />
+        ))}
+      </div>
+    );
 };
 
 export default AccountOrderItems;

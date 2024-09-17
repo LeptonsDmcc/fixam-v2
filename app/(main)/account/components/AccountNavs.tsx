@@ -34,7 +34,7 @@ const AccountNavs = () => {
           {sideNavItems.map(({ text, to, icon }) => (
             <li key={text} className="mb-6 ">
               <NavLink
-                className="py-3 pl-12 flex items-center gap-4"
+                className="py-3 pl-12 flex items-center gap-4 hover:bg-orange-100"
                 activeClassName={`bg-orange-100`}
                 href={to}
               >
@@ -43,7 +43,10 @@ const AccountNavs = () => {
               </NavLink>
             </li>
           ))}
-          <form action={logout} className="py-3 pl-12 flex items-center gap-4">
+          <form
+            action={logout}
+            className="py-3 pl-12 flex items-center gap-4 hover:bg-orange-100"
+          >
             <span className=" text-2xl">
               <HiOutlineLogout className=" rotate-180" />
             </span>

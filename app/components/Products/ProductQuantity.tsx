@@ -36,6 +36,17 @@ const ProductQuantity = ({
       >
         {quantity}
       </div>
+      {/* <input
+        value={quantity}
+        readOnly
+        className={`${
+          circled
+            ? "w-10 h-10 rounded-full bg-gray-100"
+            : "w-1/3 border-none focus:border-none focus:outline-none "
+        } flex justify-center items-center`}
+      >
+        {quantity}
+      </input> */}
       <button
         onClick={incrementQuantity}
         className={`${

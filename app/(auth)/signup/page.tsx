@@ -9,7 +9,7 @@ import Button from "@/app/components/Buttons/Button";
 import Heading from "@/app/components/Heading";
 import FormInput from "@/app/components/Inputs/FormInput";
 import PerfectCenter from "@/app/components/PerfectCenter";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
 import Input from "@/app/components/Inputs/Input";
 
 const SingupPage = () => {
@@ -21,59 +21,59 @@ const SingupPage = () => {
   return (
     <SigninLayout>
       <form action={formSignupAction}>
-        <FormSpacing />
+        <ContentSpacing />
         <div className="text-center">
           <Heading variant="h4">
             <span className=" font-semibold">Get Started</span>
           </Heading>
-          <FormSpacing />
+          <ContentSpacing />
           <p>
             Sign up to enjoy our services and get unlimited access to our
             shopping collections.
           </p>
-          <FormSpacing />
+          <ContentSpacing />
         </div>
         <FormInput
           name="first_name"
           variant="name"
           placeholder="Enter First Name"
         />
-        <FormSpacing />
+        <ContentSpacing />
         <FormInput
           name="last_name"
           variant="name"
           placeholder="Enter Last Name"
         />
-        <FormSpacing />
+        <ContentSpacing />
         <Input
           name="email"
           icon={<IoMailOutline />}
           placeholder="Enter Your Email"
         />
-        <FormSpacing />
+        <ContentSpacing />
         <FormInput name="phone" variant="phone" />
-        <FormSpacing />
+        <ContentSpacing />
         <FormInput
           name="password1"
           placeholder="Enter Your Password"
           variant="password"
         />
-        <FormSpacing />
+        <ContentSpacing />
         <FormInput
           name="password2"
           placeholder="Confirm Your Password"
           variant="password"
         />
-        <FormSpacing />
+        <ContentSpacing />
         {/* <div className="flex items-center gap-1">
           <Checkbox htmlFor="rememberPassword" small />
           <span>Remember Password</span>
         </div> */}
-        <FormSpacing />
+        <ContentSpacing />
         <p className="text-red-400">{state.hasError && state.message}</p>
-        <FormSpacing />
+        <ContentSpacing />
         <SubmitForm>Sign In</SubmitForm>
-        <FormSpacing />
+        <ContentSpacing />
         <PerfectCenter>
           Already have an account?
           <Button variant="text" elementType="link" href="/signin">

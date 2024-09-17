@@ -2,10 +2,20 @@ import { PropsWithChildren, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  styles?: string;
+  withPaddingRight?: boolean;
 }
-const Card = ({ children }: PropsWithChildren<Props>) => {
+const Card = ({
+  styles,
+  withPaddingRight,
+  children,
+}: PropsWithChildren<Props>) => {
   return (
-    <section className="p-4 pr-0 bg-white shadow-10-01 rounded-lg">
+    <section
+      className={`${styles} p-4 ${
+        withPaddingRight ? "" : "pr-0"
+      } bg-white shadow-fixam rounded-lg`}
+    >
       {children}
     </section>
   );

@@ -1,8 +1,10 @@
-import { CartItemType } from "@/app/lib/types";
-import { create } from "zustand";
-import { v4 as uuidv4 } from "uuid";
-import { getLocalCart } from "@/app/lib/data/cart";
 import { fixamBaseUrlClient } from "@/app/lib/contants";
+import { getCookieValueByName } from "@/app/lib/cookies";
+import { CartItemType, ProductType } from "@/app/lib/types";
+import { v4 as uuidv4 } from "uuid";
+import { create } from "zustand";
+
+export const getClientAuthToken = () => getCookieValueByName("auth_access");
 
 interface CartStore {
   addItem: (item: CartItemType, isAuth?: boolean) => void;
@@ -142,11 +144,11 @@ const useCartStore = create<CartStore>((set, get) => {
     },
 
     removeItem: async (itemId: string, isAuth) => {
-      let prevCartItems: CartItemType[];
+      // Previous items before update
+      const prevCartItems = get().cartItems;
 
       // Update cart items
       set((store) => {
-        prevCartItems = store.cartItems;
         const updatedCartItems = store.cartItems.filter(
           (item) => item.id !== itemId
         );
@@ -172,12 +174,15 @@ const useCartStore = create<CartStore>((set, get) => {
     },
 
     addItem: async (item: CartItemType, isAuth) => {
-      // Incoming item has no ID so Generate id for in memory cart
+      // Previous items before update
+      const prevCartItems = [...get().cartItems];
+
+      // Incoming item has no ID so Generate id for item in memory
       const itemId = uuidv4();
       const newCartItem = { id: itemId, ...item };
 
-      // Get cart items from local storage
-      const cartItems = get().cartItems;
+      // Get cart items from store
+      const cartItems = [...get().cartItems];
 
       // Check if item already exists
       const itemIndex = cartItems.findIndex(
@@ -192,19 +197,36 @@ const useCartStore = create<CartStore>((set, get) => {
         cartItems.push(newCartItem);
       }
 
-      let prevCartItems: CartItemType[];
       set((store) => {
-        prevCartItems = store.cartItems;
-
+        // If user is not authenticated, update items locally
         if (!isAuth) updateLocalStorageCartItems(cartItems);
 
         return { ...store, cartItems };
       });
 
+      // User is authenticated
       if (isAuth) {
         // Send request to save cart item
-        const savedItem = addItemToUserCart(item);
-        // If fetch fails
+        const savedItem = await addItemToUserCart(item);
+        console.log("Saved Item to USER Cart", savedItem);
+
+        if (savedItem) {
+          // Update the item id to the item id stored in DB
+          const updatedCartItems = cartItems.map((item: CartItemType) => {
+            if (item.id === newCartItem.id) {
+              console.log("FOUND ITEM THAT WAS JUST ADDED", item);
+              return { ...item, id: savedItem.id };
+            }
+            return item;
+          });
+
+          console.log("updatedCartItems", updatedCartItems);
+          set((store) => ({ ...store, cartItems: updatedCartItems }));
+        } else {
+          console.log("FAILED TO ADD ITEM TO CART");
+          // If fetch fails revert
+          set((store) => ({ ...store, cartItems: prevCartItems }));
+        }
       }
     },
   };
@@ -215,7 +237,7 @@ const updateLocalStorageCartItems = (cartItems: CartItemType[]) => {
 };
 
 const updateUserCartItemQuantity = async (itemId: string, quantity: number) => {
-  const accessToken = getCookieValueByName("auth_access");
+  const accessToken = getClientAuthToken();
   try {
     const updateUserCart = await fetch(
       `${fixamBaseUrlClient}/cart/items/${itemId}/`,
@@ -242,14 +264,15 @@ const updateUserCartItemQuantity = async (itemId: string, quantity: number) => {
 };
 
 const addItemToUserCart = async (item: CartItemType) => {
-  console.log("ITEM TO ADD", item);
+  const newItem = {
+    product: item.prod_id,
+    quantitty: item.quantity,
+  };
 
-  return;
-
-  const accessToken = getCookieValueByName("auth_access");
+  const accessToken = getClientAuthToken();
   try {
     const savedData = await fetch(`${fixamBaseUrlClient}/cart/items/`, {
-      body: JSON.stringify(item),
+      body: JSON.stringify(newItem),
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -257,9 +280,8 @@ const addItemToUserCart = async (item: CartItemType) => {
       },
     });
 
-    const result = savedData.json();
+    const result = await savedData.json();
 
-    console.log("Added Item to Cart", result);
     // Return true if everything went well
     return result;
   } catch (error) {
@@ -270,7 +292,8 @@ const addItemToUserCart = async (item: CartItemType) => {
 };
 
 const deleteUserCartItem = async (itemId: string) => {
-  const accessToken = getCookieValueByName("auth_access");
+  const accessToken = getClientAuthToken();
+  console.log("itemId", itemId);
   try {
     await fetch(`${fixamBaseUrlClient}/cart/items/${itemId}/`, {
       method: "DELETE",
@@ -288,26 +311,5 @@ const deleteUserCartItem = async (itemId: string) => {
     return false;
   }
 };
-
-// Utility function to get a specific cookie value by name
-const getCookieValueByName = (name: string) => {
-  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-  if (match) return match[2];
-  return null;
-};
-
-// export const getCookie = (name: string): string | null => {
-//   const cookies = document.cookie.split("; ");
-
-//   for (const cookie of cookies) {
-//     const [cookieName, cookieValue] = cookie.split("=");
-
-//     if (cookieName === name) {
-//       return decodeURIComponent(cookieValue);
-//     }
-//   }
-
-//   return null;
-// };
 
 export default useCartStore;

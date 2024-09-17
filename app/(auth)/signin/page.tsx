@@ -8,7 +8,9 @@ import Button from "@/app/components/Buttons/Button";
 import Heading from "@/app/components/Heading";
 import Checkbox from "@/app/components/Inputs/Checkbox";
 import FormInput from "@/app/components/Inputs/FormInput";
-import FormSpacing from "@/app/components/Spacing/FormSpacing";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
+import { useSearchParams } from "next/navigation";
+import HiddenInput from "@/app/components/Inputs/HiddenInput";
 
 const SigninPage = () => {
   const [state, formSigninAction] = useFormState(signinAction, {
@@ -16,23 +18,26 @@ const SigninPage = () => {
     message: "",
   });
 
+  const searchParams = useSearchParams();
+
   return (
     <SigninLayout>
       <form action={formSigninAction}>
-        <FormSpacing />
+        <HiddenInput name="redirectTo" value={searchParams.get("to") || ""} />
+        <ContentSpacing />
         <div className="text-center">
           <Heading variant="h4">
             <span className=" font-semibold">Login</span>
           </Heading>
-          <FormSpacing />
+          <ContentSpacing />
           <p>
             Sign in to enjoy our services and get unlimited access to our
             shopping collections.
           </p>
-          <FormSpacing />
+          <ContentSpacing />
         </div>
         <FormInput variant="email" name="email" />
-        <FormSpacing />
+        <ContentSpacing />
         <FormInput
           placeholder="Enter Your Password"
           variant="password"
@@ -41,7 +46,7 @@ const SigninPage = () => {
         {state.hasError && (
           <p className=" text-red-400 my-2">{state.message}</p>
         )}
-        <FormSpacing />
+        <ContentSpacing />
         <div className="flex justify-between">
           <div className="flex items-center gap-1">
             <Checkbox htmlFor="staySignIn" small /> <span>Stay signed in</span>
@@ -50,9 +55,9 @@ const SigninPage = () => {
             Forgot Password?
           </Button>
         </div>
-        <FormSpacing />
+        <ContentSpacing />
         <SubmitForm full>Sign In</SubmitForm>
-        <FormSpacing />
+        <ContentSpacing />
         <div className=" text-center">
           Don't have an account?{" "}
           <Button variant="text" elementType="link" href="/signup">

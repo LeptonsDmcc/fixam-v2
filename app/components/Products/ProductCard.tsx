@@ -1,3 +1,5 @@
+import { isFavorite } from "@/app/lib/data/product";
+import isAuthenticated from "@/app/lib/data/verifyAuth";
 import { ProductType } from "@/app/lib/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +12,6 @@ import ReviewsRating from "../Reviews/ReviewsRating";
 import BaseSpacing from "../Spacing/BaseSpacing";
 import Space from "../Spacing/Space";
 import ProductPrice from "./ProductPrice";
-import isAuthenticated from "@/app/lib/data/verifyAuth";
 
 interface Props {
   inDealOfTheDay?: boolean;
@@ -19,6 +20,7 @@ interface Props {
 
 const ProductCard = async ({ product, inDealOfTheDay }: Props) => {
   const isAuth = await isAuthenticated();
+  const isFavorited = await isFavorite(product.id!);
 
   return (
     <article
@@ -32,22 +34,30 @@ const ProductCard = async ({ product, inDealOfTheDay }: Props) => {
             alt={product.name}
             width={292}
             height={200}
-            className="w-full h-full object-cover rounded-t-md"
+            className="w-full h-full object-contain rounded-t-md"
           />
         </div>
 
         <div
-          className="hidden md:block absolute top-0 bottom-0 right-0 left-0 bg-black/20 rounded-t-md
-           opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300"
+          className="hidden md:block absolute top-0 bottom-0 right-0 left-0 
+          bg-black/20 rounded-t-md opacity-0 invisible group-hover:opacity-100 
+          group-hover:visible duration-300"
         >
-          <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+          <div
+            className="absolute flex items-center justify-center 
+            flex-col w-full h-full gap-6"
+          >
             <AddToCartButton
               productId={product.id || ""}
               productPrice={product.selling_price}
               isAuth={isAuth}
             />
-            <Space spacing={"my-6"} />
-            <BuyNowButton />
+            <BuyNowButton
+              textColor="white"
+              productSlug={product.slug}
+              isAuth={isAuth}
+              quantity={1}
+            />
           </div>
         </div>
         {product.is_dod && (
@@ -58,7 +68,10 @@ const ProductCard = async ({ product, inDealOfTheDay }: Props) => {
         )}
         {isAuth && (
           <div className="absolute right-2 top-2">
-            <AddFavoriteButton isFavorited={false} />
+            <AddFavoriteButton
+              productId={product.id!}
+              isFavorited={isFavorited}
+            />
           </div>
         )}
       </div>

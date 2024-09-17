@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react";
-import { Toaster } from "sonner";
 import MergeCart from "./(main)/MergeCart";
 import getAuthUser, { getAuthToken } from "./lib/data/user";
 
@@ -12,7 +11,6 @@ const layout = async ({ children }: PropsWithChildren) => {
     <html>
       <body>
         <MergeCart accessToken={accessToken || ""} isAuth={isAuth} />
-        <Toaster richColors />
         {children}
       </body>
     </html>

@@ -8,22 +8,8 @@ import WriteReview from "./WriteReview";
 interface Props {
   productId: string;
 }
+
 const CustomerReviews = async ({ productId }: Props) => {
-  console.log(
-    "FIXAM_BASE_URL",
-    process.env.FIXAM_BASE_URL,
-    productId,
-    `${process.env.FIXAM_BASE_URL}/products/reviews/?product_id=${productId}/`
-  );
-
-  const productReviewsRes = await fetch(
-    `${process.env.FIXAM_BASE_URL}/products/reviews/?product_id=${productId}/`
-  );
-
-  const productReviews = await productReviewsRes.json();
-
-  // console.log("productReviews", productReviews);
-
   return (
     <section>
       <ProductTitleBar title="Customer Reviews" noSeeAll />
@@ -36,7 +22,7 @@ const CustomerReviews = async ({ productId }: Props) => {
                 <p>out of 5</p>
               </header>
               <div>
-                <ShowcaseRating />
+                <ShowcaseRating rating={0} />
                 <Space spacing="my-4" />
                 <p>2 reviews</p>
               </div>
@@ -93,7 +79,7 @@ const CustomerReviews = async ({ productId }: Props) => {
                     className="min-w-[calc(50%-2.5rem)] max-w-[calc(50%-2.5rem)] 
                   w-[calc(50%-2.5rem)] text-xs"
                   >
-                    <ShowcaseRating />
+                    <ShowcaseRating rating={0} />
                     <Space spacing=" my-2" />
                     <p className="overflow-hidden line-clamp-2">
                       {customer.text}
