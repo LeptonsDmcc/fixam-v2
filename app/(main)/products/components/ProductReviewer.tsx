@@ -24,7 +24,7 @@ const ProductReviewer = ({ review }: Readonly<Props>) => {
     };
 
     initRevies();
-  }, []);
+  }, [review.user]);
 
   if (reviewer)
     return (

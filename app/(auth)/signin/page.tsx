@@ -59,7 +59,7 @@ const SigninPage = () => {
         <SubmitForm full>Sign In</SubmitForm>
         <ContentSpacing />
         <div className=" text-center">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Button variant="text" elementType="link" href="/signup">
             Register
           </Button>

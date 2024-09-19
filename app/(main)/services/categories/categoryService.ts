@@ -3,6 +3,7 @@ import APIClient from "../apiClient";
 export type CategoryType = {
   id: string;
   subcategories: string[];
+  slug: string;
   name: string;
   description: string;
   parent: string | null;

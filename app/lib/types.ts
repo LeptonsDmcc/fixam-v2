@@ -24,6 +24,7 @@ export type CategoryType = {
   id: string;
   name: string;
   slug: string;
+  products: string;
   has_subcategories: boolean;
   parent: string | null;
 };

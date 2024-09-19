@@ -80,7 +80,7 @@ const page = async () => {
           <BaseSpacing />
           <Products products={productsDayDeal} isDealOfTheDay />
           <SectionSpacing />
-          <Pagination />
+          <Pagination found={0} />
           <SectionSpacing />
         </section>
       </Grid>

@@ -11,6 +11,7 @@ interface Props {
   withBorder?: boolean;
   shouldEdit?: boolean;
   updateAddress?: (payload: { addressId: string; data: AddressType }) => void;
+  isAuth: boolean;
 }
 
 const CustomerAddressOrForm = ({
@@ -18,6 +19,7 @@ const CustomerAddressOrForm = ({
   shouldEdit,
   withBorder,
   updateAddress,
+  isAuth,
 }: Props) => {
   const [allowEditAddress, setAllowEditAddress] = useState(true);
 
@@ -53,6 +55,7 @@ const CustomerAddressOrForm = ({
         duration-300`}
       >
         <AddNewAddressAtCheckingOut
+          isAuth={isAuth}
           address={address}
           handleCancel={setAllowEditAddress}
         />

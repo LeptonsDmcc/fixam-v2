@@ -105,7 +105,7 @@ export const patchData = async <R, D>(
 
 export const deleteData = async <R>(
   url: string,
-  config: { withAuth: boolean }
+  config?: { withAuth: boolean }
 ) => {
   const postRes = await fetch(`${fixamBaseUrl}/${url}/`, {
     method: "DELETE",

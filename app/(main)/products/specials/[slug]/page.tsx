@@ -34,7 +34,7 @@ const SpecialsPage = async ({ params: { slug } }: Props) => {
         <SectionSpacing />
         <Products products={products} />
         <SectionSpacing />
-        <Pagination />
+        <Pagination found={0} />
         <SectionSpacing />
       </Wrapper>
     </main>

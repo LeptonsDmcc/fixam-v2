@@ -20,7 +20,12 @@ const MergeCart = ({ isAuth, accessToken }: Readonly<Props>) => {
     // if (isAuth && accessToken) {
     fetchAndInitializeCart();
     // }
-  }, [isAuth, accessToken]);
+  }, [
+    isAuth,
+    accessToken,
+    // TODO: if initializeCartItems causes errro remove
+    initializeCartItems,
+  ]);
 
   return <></>;
 };

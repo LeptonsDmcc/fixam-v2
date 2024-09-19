@@ -1,4 +1,4 @@
-import fetchRootCategories from "@/app/services/categories/fetchRootCategories";
+import fetchRootCategories from "@/app/(main)/services/categories/fetchRootCategories";
 import SidebarMenuCategory from "./SidebarMenuCategory";
 import capitalize from "@/app/lib/capitalize";
 

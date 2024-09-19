@@ -1,9 +1,7 @@
-import { useState } from "react";
-import SidebarAccordionMenu from "./SidebarAccordionMenu";
-import SidebarSubMenuCategoryItems from "./SidebarSubMenuCategoryItems";
-import SidebarMenuCategoryContainer from "./SidebarMenuCategoryContainer";
-import fetchSubcategories from "@/app/services/categories/fetchSubcategories";
 import getCategoriesWithProduct from "@/app/lib/getCategoriesWithProduct";
+import SidebarMenuCategoryContainer from "./SidebarMenuCategoryContainer";
+import SidebarSubMenuCategoryItems from "./SidebarSubMenuCategoryItems";
+import fetchSubcategories from "@/app/(main)/services/categories/fetchSubcategories";
 
 interface Props {
   categoryId: string;
@@ -13,10 +11,11 @@ interface Props {
 const SidebarMenuCategory = async ({ categoryId, categoryName }: Props) => {
   const subCategories = await fetchSubcategories(categoryId);
 
+  // TODO: DEBUG
   return (
     <SidebarMenuCategoryContainer categoryName={categoryName}>
       <SidebarSubMenuCategoryItems
-        subCategories={getCategoriesWithProduct(subCategories)}
+        subCategories={getCategoriesWithProduct([])}
       />
     </SidebarMenuCategoryContainer>
   );

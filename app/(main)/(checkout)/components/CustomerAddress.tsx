@@ -46,7 +46,7 @@ const CustomerAddress = ({
       {confirmDelete && (
         <Overlay handleCloseOverlay={() => setConfirmDelete(false)}>
           <form action={deleteAddressActionForm}>
-            <HiddenInput name="addressId" value={address.id} />
+            <HiddenInput name="addressId" value={address.id || ""} />
             <header>Are you sure you want to delete address</header>
             <ContentSpacing />
             <div className="flex gap-4">
@@ -68,13 +68,13 @@ const CustomerAddress = ({
         <div className="flex gap-6 items-center">
           <form
             action={updateAddress?.bind(null, {
-              addressId: address.id,
+              addressId: address.id || "",
               data: { ...address, is_default: !address.is_default },
             })}
           >
             <button>
               <RadioInput
-                htmlFor={address.id}
+                htmlFor={address.id || ""}
                 checked={address.is_default}
                 name="address"
               />

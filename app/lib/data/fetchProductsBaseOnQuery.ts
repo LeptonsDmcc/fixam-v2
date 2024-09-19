@@ -1,8 +1,7 @@
 import {
   ProductDocumentType,
   QueryType,
-} from "@/app/(main)/components/Inputs/SearchedProducts";
-
+} from "@/app/components/Inputs/SearchedProducts";
 import searchClient from "../searchClient";
 import { ProductType } from "../types";
 

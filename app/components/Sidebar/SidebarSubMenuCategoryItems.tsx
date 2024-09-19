@@ -1,4 +1,4 @@
-import { CategoryType } from "@/app/services/categories/categoryService";
+import { CategoryType } from "@/app/lib/types";
 import Link from "next/dist/client/link";
 
 interface Props {

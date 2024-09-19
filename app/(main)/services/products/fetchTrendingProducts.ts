@@ -1,4 +1,5 @@
-import { ProductType, productService } from "./productService";
+import { ProductType } from "@/app/lib/types";
+import { productService } from "./productService";
 
 const fetchTrendingProducts = async () => {
   const products = await productService.getAll(`featured/`);

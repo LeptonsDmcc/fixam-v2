@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default async function Home({ searchParams: { message } }: Props) {
-  const latestProducts = await fetchAll<ProductType>(`products`);
+  const latestProducts = await fetchAll<ProductType[]>(`products`);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import React from "react";
-import Space from "../components/Spacing/Space";
-import Carousel from "../components/Carousel/Carousel";
 import Image from "next/image";
+import Carousel from "@/app/components/Carousel/Carousel";
+import Space from "@/app/components/Spacing/Space";
 
 const TestingPage = () => {
   return (

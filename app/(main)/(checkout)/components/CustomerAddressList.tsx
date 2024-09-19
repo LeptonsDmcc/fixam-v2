@@ -1,6 +1,7 @@
 import { patchData } from "@/app/lib/services/apiClient";
 import { AddressType } from "@/app/lib/types";
 import CustomerAddressOrForm from "./CustomerAddressOrForm";
+import isAuthenticated from "@/app/lib/data/verifyAuth";
 
 interface Props {
   isInAccount?: boolean;
@@ -8,7 +9,12 @@ interface Props {
   addresses: AddressType[];
 }
 
-const CustomerAddressList = ({ isInAccount, withBorder, addresses }: Props) => {
+const CustomerAddressList = async ({
+  isInAccount,
+  withBorder,
+  addresses,
+}: Props) => {
+  const isAuth = await isAuthenticated();
   // const [optimisticAddresses, updateOptimisticAddress] = useOptimistic(
   //   addresses,
   //   (prevAddresses, addressId) => {
@@ -41,6 +47,7 @@ const CustomerAddressList = ({ isInAccount, withBorder, addresses }: Props) => {
         <div key={address.id} className="my-6 md:my-12">
           <CustomerAddressOrForm
             // updateAddress={updateAddress}
+            isAuth={isAuth}
             address={address}
             withBorder={withBorder}
             shouldEdit={isInAccount}

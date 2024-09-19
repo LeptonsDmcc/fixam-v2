@@ -7,11 +7,11 @@ import { toast } from "sonner";
 import SubmitForm from "../../components/Buttons/SubmitForm";
 import OtpTimer from "./OtpTimer";
 import { resendOTPAction, verifyAction } from "@/actions/auth";
-import Wrapper from "@/app/(main)/components/Wrapper";
-import BackButton from "@/app/(main)/components/Buttons/BackButton";
-import ContentSpacing from "@/app/(main)/components/Spacing/ContentSpacing";
-import Heading from "@/app/(main)/components/Heading";
-import CodeInputs from "@/app/(main)/components/Inputs/CodeInputs";
+import Wrapper from "@/app/components/Wrapper";
+import BackButton from "@/app/components/Buttons/BackButton";
+import ContentSpacing from "@/app/components/Spacing/ContentSpacing";
+import Heading from "@/app/components/Heading";
+import CodeInputs from "@/app/components/Inputs/CodeInputs";
 
 interface Props {
   searchParams: { e: string };

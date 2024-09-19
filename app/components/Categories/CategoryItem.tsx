@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CategoryType } from "../../services/categories/categoryService";
+import { CategoryType } from "@/app/lib/types";
 
 interface Props {
   category: CategoryType;

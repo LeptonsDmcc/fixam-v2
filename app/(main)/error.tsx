@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Wrapper from "../components/Wrapper";
 import SectionSpacing from "../components/Spacing/SectionSpacing";
+import Wrapper from "../components/Wrapper";
 
 interface Props {
   error: Error & { digest?: string };
@@ -10,11 +9,11 @@ interface Props {
 }
 
 const error = ({ error, reset }: Props) => {
-  useEffect(() => {
-    // TODO: Log the error to an error reporting service
-    console.error(error);
-    console.error("Message", error.message);
-  }, [error]);
+  // useEffect(() => {
+  //   // TODO: Log the error to an error reporting service
+  //   console.error(error);
+  //   console.error("Message", error.message);
+  // }, [error]);
 
   return (
     <Wrapper>

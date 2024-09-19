@@ -21,8 +21,8 @@ const ReviewsByCustomers = ({ reviews }: Readonly<Props>) => {
           <header className="flex justify-end">
             <SeeAllButton noArrow href="" />
           </header>
-          {reviews.map((review) => (
-            <ProductReviewer review={review} />
+          {reviews.map((review, i) => (
+            <ProductReviewer key={i} review={review} />
           ))}
         </ul>
       </section>
