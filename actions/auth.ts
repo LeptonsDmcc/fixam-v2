@@ -1,12 +1,13 @@
 "use server";
 
-import { fixamBaseUrl } from "@/app/lib/contants";
+import { fixamBaseUrl, fixamBaseUrlClient } from "@/app/lib/contants";
 import formatNigeriaNumber from "@/app/lib/formatNigeriaNumber";
 import Joi from "joi";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { ActionErrorType } from "./error-type";
 import { revalidatePath } from "next/cache";
+import apiClient from "@/app/(main)/services/apiClient";
 
 export const signupAction = async (
   prevState: ActionErrorType,
@@ -65,6 +66,91 @@ export const signupAction = async (
 
 // Signin form action
 export const signinAction = async (
+  prevState: ActionErrorType,
+  formData: FormData
+) => {
+  const redirectTo = formData.get("redirectTo");
+
+  const data = {
+    email: formData.get("email"),
+    // phone: formatNigeriaNumber(formData.get("phone") || ""),
+    password: formData.get("password"),
+  };
+
+  try {
+    //  Send request to save user
+    const signinRes = await fetch(`${fixamBaseUrl}/users/auth/login/`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    if (signinRes.status == 400)
+      return {
+        hasError: true,
+        message: "Incorrect Email or Password",
+      };
+
+    const userData = await signinRes.json();
+    cookies().set("auth_access", userData.access);
+    cookies().set("auth_refresh", userData.refresh);
+    // console.log("userData", userData);
+  } catch (error) {
+    console.log("ERROR SAVING USER", error);
+    return {
+      message: "Something went wrong",
+      hasError: true,
+    };
+  }
+
+  redirect(redirectTo?.toString() || `/`);
+
+  // return {
+  //   hasError: false,
+  //   message: "Your account has been verified successfully :)",
+  // };
+};
+
+export const loginWithGoogleAction = async (credential: {
+  redirectTo?: string;
+  access_token?: string;
+  id_token?: string;
+}) => {
+  console.log("loginWithGoogleAction CALLED===", credential);
+  try {
+    // Make API call to backend auth endpoint using axios
+    const res = await fetch(`${fixamBaseUrlClient}/users/auth/google/`, {
+      body: JSON.stringify({
+        access_token: credential.access_token,
+        id_token: credential.id_token,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.status === 200) {
+      const userData = await res.json();
+
+      // TODO: Check for side effect
+      cookies().set("auth_access", userData.access);
+      cookies().set("auth_refresh", userData.refresh);
+    }
+  } catch (error) {
+    console.log("ERROR SAVING USER", error);
+    return {
+      message: "Something went wrong",
+      hasError: true,
+    };
+  }
+
+  redirect(credential.redirectTo?.toString() || `/`);
+};
+
+// Signin form action
+export const signInWithGoogleAction = async (
   prevState: ActionErrorType,
   formData: FormData
 ) => {

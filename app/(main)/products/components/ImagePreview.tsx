@@ -4,24 +4,19 @@ import AddFavoriteButton from "@/app/components/Buttons/AddFavoriteButton";
 import Carousel from "@/app/components/Carousel/Carousel";
 import BaseSpacing from "@/app/components/Spacing/BaseSpacing";
 import { convertImageFromArrObj } from "@/app/lib/image-helpers";
+import { WishtListType } from "@/app/lib/types";
 import Image from "next/image";
 import { useState } from "react";
 
 interface Props {
   images: { [key: string]: string }[];
   alt: string;
-  isFavorited: boolean;
   productId: string;
   isAuth: boolean;
+  wishlist: WishtListType[];
 }
 
-const ImagePreview = ({
-  images,
-  alt,
-  isFavorited,
-  productId,
-  isAuth,
-}: Props) => {
+const ImagePreview = ({ images, alt, productId, isAuth, wishlist }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const convertedImages = convertImageFromArrObj(images, alt);
 
@@ -45,7 +40,7 @@ const ImagePreview = ({
     <section className="max-w-[620px] relative">
       {isAuth && (
         <div className="absolute top-3 right-3 z-10">
-          <AddFavoriteButton isFavorited={isFavorited} productId={productId} />
+          <AddFavoriteButton productId={productId} wishList={wishlist} />
         </div>
       )}
       <section className="border rounded-lg">

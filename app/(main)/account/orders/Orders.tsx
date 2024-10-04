@@ -14,8 +14,6 @@ interface Props {
 }
 
 const Orders = ({ orders }: Props) => {
-  console.log("onGoingDeliveredOrders", orders);
-
   const onGoingDeliveredOrders = orders.filter(
     (order) => !order.is_order_cancelled
   );

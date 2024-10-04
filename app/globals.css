@@ -168,6 +168,7 @@
   .has-scrollbar:hover::-webkit-scrollbar-thumb { background: hsl(0, 0%, 90%); }
 
   .has-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 80%); }
+  
   /*-----------------------------------*\
     #REUSED STYLE
   \*-----------------------------------*/

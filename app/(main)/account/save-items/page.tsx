@@ -16,7 +16,7 @@ const SaveItemsPage = async () => {
         {wishlist.length ? (
           wishlist.map((item) => (
             <Fragment key={item.id}>
-              <SavedItem productId={item.product} wishItemId={item.id} />
+              <SavedItem productId={item.product} wishItemId={item.id || ""} />
               <BaseSpacing />
             </Fragment>
           ))

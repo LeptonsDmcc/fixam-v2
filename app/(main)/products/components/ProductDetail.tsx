@@ -6,7 +6,7 @@ import { ProductType } from "@/app/lib/types";
 import ImagePreview from "./ImagePreview";
 import ProductInfo from "./ProductInfo";
 import ProductOverviewPanel from "./ProductOverviewPanel";
-import { isFavorite } from "@/app/lib/data/product";
+import { getUserWishlist, isFavorite } from "@/app/lib/data/product";
 import isAuthenticated from "@/app/lib/data/verifyAuth";
 
 interface Props {
@@ -22,7 +22,9 @@ const ProductDetail = async ({ product }: Props) => {
 
   const productsJsonRes = await productsRes.json();
   const products: ProductType[] = productsJsonRes;
-  const isFavorited = await isFavorite(product.id!);
+
+  const wishlist = await getUserWishlist();
+
   const isAuth = await isAuthenticated();
 
   return (
@@ -30,9 +32,9 @@ const ProductDetail = async ({ product }: Props) => {
       <SectionSpacing />
       <section className="flex flex-col gap-6 lg:flex-row">
         <ImagePreview
+          wishlist={wishlist}
           images={product.images}
           alt={product.name}
-          isFavorited={isFavorited}
           productId={product.id!}
           isAuth={isAuth}
         />

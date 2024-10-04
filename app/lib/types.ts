@@ -167,11 +167,11 @@ export type OrderType = {
 
 // WISHLIST
 export type WishtListType = {
-  id: string;
+  id?: string;
   product: string;
-  created_at: string;
-  updated_at: string;
-  user: string;
+  created_at?: string;
+  updated_at?: string;
+  user?: string;
 };
 
 // STORE

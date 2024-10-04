@@ -1,28 +1,33 @@
-import ContentSpacing from "../Spacing/ContentSpacing";
-import { FcGoogle } from "react-icons/fc";
-import BorderedOrangeButton from "../Buttons/BorderedOrangeButton";
+"use client";
+
+import GoogleAuthButton from "@/app/(auth)/components/GoogleAuthButton";
+import { ROUTES } from "@/app/lib/contants";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import Link from "next/link";
 import Button from "../Buttons/Button";
 import HR from "../HR";
-import Link from "next/link";
-import { ROUTES } from "@/app/lib/contants";
+import ContentSpacing from "../Spacing/ContentSpacing";
 
 interface Props {
   from: string;
   to: string;
   guestLink?: string;
 }
+
 const AuthPrompt = ({ from, to, guestLink }: Props) => {
+  const clientId = process.env.NEXT_PUBLIC_G_CLIENT_ID;
+
+  console.log("clientId", process.env.NEXT_PUBLIC_G_CLIENT_ID);
+
   return (
     <section
       className="bg-white
       md:w-[600px]"
     >
-      <BorderedOrangeButton full>
-        <div className="flex items-center gap-3">
-          <FcGoogle size={20} />
-          Sign in with Google
-        </div>
-      </BorderedOrangeButton>
+      {/* <SignInWithGoogle /> */}
+      <GoogleOAuthProvider clientId={clientId || ""}>
+        <GoogleAuthButton />
+      </GoogleOAuthProvider>
       <ContentSpacing />
       <div className="relative">
         <HR />

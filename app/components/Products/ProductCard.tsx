@@ -1,4 +1,4 @@
-import { isFavorite } from "@/app/lib/data/product";
+import { getUserWishlist, isFavorite } from "@/app/lib/data/product";
 import isAuthenticated from "@/app/lib/data/verifyAuth";
 import { ProductType } from "@/app/lib/types";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import ReviewsRating from "../Reviews/ReviewsRating";
 import BaseSpacing from "../Spacing/BaseSpacing";
 import Space from "../Spacing/Space";
 import ProductPrice from "./ProductPrice";
+import getAuthUser from "@/app/lib/data/user";
 
 interface Props {
   inDealOfTheDay?: boolean;
@@ -20,7 +21,8 @@ interface Props {
 
 const ProductCard = async ({ product, inDealOfTheDay }: Props) => {
   const isAuth = await isAuthenticated();
-  const isFavorited = await isFavorite(product.id!);
+  const wishList = await getUserWishlist();
+  const user = await getAuthUser();
 
   return (
     <article
@@ -69,8 +71,10 @@ const ProductCard = async ({ product, inDealOfTheDay }: Props) => {
         {isAuth && (
           <div className="absolute right-2 top-2">
             <AddFavoriteButton
+              userId={user?.id}
               productId={product.id!}
-              isFavorited={isFavorited}
+              // isFavorited={isFavorited}
+              wishList={wishList}
             />
           </div>
         )}

@@ -111,8 +111,9 @@ export const deleteData = async <R>(
     method: "DELETE",
     headers: generateHeaderBaseonAuth(config?.withAuth || false),
   });
-  const resData: R = await postRes.json();
-  return resData;
+  // if(postRes.status == 403)
+  // const resData: R = await postRes.json();
+  // return resData;
 };
 
 const generateHeaderBaseonAuth = (withAuth: boolean) => {

@@ -37,10 +37,9 @@ const addItemToWishlistAction = async (item: {
 };
 
 export const removeItemToWishlistAction = async (wishlistItemId: string) => {
-  const postedData = await deleteData(`cart/wishlist/${wishlistItemId}`, {
+  await deleteData(`cart/wishlist/${wishlistItemId}`, {
     withAuth: true,
   });
 
-  console.log("REMOVED ITEM", postedData);
   revalidatePath("/");
 };
